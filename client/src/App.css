@@ -19,27 +19,53 @@
    height: 90px;
    background: #333333;
    width: 100vw;
+  }
+
+ .header-content{
+   max-width: 1024px;
+   height: 90px;
+      margin: auto;
+
  }
 
-
- .hamburger-nav-icon {
-  width: 50px;
-  color: white;
-  height: 2px; 
- }
-
-
- .user-title-header h4, a{
-  font-size: 24px;
-  font-weight: 100;
-  color: white;
-  text-decoration: none;
-  font-family: museo-sans, sans-serif;
- }
-
- .website-title-header h1{
-  margin: auto;
+ .hamburger {
+  display: inline-block;
+  padding: 20px;
+  margin-right: 35%; 
 }
+ .hamburger-nav-icon{
+   width: 50px;
+   height: 2px;
+   background: white;
+   margin: 20%;
+   display: block;
+  }
+
+
+.website-title-header {
+  display: inline-flex;
+}
+
+h1.website-title-header a{
+  text-decoration: none;
+  color: white;
+  font-weight: 100;
+  font-family: museo-sans, sans-serif;
+} 
+
+.user-name-header{
+   margin: 35px;
+   display: inline-flex;
+   float: right;
+   font-weight: 100;
+   font-family: museo-sans, sans-serif;
+   color: white;
+   
+ }
+
+
+
+
  /* homepage content */
 
  .homepage {
@@ -92,3 +118,23 @@
   color: #333333;
   font-size: 20px;
 }
+
+
+
+/******************************************
+/* HELPER CLASSES
+/*******************************************/
+/* Clearfix */
+.clearfix:before,
+.clearfix:after {
+  content: " ";
+  display: table; }
+
+.clearfix:after {
+  clear: both; }
+
+.is-hidden {
+  display: none; }
+
+.is-visible {
+  display: block; }
