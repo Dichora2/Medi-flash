@@ -1,24 +1,94 @@
-.App {
-  text-align: center;
-}
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
+ /* fonts */
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
+ @import url('https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700');
+ /* replacing futura for now */
+
+
+ body {
+  font-family: museo-sans, sans-serif;
+ }
+
+ html {
+   margin: auto;
+   background: #EDFEFF;
+  }
+ /* header */
+
+ .header {
+   height: 90px;
+   background: #333333;
+   width: 100vw;
+ }
+
+
+ .hamburger-nav-icon {
+  width: 50px;
   color: white;
+  height: 2px; 
+ }
+
+
+ .user-title-header h4, a{
+  font-size: 24px;
+  font-weight: 100;
+  color: white;
+  text-decoration: none;
+  font-family: museo-sans, sans-serif;
+ }
+
+ .website-title-header h1{
+  margin: auto;
+}
+ /* homepage content */
+
+ .homepage {
+  max-width: 1024px;
+  height: 100vh;
+  margin: auto;
+  background-color: #EDFEFF;
+  /* this needs work obvi */
+}
+ .home-content {
+  padding:  5% 0;   
+  background-image: url(background-image.png)
+  
+ }
+ .main-home-box {
+   margin: 2% 0 2% 4%;
+   height: 300px;
+   max-width: 282px;
+   display: inline-flex;
+ }
+
+
+
+ .main-home-box h1 {
+  font-family: 'Nunito', sans-serif;
+  font-size: 2.7rem;
+  font-weight: 200;
+  margin: auto;
+  color: #0F77FE;
+ }
+/* needs hover */
+
+
+ /* .homepage {
+   width: 80%;
+   margin: 0 auto;
+ } */
+
+
+/* user's subject page */
+
+.subject {
+  width: 350px;
+  height: 90px;
+  border-style: solid 1px #979797;
+  border-top: solid 3px #0F77FE;
 }
 
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.subject {
+  color: #333333;
+  font-size: 20px;
 }
