@@ -4,7 +4,6 @@ import App from '../App';
 import Flexbox from 'flexbox-react';
 
 
-
 class Header extends Component {
 
     handleClickNav(){

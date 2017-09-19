@@ -63,7 +63,7 @@
  }
 
  html {
-   max-width: 1024px;
+   max-width: 1024px;   
   }
  /* header */
 
@@ -94,11 +94,24 @@
 }
  /* homepage content */
 
+ .homepage {
+  max-width: 1024px;
+  height: 100vh;
+  background-color: #EDFEFF;
+  background-image: url(background-image.png)
+  /* this needs work obvi */
+}
+ .home-content {
+  margin-top: 7%;
+  padding:  5% 0;   
+ }
  .main-home-box {
+   margin: 2% 0 2% 4%;
    height: 300px;
    max-width: 282px;
- }
+   display: inline-flex;
 
+ }
 
  .main-home-box h1 {
   font-family: 'Nunito', sans-serif;
@@ -106,6 +119,11 @@
   font-weight: 200;
   color: #0F77FE;
  }
+
+ /* .homepage {
+   width: 80%;
+   margin: 0 auto;
+ } */
 
 
 /* user's subject page */
