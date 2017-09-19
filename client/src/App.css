@@ -22,3 +22,102 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+/* 
+ */
+
+
+ /* fonts */
+
+ @import url('https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700');
+ /* replacing futura for now */
+
+
+ body {
+  font-family: museo-sans, sans-serif;
+ }
+
+ html {
+   max-width: 1024px;
+  }
+ /* header */
+
+ .header {
+   height: 90px;
+   background: #333333;
+   width: 100vw;
+ }
+
+
+ .hamburger-nav-icon {
+  width: 50px;
+  color: white;
+  height: 2px; 
+ }
+
+
+ .user-title-header h4, a{
+  font-size: 24px;
+  font-weight: 100;
+  color: white;
+  text-decoration: none;
+  font-family: museo-sans, sans-serif;
+ }
+
+ .website-title-header h1{
+  margin: auto;
+}
+ /* homepage content */
+
+ .main-home-box {
+   height: 300px;
+   max-width: 282px;
+ }
+
+
+ .main-home-box h1 {
+  font-family: 'Nunito', sans-serif;
+  font-size: 42px;
+  font-weight: 200;
+  color: #0F77FE;
+ }
+
+
+/* user's subject page */
+
+.subject {
+  width: 350px;
+  height: 90px;
+  border-style: solid 1px #979797;
+  border-top: solid 3px #0F77FE;
+}
+
+.subject {
+  color: #333333;
+  font-size: 20px;
+}
