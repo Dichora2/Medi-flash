@@ -19,7 +19,8 @@
   },
   "homepage": "https://github.com/michaeljgut/Project3#readme",
   "dependencies": {
-    "express": "^4.15.4"
+    "express": "^4.15.4",
+    "xml2json": "^0.11.0"
   },
   "devDependencies": {
     "nodemon": "^1.12.1"
