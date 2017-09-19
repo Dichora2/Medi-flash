@@ -1,24 +1,140 @@
-.App {
-  text-align: center;
-}
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
+ /* fonts */
 
-.App-header {
-  background-color: #222;
-  height: 150px;
+ @import url('https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700');
+ /* replacing futura for now */
+
+
+ body {
+  font-family: museo-sans, sans-serif;
+ }
+
+ html {
+   margin: auto;
+   background: #EDFEFF;
+  }
+ /* header */
+
+ .header {
+   height: 90px;
+   background: #333333;
+   width: 100vw;
+  }
+
+ .header-content{
+   max-width: 1024px;
+   height: 90px;
+      margin: auto;
+
+ }
+
+ .hamburger {
+  display: inline-block;
   padding: 20px;
+  margin-right: 35%; 
+}
+ .hamburger-nav-icon{
+   width: 50px;
+   height: 2px;
+   background: white;
+   margin: 20%;
+   display: block;
+  }
+
+
+.website-title-header {
+  display: inline-flex;
+}
+
+h1.website-title-header a{
+  text-decoration: none;
   color: white;
+  font-weight: 100;
+  font-family: museo-sans, sans-serif;
+} 
+
+.user-name-header{
+   margin: 35px;
+   display: inline-flex;
+   float: right;
+   font-weight: 100;
+   font-family: museo-sans, sans-serif;
+   color: white;
+   
+ }
+
+
+
+
+ /* homepage content */
+
+ .homepage {
+  max-width: 1024px;
+  height: 100vh;
+  margin: auto;
+  background-color: #EDFEFF;
+  /* this needs work obvi */
+}
+ .home-content {
+  padding:  5% 0;   
+  background-image: url(background-image.png)
+  
+ }
+ .main-home-box {
+   margin: 2% 0 2% 4%;
+   height: 300px;
+   max-width: 282px;
+   display: inline-flex;
+ }
+
+
+
+ .main-home-box h1 {
+  font-family: 'Nunito', sans-serif;
+  font-size: 2.7rem;
+  font-weight: 200;
+  margin: auto;
+  color: #0F77FE;
+ }
+/* needs hover */
+
+
+ /* .homepage {
+   width: 80%;
+   margin: 0 auto;
+ } */
+
+
+/* user's subject page */
+
+.subject {
+  width: 350px;
+  height: 90px;
+  border-style: solid 1px #979797;
+  border-top: solid 3px #0F77FE;
 }
 
-.App-intro {
-  font-size: large;
+.subject {
+  color: #333333;
+  font-size: 20px;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
+
+
+/******************************************
+/* HELPER CLASSES
+/*******************************************/
+/* Clearfix */
+.clearfix:before,
+.clearfix:after {
+  content: " ";
+  display: table; }
+
+.clearfix:after {
+  clear: both; }
+
+.is-hidden {
+  display: none; }
+
+.is-visible {
+  display: block; }
