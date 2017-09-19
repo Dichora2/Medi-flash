@@ -19,7 +19,8 @@ class Login extends Component {
         const username = e.target.username;
         const password = e.target.password;
         this.setState({
-          [username]: password,
+          username: username,
+          password: password
        });
     }
 
@@ -40,8 +41,7 @@ class Login extends Component {
                     <input name="password" type="password" placeholder="password" required onChange={this.handleInputChange}/>
                     <input type="submit" value="Log in" />
                 </form>
-                
-                <a class="registerLogin" href="/auth/register">Register</a>
+                <a class="Login" href="/">Register</a>
             </div>
         )
     }
