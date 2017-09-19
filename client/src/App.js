@@ -1,3 +1,4 @@
+
 import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
 import './App.css';
@@ -6,6 +7,7 @@ import Header from './components/Header.js'
 class App extends Component {
   render() {
     return (
+
       <div>
         <Header />
         
@@ -25,10 +27,7 @@ class App extends Component {
               </div>
 
           </div>
-
-
-
-      </div>
+     </div>
 
     );
   }
