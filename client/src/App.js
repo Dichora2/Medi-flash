@@ -6,23 +6,30 @@ import Header from './components/Header.js'
 class App extends Component {
   render() {
     return (
-      <div className="homepage">
+      <div>
         <Header />
-          <div className='home'>
-            <div className='home-content '>
-              <div className="main-home-box ">
-                <h1>Quiz yourself on your subjects + fashcards</h1>
+        
+          <div className="homepage">
+              <div className='home'>
+                <div className='home-content '>
+                  <div className="main-home-box ">
+                    <h1>Quiz yourself on your subjects + fashcards</h1>
+                  </div>
+                  <div className="main-home-box ">
+                    <h1>Search classmates' flashcards</h1>
+                  </div>
+                  <div className="main-home-box ">
+                    <h1>Search a subject</h1>
+                  </div>
+                </div>
               </div>
-              <div className="main-home-box ">
-                <h1>Search classmates' flashcards</h1>
-              </div>
-              <div className="main-home-box ">
-                <h1>Search a subject</h1>
-              </div>
-            </div>
+
           </div>
 
+
+
       </div>
+
     );
   }
 }
