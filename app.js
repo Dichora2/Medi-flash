@@ -1,7 +1,6 @@
 //dependencies 
 const path = require('path')
 const logger = require('morgan');
-const PORT = process.env.PORT || 3001;
 const methodOverride = require('method-override');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
@@ -28,21 +27,19 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 //static sheets
-app.get('/', (req, res) => {
+/*app.get('/', (req, res) => {
   res.render('auth/login');
 });
-
+*/
 //views
-// app.get('/', function(req, res) {
-//     res.render('hello world');
-// });
+ app.get('/', function(req, res) {
+     res.send('hello world');
+});
 
-//port
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
   console.log(`Listening on port ${PORT}`);
 });
-
 //routes
 const authRoutes = require('./routes/auth-routes');
 app.use('/auth', authRoutes);
