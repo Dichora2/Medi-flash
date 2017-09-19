@@ -13,14 +13,15 @@ class Header extends Component {
     render(){
         return(
             <div className='header'>
-                <div className='hamburger' onClick={() => this.handleClickNav()}>
-                    <div className="hamburger-nav-icon"></div>
-                    <div className="hamburger-nav-icon"></div>
-                    <div className="hamburger-nav-icon"></div>
+                <div className='header-content clearfix'>
+                    <div className='hamburger' onClick={() => this.handleClickNav()}>
+                        <div className="hamburger-nav-icon"></div>
+                        <div className="hamburger-nav-icon"></div>
+                        <div className="hamburger-nav-icon"></div>
+                    </div>
+                    <h1 className='website-title-header'><Link to='/'>Medi-flash</Link></h1>
+                    <h4 className='user-name-header'>username</h4>
                 </div>
-                
-                <h1 className='website-title-header'><Link to='/'>Medi-flash</Link></h1>
-                <h4 className='user-name-header'>username</h4>
             </div>
         )
     }
