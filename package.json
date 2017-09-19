@@ -1,0 +1,27 @@
+{
+  "name": "project3",
+  "version": "1.0.0",
+  "description": "Medi-flash is a website dedicated to helping medical school students study for exams. With a built in medical dictionary API and the option to make personalized flashcards, users can access medical terminology instantly. They can test their knowledge using an honor code system and be tested further on terms they are less confident in. They can look up other students' flashcards based on username or subject, and add them to their own.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/michaeljgut/Project3.git"
+  },
+  "author": "Michael Gutleber, Lenora Rigoni, Daniel Mercia",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/michaeljgut/Project3/issues"
+  },
+  "homepage": "https://github.com/michaeljgut/Project3#readme",
+  "dependencies": {
+    "express": "^4.15.4"
+  },
+  "devDependencies": {
+    "nodemon": "^1.12.1"
+  }
+}
