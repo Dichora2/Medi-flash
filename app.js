@@ -1,6 +1,7 @@
 //dependencies 
 const path = require('path')
 const logger = require('morgan');
+const PORT = process.env.PORT || 3001;
 const methodOverride = require('method-override');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
