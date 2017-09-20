@@ -4,18 +4,6 @@ import axios from 'axios';
 
 
 
-<div class="auth">
-  <h1>member</h1>
-
-  <form method="POST" action="/auth/register">
-    <input name="username" type="text" placeholder="username" required />
-    <input name="email" type="email" placeholder="email" required />
-    <input name="password" type="password" placeholder="password" required />
-    <input type="submit" value="Register"/>
-  </form>
-</div>
-
-  <a class="registerLogin" href="/auth/login">Login</a>
 
 
 class Register extends Component {
