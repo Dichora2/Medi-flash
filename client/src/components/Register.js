@@ -5,6 +5,13 @@ import axios from 'axios';
 
 
 
+
+
+
+
+
+
+
 class Register extends Component {
     
         constructor(props){
@@ -36,7 +43,7 @@ class Register extends Component {
     
         handleFormSubmit(e){
             e.preventDefault();   
-            axios.post('/', {
+            axios.post('/auth/register', {
                 firstname: this.state.firstname, 
                 lastname: this.state.lastname, 
                 email: this.state.email, 
