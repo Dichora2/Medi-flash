@@ -15,10 +15,10 @@ User.findByUserName = userName => {
 User.create = user => {
   return db.one(`
     INSERT INTO users
-    (username, email, password_digest)
+    (username, firstname, lastname, email, password_digest)
     VALUES ($1, $2, $3)
     RETURNING *
-  `, [user.username, user.email, user.password_digest]);
+  `, [user.username, user.firstname, user.lastname, user.email, user.password_digest]);
 };
 User.findAll = () => {
   return db.query('SELECT * FROM user ORDER BY id ASC');
