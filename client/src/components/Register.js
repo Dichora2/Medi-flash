@@ -15,7 +15,7 @@ class Register extends Component {
             this.handleInputChange = this.handleInputChange.bind(this);
             this.handleFormSubmit = this.handleFormSubmit.bind(this);
         }
-    
+
         handleInputChange(e) {
             const name = e.target.name;
             const value = e.target.value;
@@ -28,11 +28,10 @@ class Register extends Component {
             e.preventDefault();
             console.log(this.state)
             axios.post('http://localhost:3001/auth/register', {
-
-                firstname: this.state.firstname, 
-                lastname: this.state.lastname, 
-                email: this.state.email, 
-                username: this.state.username, 
+                firstname: this.state.firstname,
+                lastname: this.state.lastname,
+                email: this.state.email,
+                username: this.state.username,
                 password: this.state.password
             })
             .then(res => {
@@ -44,7 +43,7 @@ class Register extends Component {
             })
             .catch(err => console.log('in error',err));
           e.target.reset();
-        }
+         }
     
         render(){
             return (
