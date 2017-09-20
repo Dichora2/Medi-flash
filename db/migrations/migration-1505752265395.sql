@@ -12,14 +12,14 @@ CREATE TABLE IF NOT EXISTS flashcards (
   user_id integer REFERENCES users(id),
   term VARCHAR(255) NOT NULL,
   definition TEXT,
-  date_created DATE,
-  keepStudying BOOLEAN DEFAULT TRUE
+  date_modified DATE,
+  keep_studying BOOLEAN DEFAULT TRUE
 );
 
 CREATE TABLE IF NOT EXISTS subjects (
   id SERIAL PRIMARY KEY NOT NULL,
   user_id integer REFERENCES users(id),
-  date_created DATE,
+  date_modified DATE,
   name VARCHAR(255)
 );
 
