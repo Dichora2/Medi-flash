@@ -3,15 +3,6 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 
-
-
-
-
-
-
-
-
-
 class Register extends Component {
     
         constructor(props){
@@ -27,21 +18,21 @@ class Register extends Component {
         }
     
         handleInputChange(e) {
-            const firstname = e.target.firstname;
-            const lastname = e.target.lastname;
-            const email = e.target.email;
-            const username = e.target.username;            
-            const password = e.target.password;
+            const name = e.target.name;
+            const value = e.target.value;
             this.setState({
-                firstname: firstname, 
-                lastname: lastname, 
-                email: email, 
-                username:username, 
-                password: password
+              [name]: value
             });
         }
-    
+
         handleFormSubmit(e){
+            e.preventDefault();
+            console.log(this.state)
+            axios.post('http://localhost:3001/auth/register', {
+                firstname: this.state.firstname,
+                lastname: this.state.lastname,
+                email: this.state.email,
+                username: this.state.username,
             e.preventDefault();   
             axios.post('/auth/register', {
                 firstname: this.state.firstname, 
@@ -50,6 +41,15 @@ class Register extends Component {
                 username: this.state.username, 
                 password: this.state.password
             })
+            .then(res => {
+              console.log('in register',res);
+              // this.setState({
+              //   newId: res.data.data.id,
+              //   fireRedirect: true,
+              // });
+            })
+            .catch(err => console.log('in error',err));
+          e.target.reset();
         }
     
         render(){
