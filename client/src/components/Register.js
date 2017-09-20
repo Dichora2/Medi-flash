@@ -33,13 +33,6 @@ class Register extends Component {
                 lastname: this.state.lastname,
                 email: this.state.email,
                 username: this.state.username,
-            e.preventDefault();   
-            axios.post('/auth/register', {
-                firstname: this.state.firstname, 
-                lastname: this.state.lastname, 
-                email: this.state.email, 
-                username: this.state.username, 
-                password: this.state.password
             })
             .then(res => {
               console.log('in register',res);
