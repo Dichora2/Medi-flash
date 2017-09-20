@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
-
 class Register extends Component {
     
         constructor(props){
@@ -29,10 +28,12 @@ class Register extends Component {
             e.preventDefault();
             console.log(this.state)
             axios.post('http://localhost:3001/auth/register', {
-                firstname: this.state.firstname,
-                lastname: this.state.lastname,
-                email: this.state.email,
-                username: this.state.username,
+
+                firstname: this.state.firstname, 
+                lastname: this.state.lastname, 
+                email: this.state.email, 
+                username: this.state.username, 
+                password: this.state.password
             })
             .then(res => {
               console.log('in register',res);
