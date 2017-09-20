@@ -1,4 +1,4 @@
-//dependencies 
+//dependencies
 const path = require('path')
 const logger = require('morgan');
 const methodOverride = require('method-override');
@@ -8,7 +8,7 @@ const passport = require('passport');
 const bodyParser = require('body-parser');
 const express = require('express');
 
-//App initialization 
+//App initialization
 const app = express();
 require('dotenv').config();
 
@@ -45,3 +45,11 @@ const authRoutes = require('./routes/auth-routes');
 app.use('/auth', authRoutes);
 const userRoutes = require('./routes/user-routes');
 app.use('/user', userRoutes);
+const flashcardRoutes = require('./routes/flashcard-routes');
+app.use('/flashcard', flashcardRoutes);
+
+app.use('*', (req, res) => {
+  res.status(400).json({
+    message: 'Endpoint not found!',
+  });
+});
