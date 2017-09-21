@@ -2,11 +2,11 @@ const db = require('../db/config');
 
 const subject = {};
 
-Flashcard.findAll = () => {
+subject.findAll = () => {
   return db.query(`SELECT * FROM subject`);
 };
 
-Flashcard.findById = id => {
+subject.findById = id => {
   return db.oneOrNone(
     `
     SELECT * FROM subject
@@ -16,7 +16,7 @@ Flashcard.findById = id => {
   );
 };
 
-Subject.create = subject => {
+subject.create = subject => {
   return db.one(
     `
     INSERT INTO subject
