@@ -1,3 +1,7 @@
+\c medi-flash_db;
+
+
+
 CREATE TABLE IF NOT EXISTS users (
   id SERIAL PRIMARY KEY NOT NULL,
   firstname VARCHAR(255),
