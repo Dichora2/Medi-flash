@@ -45,10 +45,8 @@ const authRoutes = require('./routes/auth-routes');
 app.use('/auth', authRoutes);
 const userRoutes = require('./routes/user-routes');
 app.use('/user', userRoutes);
-<<<<<<< HEAD
 const subjectRoutes = require('./routes/subject-routes');
 app.use('/subject', subjectRoutes);
-=======
 const flashcardRoutes = require('./routes/flashcard-routes');
 app.use('/flashcard', flashcardRoutes);
 
@@ -57,4 +55,3 @@ app.use('*', (req, res) => {
     message: 'Endpoint not found!',
   });
 });
->>>>>>> ff385b43e3e288df1839a9ab841d7b01580a1012
