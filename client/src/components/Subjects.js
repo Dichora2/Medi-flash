@@ -14,32 +14,32 @@ class Subjects extends Component {
       super();
       this.state = {
         subjects: [], 
-        subjectsLoaded: false, 
-      }
-      this.handleClick = this.handleClick.bind(this)
+        subjectsLoaded: false
+      };
     }
   
 
     componentDidMount() {
-        axios.get('/subjects')
+        axios.get('http://localhost:3000/subject')
           .then(res => {
+            console.log('in login', this.state)
             this.setState({
-                subjects: res.data.subjects, 
+
+                subjects: res.data, 
                 //console.log data make sure I am targetting the correct thing 
                 subjectsLoaded: true                
             })
           })
+          .catch(err => console.log('in error',err));
+         }
           
-          console.log('------->this is the state from subjects',this.state)
-      }
-
 
     renderSubjects(array){
        if(this.state.subjectsLoaded) {
             return array.map(subject => {
                 return (
                 <li key={subject.id} className='individual-subject'>
-                    <Link to={`/subjects/${subject.id}`}>{subject.name}</Link>
+                    <Link to={`/subject/${subject.id}`}>{subject.name}</Link>
                 </li>
                 )
             })
