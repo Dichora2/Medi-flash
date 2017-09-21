@@ -5,6 +5,9 @@ import React, { Component } from 'react';
 //with all the flashcards associated with that Subject for user
 
 import axios from 'axios';
+import FlashcardToggle from './FlashcardToggle.js';
+import { Link } from 'react-router-dom';
+
 
 class Subject extends Component {
     constructor() {
