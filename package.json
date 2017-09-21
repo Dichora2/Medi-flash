@@ -20,6 +20,7 @@
   "homepage": "https://github.com/michaeljgut/Project3#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.1",
     "cookie-parser": "^1.4.3",
     "dotenv": "^4.0.0",
     "ejs": "^2.5.7",
@@ -30,6 +31,7 @@
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
     "pg-promise": "^6.7.1"
+    "xml2json": "^0.11.0"
   },
   "devDependencies": {
     "express": "^4.15.4",

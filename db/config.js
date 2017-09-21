@@ -6,13 +6,13 @@ const options = {
       console.log(e.query);
     },
   };
-  
+
   const pgp = require('pg-promise')(options);
-  
+
   function setDatabase() {
     if (process.env.NODE_ENV === 'development' || !process.env.NODE_ENV) {
       return pgp({
-        database: 'users_swipe',
+        database: 'medi-flash_db',
         port: 5432,
         host: 'localhost'
       });
@@ -20,7 +20,7 @@ const options = {
       return pgp(process.env.DATABASE_URL);
     }
   }
-  
+
   const db = setDatabase();
-  
+
   module.exports = db;
