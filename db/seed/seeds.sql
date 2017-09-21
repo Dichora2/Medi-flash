@@ -26,7 +26,7 @@ INSERT INTO users (firstname, lastname, email, username, password_digest) VALUES
 
 -- insert in flashcards
 
-INSERT INTO flashcards (user_id, term, definition, date_modified, keep_studying)
+INSERT INTO flashcards (user_id, term, definition, date_modified, keep_studying) VALUES
 
 (1,'B cell', 'A type of white blood cell and, specifically, a type of lymphocyte.', '9/22/17', false);
 (2,'F (coefficient of inbreeding', 'F is the symbol for the coefficient of inbreeding, a way of gauging how close two people are genetically to one another. The coefficient of inbreeding, F, is the probability that a person with two identical genes received both genes from one ancestor', '9/23/17', false);
