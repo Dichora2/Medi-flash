@@ -1,41 +1,72 @@
 import React, { Component } from 'react';
 //import Subject data
 
+//here were present one subject, 
+//with all the flashcards associated with that Subject for user
 
-//here were present one subject, with all the flashcards associated with that Subject for user
+import axios from 'axios';
+import FlashcardToggle from './FlashcardToggle.js';
+import { Link } from 'react-router-dom';
+
 
 class Subject extends Component {
+    constructor() {
+      super();
+      this.state = {
+        SubjectLoaded: false,
+        subject: [], 
+      }
+    }
+
+//axios
+componentDidMount() {
+  axios.get(`/subjects/${this.props.match.params.id}`)
+    .then(res => {
+      this.setState({
+        subjectLoaded: true,
+        subject: res.data.subject,
+        //check if this works
+      })
+    }).catch(err => console.log(err));
+}
 
   flashcardMap(array){
     return array.map((flashcard, index) => {
       return (
-        <li key={index}>
-          {flashcard.term}
-        </li>
+        <div className='flash-card-term'>
+          <div key={index}><FlashcardToggle /></div>
+        </div>
+        //on click it needs the card needs to flip
       )
     })
   }
 
-  specificSubject(){
+
+  renderSubjectWithFlashcards(){
     const subjectId = Number(this.props.match.params.id);
-    const thisSubject = subjectData.find(subject => subject.id == subjectId);
-    return (
-      <div className='individual-subject-card'>
-        <h1>{thisSubject.name} </h1>
-        <ul>
-          {this.flashcardMap(this.flashcards)}
-        </ul>
-      </div>
-    )
+   
+    if (this.state.subjectLoaded){
+          <div className='individual-subject-card'>
+            <h1>{this.Subject.name} </h1>
+            <div>
+              {this.flashcardMap(this.flashcards)}
+            </div>
+        </div>
+    }else{
+      <button className='add-flashcard'><Link to='/add'>Add New Flashcard</Link></button>
+    }
   }
 
   render(){
     return(
-      <div className='subject-page'>
-        {this.specificSubject()}
+      <div>
+          <button className='add-flashcard'><Link to='/add'>Add New Flashcard</Link></button>
+          <div className='subject-page'>
+            {this.renderSubjectWithFlashcards()}
+            <button className='edit-flashcard'><Link to='/edit'>Edit Flashcard</Link></button>
+          </div>
       </div>
     )
   }
-
 }
-export default Bird;
+export default Subject;
