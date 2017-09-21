@@ -1,12 +1,12 @@
-const subject = require('../models/subjects');
+const subject = require('../models/subject');
 
 const subjectController = {};
 
 subjectController.index = (req, res) => {
   subject.findAll()
-    .then(subjectss => {
+    .then(subject => {
       res.json({
-        data: subjects,
+        data: subject,
       });
     })
     .catch(err => {
@@ -16,10 +16,10 @@ subjectController.index = (req, res) => {
 };
 
 subjectController.show = (req, res) => {
-  Flashcard.findById(req.params.id)
+  subject.findById(req.params.id)
     .then(subject => {
       res.json({
-        data: subjects,
+        data: subject,
       });
     })
     .catch(err => {
@@ -48,7 +48,7 @@ subjectController.create = (req, res) => {
 };
 
 subjectController.update = (req, res) => {
-  Flashcard.update(
+  subject.update(
     {
       user_id: req.body.user_id,
       term: req.body.term,
@@ -81,4 +81,4 @@ subjectController.destroy = (req, res) => {
     });
 };
 
-module.exports = flashcardController;
+module.exports = subjectsController;
