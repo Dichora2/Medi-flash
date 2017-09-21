@@ -24,3 +24,4 @@ User.findAll = () => {
   return db.query('SELECT * FROM user ORDER BY id ASC');
 };
 module.exports = User;
+
