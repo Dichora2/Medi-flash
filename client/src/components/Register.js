@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 class Register extends Component {
-    
+
         constructor(props){
             super(props);
             this.state ={
@@ -18,7 +18,6 @@ class Register extends Component {
         }
 
         handleInputChange(e) {
-            console.log(this.state)
             const name = e.target.name;
             const value = e.target.value;
             this.setState({
@@ -28,7 +27,6 @@ class Register extends Component {
 
         handleFormSubmit(e){
             e.preventDefault();
-            console.log(this.state)
             axios.post('http://localhost:3000/auth/register', {
                 firstname: this.state.firstname,
                 lastname: this.state.lastname,
@@ -46,10 +44,10 @@ class Register extends Component {
             .catch(err => console.log('in error',err));
           e.target.reset();
          }
-    
+
         render(){
             return (
-                <div> 
+                <div>
                     <h1 className="login-header">Use your Medi-flash account to add, save, and test your knowledge.</h1>
                     <form onSubmit={(e) => this.handleFormSubmit(e)}>
                         <input name="firstname" type="text" placeholder="firstname" required onChange={this.handleInputChange}/>
