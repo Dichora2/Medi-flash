@@ -1,6 +1,6 @@
 const express = require('express');
 const subjectsRouter = express.Router();
-const subjectsController = require('../controllers/subject-controller');
+const subjectsController = require('../controllers/subjects-controller');
 
 subjectsRouter.get('/', subjectsController.index);
 subjectsRputer.post('/', subjectsController.create);
