@@ -4,7 +4,6 @@ import axios from 'axios';
 
 
 
-
 class FlashcardToggle extends Component {
 
 //this class will render the toggle between the term and definition of a flashcard
@@ -60,9 +59,9 @@ render() {
 
     return(
         <div>
-            <h2 style={show}>{flashcard.term}}</h2>
+            <h2 style={show}>flashcard term goes here</h2>
             <div className="flashcardDefinitionShow">
-                <h2 style={hide}>{flashcard.definition}}</h2>
+                <h2 style={hide}>flashcard definition goes here</h2>
                 <button onClick={this.toggle.bind(this)}>Back</button>
                 <button onClick={this.addToHardOnes.bind(this)}>Need more practice</button>
             </div>
