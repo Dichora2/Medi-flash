@@ -24,9 +24,9 @@ export default (
             <Route exact path='/add' component={FlashcardAddForm} />
             <Route exact path='/edit' component={FlashcardEditForm} />
 
-            <Route exact path='/Subjects/add' component={SubjectAddForm} />
+            <Route exact path='/subjects/add' component={SubjectAddForm} />
 
-            <Route exact path='/Subject:id' component={Subject} />
+            <Route exact path='/subjects/:id' component={Subject} />
             <Route exact path='/' component={Login} />
             <Route exact path='/register' component={Register} />
         </div>

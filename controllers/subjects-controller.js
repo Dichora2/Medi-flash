@@ -1,4 +1,4 @@
-const Subject = require('../models/subjects');
+const Subject = require('../models/subject');
 
 const subjectController = {};
 

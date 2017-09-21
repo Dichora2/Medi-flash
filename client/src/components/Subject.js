@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 //import Subject data
 
-//here were present one subject, 
+//here were present one subject,
 //with all the flashcards associated with that Subject for user
 
 import axios from 'axios';
@@ -14,12 +14,13 @@ class Subject extends Component {
       super();
       this.state = {
         SubjectLoaded: false,
-        subject: [], 
+        subject: [],
       }
     }
 
 //axios
 componentDidMount() {
+  console.log(this.props)
   axios.get(`/subjects/${this.props.match.params.id}`)
     .then(res => {
       this.setState({
@@ -44,7 +45,7 @@ componentDidMount() {
 
   renderSubjectWithFlashcards(){
     const subjectId = Number(this.props.match.params.id);
-   
+
     if (this.state.subjectLoaded){
           <div className='individual-subject-card'>
             <h1>{this.Subject.name} </h1>
