@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
-
 class Register extends Component {
     
         constructor(props){
@@ -16,7 +15,7 @@ class Register extends Component {
             this.handleInputChange = this.handleInputChange.bind(this);
             this.handleFormSubmit = this.handleFormSubmit.bind(this);
         }
-    
+
         handleInputChange(e) {
             const name = e.target.name;
             const value = e.target.value;
@@ -33,6 +32,7 @@ class Register extends Component {
                 lastname: this.state.lastname,
                 email: this.state.email,
                 username: this.state.username,
+                password: this.state.password
             })
             .then(res => {
               console.log('in register',res);
@@ -43,7 +43,7 @@ class Register extends Component {
             })
             .catch(err => console.log('in error',err));
           e.target.reset();
-        }
+         }
     
         render(){
             return (
