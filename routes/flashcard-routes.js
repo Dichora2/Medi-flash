@@ -2,6 +2,7 @@ const express = require('express');
 const flashcardRouter = express.Router();
 
 const flashcardController = require('../controllers/flashcard-controller');
+const flashcardHelper = require('../services/flashcard/flashcard-helper');
 
 flashcardRouter.get('/', flashcardController.index);
 flashcardRouter.post('/', flashcardController.create);
