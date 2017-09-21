@@ -26,9 +26,9 @@ INSERT INTO users (firstname, lastname, email, username, password_digest) VALUES
 
 -- insert in flashcards
 
-INSER INTO flashcards (user_id, term, definition, date_modified, keep_studying)
+INSERT INTO flashcards (user_id, term, definition, date_modified, keep_studying)
 
-('1','B cell', 'A type of white blood cell and, specifically, a type of lymphocyte.', '9/22/17', 'false')
+('1','B cell', 'A type of white blood cell and, specifically, a type of lymphocyte.', '9/22/17', 'false');
 ('2','F (coefficient of inbreeding', 'F is the symbol for the coefficient of inbreeding, a way of gauging how close two people are genetically to one another. The coefficient of inbreeding, F, is the probability that a person with two identical genes received both genes from one ancestor', '9/23/17', 'false');
 ('1','Radiation fibrosis', 'Scarring of the lungs from radiation. Radiation fibrosis is a consequence of the repair process that follows radiation pneumonitis (inflammation of the lungs due to radiation), as from radiation therapy. Radiation fibrosis typically occurs within months to a few years after the completion of radiation treatments. Whereas the inflammation of radiation pneumonitis is often reversible with medications, radiation fibrosis is usually irreversible and permanent.','9/24/17', 'true');
 ('3', 'Galactose', 'A sugar found in milk. Galactose is a disaccharide that is made up of two sugars, galactose and glucose, that are bound together.', '9/25/17', 'false');
