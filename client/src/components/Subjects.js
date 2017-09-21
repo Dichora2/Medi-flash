@@ -7,6 +7,8 @@ import axios from 'axios';
 import Subject from './Subject';
 
 
+import SubjectAddForm from './SubjectAddForm';
+
 class Subjects extends Component {
     constructor(){
       super();
@@ -24,10 +26,8 @@ class Subjects extends Component {
             this.setState({
                 subjects: res.data.subjects, 
                 //console.log data make sure I am targetting the correct thing 
-                subjectsLoaded: true
-                
+                subjectsLoaded: true                
             })
-
           })
           
           console.log('------->this is the state from subjects',this.state)
@@ -55,6 +55,8 @@ class Subjects extends Component {
       return(
         <div className='subjects'>
           <h1 className='subject-page-header'>Subjects</h1>
+          <SubjectAddForm />
+        
           <ul className='list-of-subjects'>
             {this.renderSubjects(this.state.subjects)}
           </ul>
