@@ -12,7 +12,7 @@ class Register extends Component {
                 email: '',
                 username: '',
                 password: '',
-                fireRedirect: false,  
+                fireRedirect: false
             };
             this.handleInputChange = this.handleInputChange.bind(this);
             this.handleFormSubmit = this.handleFormSubmit.bind(this);
