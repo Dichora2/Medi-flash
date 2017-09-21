@@ -17,7 +17,7 @@ function getDefinitionFromAPI(req, res, next) {
           let definition;
           if (typeof item.sens[0].dt[0] === 'object') {
             definition += (index + 1) + ': ' + item.sens[0].dt[0]._ +
-             (item.sens[0].dt[0].fw)?item.sens[0].dt[0].fw[0]:'');
+             (item.sens[0].dt[0].fw) ? item.sens[0].dt[0].fw[0]:'';
           } else {
             definition += (index + 1) + ': ' + item.sens[0].dt[0];
           }
