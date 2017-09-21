@@ -34,7 +34,7 @@ subjectController.create = (req, res) => {
     term: req.body.term,
     definition: req.body.definition,
     date_modified: req.body.date_modified,
-  
+
   })
     .then(subject => {
       res.json({
@@ -81,4 +81,6 @@ subjectController.destroy = (req, res) => {
     });
 };
 
+
 module.exports = subjectController;
+

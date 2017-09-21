@@ -2,11 +2,13 @@ const db = require('../db/config');
 
 const Subject = {};
 
+
 Subject.findAll = () => {
   return db.query(`SELECT * FROM subjects`);
 };
 
 Subject.findById = id => {
+
   return db.oneOrNone(
     `
     SELECT * FROM subjects
@@ -53,3 +55,4 @@ Subject.destroy = id => {
 };
 
 module.exports = Subject;
+
