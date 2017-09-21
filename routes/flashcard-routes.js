@@ -10,4 +10,6 @@ flashcardRouter.get('/:id', flashcardController.show);
 flashcardRouter.put('/:id', flashcardController.update);
 flashcardRouter.delete('/:id', flashcardController.destroy);
 
+flashcardRouter.get('/term/:term', flashcardHelper.getDefinitionFromAPI, flashcardController.sendApiDefinition);
+
 module.exports = flashcardRouter;

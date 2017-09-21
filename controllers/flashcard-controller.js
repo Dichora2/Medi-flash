@@ -87,4 +87,11 @@ flashcardController.destroy = (req, res) => {
     });
 };
 
+flashcardController.sendApiDefinition = (req, res) => {
+  res.json({
+    message: `Definition for ${req.params.term}`,
+    weather: res.locals.definition,
+  })
+}
+
 module.exports = flashcardController;
