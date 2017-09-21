@@ -10,6 +10,8 @@ import Register from './components/Register.js'
 import FlashcardAddForm from './components/FlashcardAddForm.js'
 import FlashcardEditForm from './components/FlashcardEditForm.js'
 
+
+import SubjectAddForm from './components/SubjectAddForm.js'
 import Header from './components/Header.js'
 
 
@@ -22,6 +24,7 @@ export default (
             <Route exact path='/add' component={FlashcardAddForm} />
             <Route exact path='/edit' component={FlashcardEditForm} />
 
+            <Route exact path='/Subjects/add' component={SubjectAddForm} />
 
             <Route exact path='/Subject:id' component={Subject} />
             <Route exact path='/' component={Login} />
