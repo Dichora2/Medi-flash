@@ -31,7 +31,7 @@ componentDidMount() {
     return array.map((flashcard, index) => {
       return (
         <div className='flash-card-term'>
-          <div key={index}><FlashCardToggle /></div>
+          <div key={index}><FlashcardToggle /></div>
         </div>
         //on click it needs the card needs to flip
       )
