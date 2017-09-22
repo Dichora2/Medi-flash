@@ -8,7 +8,6 @@ import axios from 'axios';
 import FlashcardToggle from './FlashcardToggle.js';
 import { Link } from 'react-router-dom';
 
-
 class Subject extends Component {
     constructor() {
       super();
@@ -24,8 +23,11 @@ componentDidMount() {
     .then(res => {
       this.setState({
         subjectLoaded: true,
-        subject: res.data.subject,
-        //check if this works
+
+
+
+        subjects: res.data.data,
+        
       })
       console.log('-------------->',res.data.subject)
     }).catch(err => console.log(err));
@@ -56,7 +58,11 @@ componentDidMount() {
         </div>
                       
     }else{
-      <button className='add-flashcard'><Link to='/add'>Add New Flashcard</Link></button>
+      <div>
+        <h1>NO FLASHCARDS</h1>
+        <button className='add-flashcard'><Link to='/add'>Add New Flashcard</Link></button>
+      </div>
+
     }
   }
 

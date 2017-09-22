@@ -27,9 +27,11 @@ INSERT INTO subjects (user_id, date_modified,name) VALUES (3,'9/20/17','Chem 101
 INSERT INTO subjects (user_id, date_modified,name) VALUES (3,'9/5/17','Join Pain');
 
 
-
-
-
+INSERT INTO flashcards_subjects (flashcard_id, subject_id) VALUES (1, 3);
+INSERT INTO flashcards_subjects (flashcard_id, subject_id) VALUES (2, 3);
+INSERT INTO flashcards_subjects (flashcard_id, subject_id) VALUES (28, 3);
+INSERT INTO flashcards_subjects (flashcard_id, subject_id) VALUES (29, 3);
+INSERT INTO flashcards_subjects (flashcard_id, subject_id) VALUES (30, 3);
 
 
 
