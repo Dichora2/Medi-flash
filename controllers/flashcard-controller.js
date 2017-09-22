@@ -59,7 +59,7 @@ flashcardController.update = (req, res) => {
       date_modified: req.body.date_modified,
       keep_studying: req.body.keep_studying,
     },
-    req.params.id,
+    req.params.id
   )
     .then(flashcard => {
       res.json({

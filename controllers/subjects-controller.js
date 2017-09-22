@@ -29,10 +29,10 @@ subjectController.show = (req, res) => {
 };
 
 subjectController.create = (req, res) => {
+  console.log(req.user);
   Subject.create({
-    user_id: req.body.user_id,
-    term: req.body.term,
-    definition: req.body.definition,
+    user_id: req.user.id,
+    name: req.body.name,
     date_modified: req.body.date_modified,
 
   })
@@ -51,8 +51,7 @@ subjectController.update = (req, res) => {
   Subject.update(
     {
       user_id: req.body.user_id,
-      term: req.body.term,
-      definition: req.body.definition,
+      name: req.body.name,
       date_modified: req.body.date_modified,
     },
     req.params.id,
