@@ -55,11 +55,11 @@ subjectController.update = (req, res) => {
       name: req.body.name,
       date_modified: req.body.date_modified,
     },
-    req.params.id,
+    req.params.id
   )
     .then(subject => {
       res.json({
-        data: subject,
+        data: subject
       });
     })
     .catch(err => {
@@ -80,7 +80,6 @@ subjectController.destroy = (req, res) => {
       res.status(500).json({ err });
     });
 };
-
 
 module.exports = subjectController;
 

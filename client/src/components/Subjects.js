@@ -38,13 +38,12 @@ class Subjects extends Component {
           .catch(err => console.log('in error',err));
          }
 
-
     renderSubjects(array){
        if(this.state.subjectsLoaded) {
             return array.map(subject => {
                 return (
                 <li key={subject.id} className='individual-subject'>
-                    <Link to={`/subjects/${subject.id}`}>{subject.name}</Link>
+                    <Link to={`/subject/${subject.id}`}>{subject.name}</Link>
                 </li>
                 )
             })

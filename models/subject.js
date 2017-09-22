@@ -2,18 +2,17 @@ const db = require('../db/config');
 
 const Subject = {};
 
-
 Subject.findAll = () => {
-  return db.query(`SELECT * FROM subjects`);
+  return db.query(`SELECT * FROM subject`);
 };
+
 
 Subject.findById = id => {
 
   return db.oneOrNone(
     `
     SELECT * FROM subjects
-    WHERE id = $1    
-  `,
+    WHERE id = $1  `,
     [id]
   );
 };

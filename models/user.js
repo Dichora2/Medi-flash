@@ -20,9 +20,8 @@ User.create = user => {
     RETURNING *
   `, [user.username, user.firstname, user.lastname, user.email, user.password_digest]);
 };
-
+User.findAll = () => {
+  return db.query('SELECT * FROM user ORDER BY id ASC');
+};
 module.exports = User;
-
-
-
 
