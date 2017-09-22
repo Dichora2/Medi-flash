@@ -36,16 +36,21 @@ class SubjectAddForm extends Component {
       }
       })
       .then(res => {
-        console.log(res);
+        console.log('successfully posted');
         this.setState({
-          newId: res.data.data.id,
-
+          //this needs to bind to subjects
           //confirm if this is targeting the right thing
           fireRedirect: true,
         });
       })
-      .catch(err => console.log(err));
-      console.log('------------->err');
+      .catch(err => {
+        console.log('in err ', err);
+        this.setState({
+          //this needs to bind to subjects
+          //confirm if this is targeting the right thing
+          fireRedirect: true,
+        });
+      });
       
     // e.target.reset();
   }
@@ -66,7 +71,9 @@ class SubjectAddForm extends Component {
           </label>
           <input type="submit" value="Submit!" />
         </form>
-
+        {this.state.fireRedirect
+            ? <Redirect push to={'/subjects'} />
+            : ''}
       </div>
     );
   }

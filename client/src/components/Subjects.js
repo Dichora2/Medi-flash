@@ -16,6 +16,8 @@ class Subjects extends Component {
         subjects: [],
         subjectsLoaded: false
       };
+
+      // this.Subjects = this.Subject.bind();
     }
 
 
@@ -55,8 +57,7 @@ class Subjects extends Component {
       return(
         <div className='subjects'>
           <h1 className='subject-page-header'>Subjects</h1>
-          <SubjectAddForm />
-
+          <Link to={`/subjects/add`}>add subject</Link>
           <ul className='list-of-subjects'>
             {this.renderSubjects(this.state.subjects)}
           </ul>
