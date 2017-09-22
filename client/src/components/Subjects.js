@@ -13,15 +13,31 @@ class Subjects extends Component {
     constructor(){
       super();
       this.state = {
+<<<<<<< HEAD
+        subjects: [], 
+        subjectsLoaded: false
+      };
+=======
         subjects: [],
         subjectsLoaded: false
       };
 
       // this.Subjects = this.Subject.bind();
+>>>>>>> 59b270f6d3f810be7663d933d4d97892107ff3f4
     }
 
 
     componentDidMount() {
+<<<<<<< HEAD
+        axios.get('http://localhost:3000/subject')
+          .then(res => {
+            console.log('in login', this.state)
+            this.setState({
+
+                subjects: res.data, 
+                //console.log data make sure I am targetting the correct thing 
+                subjectsLoaded: true                
+=======
         axios('/subject', {
           method: 'GET',
         })
@@ -33,18 +49,23 @@ class Subjects extends Component {
                 subjects: res.data.data,
                 //console.log data make sure I am targetting the correct thing
                 subjectsLoaded: true
+>>>>>>> 59b270f6d3f810be7663d933d4d97892107ff3f4
             })
           })
           .catch(err => console.log('in error',err));
          }
+<<<<<<< HEAD
+          
+=======
 
+>>>>>>> 59b270f6d3f810be7663d933d4d97892107ff3f4
 
     renderSubjects(array){
        if(this.state.subjectsLoaded) {
             return array.map(subject => {
                 return (
                 <li key={subject.id} className='individual-subject'>
-                    <Link to={`/subjects/${subject.id}`}>{subject.name}</Link>
+                    <Link to={`/subject/${subject.id}`}>{subject.name}</Link>
                 </li>
                 )
             })

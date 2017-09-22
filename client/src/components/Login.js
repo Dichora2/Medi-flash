@@ -28,12 +28,18 @@ class Login extends Component {
     handleFormSubmit(e){
         e.preventDefault();
         console.log(this.state)
+<<<<<<< HEAD
+        axios.post('http://localhost:3000/auth/login', {
+            username: this.state.username,
+            password: this.state.password,
+=======
         axios('/auth/login', {
             method: 'POST',
             data: {
                 username: this.state.username,
                 password: this.state.password,
             },
+>>>>>>> 59b270f6d3f810be7663d933d4d97892107ff3f4
         })
         .then(res => {
             console.log('in login',res);
