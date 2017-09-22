@@ -11,7 +11,7 @@ class FlashcardEditForm extends Component {
     this.state = {
         term: '',
         definition: '',
-        date_created: '',
+        date_modified: '',
         fireRedirect: false,  
     };
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -25,7 +25,7 @@ class FlashcardEditForm extends Component {
         this.setState({
           term: flashcard.term,
           definition: flashcard.definition.term,
-          date_created: flashcard.date_created,
+          date_modified: flashcard.date_modified,
         })
       }).catch(err => console.log(err));
   }
@@ -44,7 +44,7 @@ class FlashcardEditForm extends Component {
       .put(`/flashcards/${this.props.match.params.id}`, {
         term: this.state.term,
         definition: this.state.definition,
-        date_created: this.state.date_created
+        date_modified: this.state.date_modified
       })
       .then(res => {
         this.setState({
@@ -85,8 +85,8 @@ class FlashcardEditForm extends Component {
             <input
               type="text"
               placeholder="date"
-              name="date_created"
-              value={this.state.date_created}
+              name="date_modified"
+              value={this.state.date_modified}
               onChange={this.handleInputChange}
             />
           </label>

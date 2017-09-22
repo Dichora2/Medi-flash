@@ -47,10 +47,7 @@ class Subjects extends Component {
        } else {
            return <p>no subjects yet!</p>
        }
-
     }
-
-
 
     render(){
       return(

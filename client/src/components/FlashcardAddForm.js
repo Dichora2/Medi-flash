@@ -12,7 +12,6 @@ class FlashcardAddForm extends Component {
     this.state = {
       term: '',
       definition: '',
-      date_created: '',
       fireRedirect: false,      
     };
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -27,21 +26,23 @@ class FlashcardAddForm extends Component {
     });
   }
 
+
+
   handleFormSubmit(e) {
     e.preventDefault();
     axios
-      .post('/flashcard', {
+      .post('http://localhost:3000/flashcard', {
         term: this.state.term,
         definition: this.state.definition,
-        date_created: this.state.date_created,
       })
       .then(res => {
+        console.log('--------------->', this.state)
+  
         console.log(res);
         this.setState({
-          newId: res.data.flashcard.id,
-
+          newId: res.data.data.id,
           //confirm if this is targeting the right thing
-          fireRedirect: true,
+          // fireRedirect: true,
         });
       })
       .catch(err => console.log(err));
@@ -72,20 +73,10 @@ class FlashcardAddForm extends Component {
               onChange={this.handleInputChange}
             />
           </label>
-          <label>
-            Date
-            <input
-              type="date_created"
-              placeholder="date"
-              name="rating"
-              value={this.state.date_created}
-              onChange={this.handleInputChange}
-            />
-          </label>
           <input type="submit" value="Submit!" />
         </form>
         {this.state.fireRedirect
-          ? <Redirect push to={`/flashcard/${this.state.newId}`} />
+          ? <Redirect push to={`/subject/${this.state.newId}`} />
           : ''}
       </div>
     );
