@@ -16,8 +16,9 @@ subjectController.index = (req, res) => {
 };
 
 subjectController.show = (req, res) => {
-  Subject.findById(req.params.id)
+  Subject.findByUserSubject(req.params.id, req.user.id)
     .then(subject => {
+      console.log('inside findByUserSubject')
       res.json({
         data: subject,
       });

@@ -13,23 +13,22 @@ class Subject extends Component {
       super();
       this.state = {
         SubjectLoaded: false,
-        subject: [], 
+        flashcards: [], 
       }
     }
 
 //axios
 componentDidMount() {
-  axios.get(`/subjects/${this.props.match.params.id}`)
+  // console.log('---------------->',this.state.user_id);
+  axios.get(`/subject/${this.props.match.params.id}`)
     .then(res => {
+      console.log('----->', res)
+      
       this.setState({
         subjectLoaded: true,
-
-
-
-        subjects: res.data.data,
-        
+        flashcards: res.data.data
       })
-      console.log('-------------->',res.data.subject)
+      // console.log('-------------->',res.data.subject)
     }).catch(err => console.log(err));
 }
 
