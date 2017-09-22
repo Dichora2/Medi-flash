@@ -2,34 +2,26 @@ const db = require('../db/config');
 
 const Subject = {};
 
-<<<<<<< HEAD
-subject.findAll = () => {
+Subject.findAll = () => {
   return db.query(`SELECT * FROM subject`);
 };
 
-subject.findById = id => {
-=======
-
-Subject.findAll = () => {
-  return db.query(`SELECT * FROM subjects`);
-};
 
 Subject.findById = id => {
 
->>>>>>> 59b270f6d3f810be7663d933d4d97892107ff3f4
   return db.oneOrNone(
     `
     SELECT * FROM subjects
     WHERE id = $1
 
 
-    
+
   `,
     [id]
   );
 };
 
-subject.create = subject => {
+Subject.create = subject => {
   return db.one(
     `
     INSERT INTO subjects
@@ -65,9 +57,5 @@ Subject.destroy = id => {
   );
 };
 
-<<<<<<< HEAD
-module.exports = subject;
-=======
 module.exports = Subject;
 
->>>>>>> 59b270f6d3f810be7663d933d4d97892107ff3f4
