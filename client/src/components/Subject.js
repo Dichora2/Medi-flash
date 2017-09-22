@@ -27,6 +27,7 @@ componentDidMount() {
         subject: res.data.subject,
         //check if this works
       })
+      console.log('-------------->',res.data.subject)
     }).catch(err => console.log(err));
 }
 
