@@ -13,6 +13,13 @@ const cors = require('cors');
 const app = express();
 require('dotenv').config();
 
+app.use((req, res, next) => {
+  console.log('------- LOGGING METHOD ------');
+  console.log(req.method);
+  if (req.method == 'OPTIONS') console.log('what the fuck');
+  next();
+})
+
 //middlewares
 app.use(methodOverride('_method'));
 app.use(bodyParser.json());
@@ -27,6 +34,21 @@ app.use(session({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
+
+app.use((req, res, next) => {
+  console.log('---------- req.user ---------')
+  console.log(Date.now());
+  console.log(req.user);
+  if (req.user) console.log(req.user.id);
+  next();
+});
+
+app.use((req, res, next) => {
+  console.log('----------- REQ.SESSION -----------');
+  console.log(Date.now());
+  console.log(req.session);
+  next();
+})
 
 //static sheets
 /*app.get('/', (req, res) => {
@@ -58,4 +80,4 @@ app.use('*', (req, res) => {
     message: 'Endpoint not found!',
   });
 });
- ff385b43e3e288df1839a9ab841d7b01580a1012
+

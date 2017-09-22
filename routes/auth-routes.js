@@ -12,9 +12,42 @@ authRouter.get('/register', authHelpers.loginRedirect, (req, res) => {
   res.render('auth/register');
 });
 authRouter.post('/register', usersController.create);
+<<<<<<< HEAD
 authRouter.post('/login', passport.authenticate('local'), (req, res) => {
   res.json({ message: 'hi' });
 });
+=======
+// authRouter.post('/login', passport.authenticate('local'), (req, res) => {
+
+//   res.json({ message: 'hi',
+//   user: req.user
+// });
+// });
+
+
+authRouter.post('/login', passport.authenticate('local', {
+  successRedirect: '/auth/success',
+  failureRedirect: '/auth/failure',
+  failureFlash: true,
+}));
+
+authRouter.get('/success', (req, res) => {
+  res.json({
+    auth: true,
+    message: 'ok',
+    user: req.user,
+  })
+})
+
+authRouter.get('/failure', (req, res) => {
+  res.json({
+    auth: false,
+    message: 'login failed',
+    user: null,
+  })
+})
+
+>>>>>>> 59b270f6d3f810be7663d933d4d97892107ff3f4
 // ;, {
 //     successRedirect: '/', 
 //     failureRedirect: '/auth/login',

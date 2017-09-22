@@ -27,6 +27,7 @@ componentDidMount() {
         subject: res.data.subject,
         //check if this works
       })
+      console.log('-------------->',res.data.subject)
     }).catch(err => console.log(err));
 }
 
@@ -51,7 +52,9 @@ componentDidMount() {
             <div>
               {this.flashcardMap(this.flashcards)}
             </div>
+            <button className='add-flashcard'><Link to='/add'>Add New Flashcard</Link></button>
         </div>
+                      
     }else{
       <button className='add-flashcard'><Link to='/add'>Add New Flashcard</Link></button>
     }

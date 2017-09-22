@@ -28,12 +28,24 @@ class Register extends Component {
 
         handleFormSubmit(e){
             e.preventDefault();
+<<<<<<< HEAD
             axios.post('http://localhost:3000/auth/register', {
                 firstname: this.state.firstname,
                 lastname: this.state.lastname,
                 email: this.state.email,
                 username: this.state.username,
                 password: this.state.password
+=======
+            axios('/auth/register', {
+                method: 'POST',
+                data: {
+                    firstname: this.state.firstname,
+                    lastname: this.state.lastname,
+                    email: this.state.email,
+                    username: this.state.username,
+                    password: this.state.password
+                }
+>>>>>>> 59b270f6d3f810be7663d933d4d97892107ff3f4
             })
             .then(res => {
               console.log('in register',res);

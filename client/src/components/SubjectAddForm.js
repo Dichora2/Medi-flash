@@ -7,8 +7,9 @@ class SubjectAddForm extends Component {
   constructor() {
     super();
     this.state = {
+       
       name: '',
-      date_created: '',
+      date_modified: new Date(),
       fireRedirect: false,      
     };
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -24,23 +25,34 @@ class SubjectAddForm extends Component {
   }
 
   handleFormSubmit(e) {
+    console.log('------------->', this.state);
     e.preventDefault();
-    axios
-      .post('/subjects', {
+    axios('/subject', {
+      method: 'POST',
+      data: {
+        user_id: this.state.user_id, 
         name: this.state.name,
-        date_created: this.state.date_created,
+        date_modified: this.state.date_modified,
+      }
       })
       .then(res => {
-        console.log(res);
+        console.log('successfully posted');
         this.setState({
-          newId: res.data.subject.id,
-
+          //this needs to bind to subjects
           //confirm if this is targeting the right thing
           fireRedirect: true,
         });
       })
-      .catch(err => console.log(err));
-    e.target.reset();
+      .catch(err => {
+        console.log('in err ', err);
+        this.setState({
+          //this needs to bind to subjects
+          //confirm if this is targeting the right thing
+          fireRedirect: true,
+        });
+      });
+      
+    // e.target.reset();
   }
 
   render() {
@@ -57,21 +69,11 @@ class SubjectAddForm extends Component {
               onChange={this.handleInputChange}
             />
           </label>
-          <label>
-            Date
-            <input
-              type="date_created"
-              placeholder="date"
-              name="date_created"
-              value={this.state.date_created}
-              onChange={this.handleInputChange}
-            />
-          </label>
           <input type="submit" value="Submit!" />
         </form>
         {this.state.fireRedirect
-          ? <Redirect push to={`/subjects`} />
-          : ''}
+            ? <Redirect push to={'/subjects'} />
+            : ''}
       </div>
     );
   }
