@@ -32,6 +32,7 @@ CREATE TABLE IF NOT EXISTS users_flashcards (
   flashcard_id integer REFERENCES flashcards(id)
 );
 
+CREATE TABLE IF NOT EXISTS flashcards_subjects (
   flashcard_id integer REFERENCES flashcards(id),
   subject_id integer REFERENCES subjects(id)
 );

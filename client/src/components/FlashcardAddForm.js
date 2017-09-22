@@ -12,7 +12,7 @@ class FlashcardAddForm extends Component {
     this.state = {
       term: '',
       definition: '',
-      fireRedirect: false,      
+      fireRedirect: false,
     };
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
@@ -31,13 +31,13 @@ class FlashcardAddForm extends Component {
   handleFormSubmit(e) {
     e.preventDefault();
     axios
-      .post('http://localhost:3000/flashcard', {
+      .post('/flashcard', {
         term: this.state.term,
         definition: this.state.definition,
       })
       .then(res => {
         console.log('--------------->', this.state)
-  
+
         console.log(res);
         this.setState({
           newId: res.data.data.id,
@@ -65,13 +65,12 @@ class FlashcardAddForm extends Component {
           </label>
           <label>
             Definition
-            <input
-              type="text"
+            <textarea id="comment" name="comment" cols="40" rows="20"
               placeholder="Definition"
               name="definition"
               value={this.state.definition}
-              onChange={this.handleInputChange}
-            />
+              onChange={this.handleInputChange}>
+            </textarea>
           </label>
           <input type="submit" value="Submit!" />
         </form>
