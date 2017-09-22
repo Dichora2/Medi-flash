@@ -20,8 +20,8 @@ Flashcard.create = flashcard => {
   return db.one(
     `
     INSERT INTO flashcards
-    (user_id, term, definition, date_modified, keep_studying)
-    VALUES ($1, $2, $3, $4, $5)
+    (user_id, term, definition, date_modified)
+    VALUES ($1, $2, $3, $4)
     RETURNING *
   `,
     [flashcard.user_id, flashcard.term, flashcard.definition, flashcard.date_modified, flashcard.keep_studying]

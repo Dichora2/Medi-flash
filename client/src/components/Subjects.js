@@ -13,25 +13,30 @@ class Subjects extends Component {
     constructor(){
       super();
       this.state = {
-        subjects: [], 
-        subjectsLoaded: false, 
-      }
-      this.handleClick = this.handleClick.bind(this)
+        subjects: [],
+        subjectsLoaded: false
+      };
+
+      // this.Subjects = this.Subject.bind();
     }
-  
+
 
     componentDidMount() {
-        axios.get('/subjects')
+        axios('/subject', {
+          method: 'GET',
+        })
           .then(res => {
+            console.log('in login', this.state)
+            console.log('this is the res', res)
             this.setState({
-                subjects: res.data.subjects, 
-                //console.log data make sure I am targetting the correct thing 
-                subjectsLoaded: true                
+
+                subjects: res.data.data,
+                //console.log data make sure I am targetting the correct thing
+                subjectsLoaded: true
             })
           })
-          
-          console.log('------->this is the state from subjects',this.state)
-      }
+          .catch(err => console.log('in error',err));
+         }
 
 
     renderSubjects(array){
@@ -46,17 +51,13 @@ class Subjects extends Component {
        } else {
            return <p>no subjects yet!</p>
        }
-
     }
 
-
-  
     render(){
       return(
         <div className='subjects'>
           <h1 className='subject-page-header'>Subjects</h1>
-          <SubjectAddForm />
-        
+          <Link to={`/subjects/add`}>add subject</Link>
           <ul className='list-of-subjects'>
             {this.renderSubjects(this.state.subjects)}
           </ul>
@@ -64,6 +65,6 @@ class Subjects extends Component {
       )
     }
   }
-  
+
   export default Subjects;
-  
+

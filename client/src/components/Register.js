@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import axios from 'axios';
 
 class Register extends Component {
@@ -11,7 +11,8 @@ class Register extends Component {
                 lastname: '',
                 email: '',
                 username: '',
-                password: ''
+                password: '',
+                fireRedirect: false
             };
             this.handleInputChange = this.handleInputChange.bind(this);
             this.handleFormSubmit = this.handleFormSubmit.bind(this);
@@ -27,19 +28,21 @@ class Register extends Component {
 
         handleFormSubmit(e){
             e.preventDefault();
-            axios.post('http://localhost:3000/auth/register', {
-                firstname: this.state.firstname,
-                lastname: this.state.lastname,
-                email: this.state.email,
-                username: this.state.username,
-                password: this.state.password
+            axios('/auth/register', {
+                method: 'POST',
+                data: {
+                    firstname: this.state.firstname,
+                    lastname: this.state.lastname,
+                    email: this.state.email,
+                    username: this.state.username,
+                    password: this.state.password
+                }
             })
             .then(res => {
               console.log('in register',res);
-              // this.setState({
-              //   newId: res.data.data.id,
-              //   fireRedirect: true,
-              // });
+              this.setState({
+                fireRedirect: true,
+              });
             })
             .catch(err => console.log('in error',err));
           e.target.reset();
@@ -56,8 +59,11 @@ class Register extends Component {
                         <input name="username" type="text" placeholder="username" required onChange={this.handleInputChange}/>
                         <input name="password" type="password" placeholder="password" required onChange={this.handleInputChange}/>
                         <input type="submit" value="Sign up" />
+                    
                     </form>
-                    <a class="Signin" href="/">Sign up</a>
+                    {this.state.fireRedirect
+                        ? <Redirect push to={`/home`} />
+                        : ''}
                 </div>
             )
         }
