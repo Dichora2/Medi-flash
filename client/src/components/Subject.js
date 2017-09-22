@@ -8,26 +8,27 @@ import axios from 'axios';
 import FlashcardToggle from './FlashcardToggle.js';
 import { Link } from 'react-router-dom';
 
-
 class Subject extends Component {
     constructor() {
       super();
       this.state = {
         SubjectLoaded: false,
-        subject: [], 
+        flashcards: [], 
       }
     }
 
 //axios
 componentDidMount() {
-  axios.get(`/subjects/${this.props.match.params.id}`)
+  // console.log('---------------->',this.state.user_id);
+  axios.get(`/subject/${this.props.match.params.id}`)
     .then(res => {
+      console.log('----->', res)
+      
       this.setState({
         subjectLoaded: true,
-        subject: res.data.subject,
-        //check if this works
+        flashcards: res.data.data
       })
-      console.log('-------------->',res.data.subject)
+      // console.log('-------------->',res.data.subject)
     }).catch(err => console.log(err));
 }
 
@@ -56,7 +57,11 @@ componentDidMount() {
         </div>
                       
     }else{
-      <button className='add-flashcard'><Link to='/add'>Add New Flashcard</Link></button>
+      <div>
+        <h1>NO FLASHCARDS</h1>
+        <button className='add-flashcard'><Link to='/add'>Add New Flashcard</Link></button>
+      </div>
+
     }
   }
 
