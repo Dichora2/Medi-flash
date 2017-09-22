@@ -80,10 +80,5 @@ subjectController.destroy = (req, res) => {
     });
 };
 
-<<<<<<< HEAD
-module.exports = subjectController;
-=======
-
 module.exports = subjectController;
 
->>>>>>> 59b270f6d3f810be7663d933d4d97892107ff3f4
