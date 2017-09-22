@@ -8,7 +8,7 @@ class SubjectAddForm extends Component {
     super();
     this.state = {
       name: '',
-      date_modified: '',
+      date_modified: new Date(),
       fireRedirect: false,      
     };
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -57,16 +57,6 @@ class SubjectAddForm extends Component {
               placeholder="subject name"
               name="name"
               value={this.state.name}
-              onChange={this.handleInputChange}
-            />
-          </label>
-          <label>
-            Date
-            <input
-              type="test"
-              placeholder="date"
-              name="date_modified"
-              value={this.state.date_modified}
               onChange={this.handleInputChange}
             />
           </label>
