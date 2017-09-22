@@ -20,7 +20,9 @@ class Subjects extends Component {
 
 
     componentDidMount() {
-        axios.get('http://localhost:3000/subject')
+        axios('/subject', {
+          method: 'GET',
+        })
           .then(res => {
             console.log('in login', this.state)
             console.log('this is the res', res)

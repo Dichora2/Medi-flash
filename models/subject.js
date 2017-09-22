@@ -25,11 +25,11 @@ Subject.create = subject => {
   return db.one(
     `
     INSERT INTO subjects
-    (user_id, name, dade_modified)
+    (user_id, name, date_modified)
     VALUES ($1, $2, $3)
     RETURNING *
   `,
-    [user_id, name, date_modified]
+    [subject.user_id, subject.name, subject.date_modified]
   );
 };
 
