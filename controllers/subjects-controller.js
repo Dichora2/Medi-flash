@@ -55,11 +55,11 @@ subjectController.update = (req, res) => {
       definition: req.body.definition,
       date_modified: req.body.date_modified,
     },
-    req.params.id,
+    req.params.id
   )
     .then(subject => {
       res.json({
-        data: subject,
+        data: subject
       });
     })
     .catch(err => {
