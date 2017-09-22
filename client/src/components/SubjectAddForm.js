@@ -8,7 +8,7 @@ class SubjectAddForm extends Component {
     super();
     this.state = {
       name: '',
-      date_created: '',
+      date_modified: '',
       fireRedirect: false,      
     };
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -24,22 +24,25 @@ class SubjectAddForm extends Component {
   }
 
   handleFormSubmit(e) {
+    console.log('------------->', this.state);
     e.preventDefault();
     axios
-      .post('/subjects', {
+      .post('http://localhost:3000/subject', {
         name: this.state.name,
-        date_created: this.state.date_created,
+        date_modified: this.state.date_modified,
       })
       .then(res => {
         console.log(res);
         this.setState({
-          newId: res.data.subject.id,
+          newId: res.data.data.id,
 
           //confirm if this is targeting the right thing
           fireRedirect: true,
         });
       })
       .catch(err => console.log(err));
+      console.log('------------->err');
+      
     e.target.reset();
   }
 
@@ -60,10 +63,10 @@ class SubjectAddForm extends Component {
           <label>
             Date
             <input
-              type="date_created"
+              type="test"
               placeholder="date"
-              name="date_created"
-              value={this.state.date_created}
+              name="date_modified"
+              value={this.state.date_modified}
               onChange={this.handleInputChange}
             />
           </label>

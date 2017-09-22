@@ -13,6 +13,9 @@ Subject.findById = id => {
     `
     SELECT * FROM subjects
     WHERE id = $1
+
+
+    
   `,
     [id]
   );
@@ -22,11 +25,11 @@ Subject.create = subject => {
   return db.one(
     `
     INSERT INTO subjects
-    (user_id, term, created, name)
+    (user_id, name, dade_modified)
     VALUES ($1, $2, $3)
     RETURNING *
   `,
-    [user_id, date_created, name]
+    [user_id, name, date_modified]
   );
 };
 
@@ -35,7 +38,7 @@ Subject.update = (subject, id) => {
     `
     UPDATE subjects
       user_id = $1,
-      date_created = $2,
+      date_modified = $2,
       name = $3,
     WHERE id = $4
     RETURNING *
