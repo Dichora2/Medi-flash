@@ -6,6 +6,20 @@ Flashcard.findAll = () => {
   return db.query(`SELECT * FROM flashcards`);
 };
 
+Flashcard.findByUserSubject = (user_id, subject_id) => {
+  return db.query(
+    `SELECT term, definition
+      FROM flashcards
+      JOIN flashcards_users
+      ON flashcards.user_id = flashcards_users.user_id
+      JOIN flashcards_subjects
+      ON flashcards.id = flashcards_subjects.flashcards_id
+      WHERE flashcards.user_id = $1 AND flashcards_subjects.subject_id = $2
+    `,
+    [user_id, subject_id]
+    );
+};
+
 Flashcard.findById = id => {
   return db.oneOrNone(
     `
@@ -15,6 +29,22 @@ Flashcard.findById = id => {
     [id]
   );
 };
+
+
+// Flashcard.findByUserSubject = (user_id, subject_id) => {
+//   return db.query(
+//     `SELECT term, definition
+//       FROM flashcards
+//       JOIN users_flashcards
+//       ON flashcards.user_id = users_flashcards.user_id
+//       JOIN flashcards_subjects
+//       ON flashcards.id = flashcards_subjects.flashcard_id
+//       WHERE flashcards.user_id = $1 AND flashcards_subjects.subject_id = $2
+//     `,
+//     [user_id, subject_id]
+//     );
+// };
+
 
 Flashcard.create = flashcard => {
   return db.one(

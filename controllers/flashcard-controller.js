@@ -2,6 +2,21 @@ const Flashcard = require('../models/flashcard');
 
 const flashcardController = {};
 
+
+flashcardController.subjectFlashcardIndex = (req, res) => {
+    Flashcard.findByUserSubject(req.params.userid, req.params.subjectid)
+    .then(flashcards => {
+      res.json({
+        message: 'ok',
+        data: flashcards,
+      });
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json({ err });
+    });
+}
+
 flashcardController.index = (req, res) => {
   Flashcard.findAll()
     .then(flashcards => {
