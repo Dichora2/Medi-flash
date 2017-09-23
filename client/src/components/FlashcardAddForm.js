@@ -86,7 +86,7 @@ class FlashcardAddForm extends Component {
           </label>
           <label>
             Definition
-            <textarea id="comment" name="comment" cols="40" rows="20"
+            <textarea id="comment" cols="40" rows="20"
               placeholder="Definition"
               name="definition"
               value={this.state.definition}
