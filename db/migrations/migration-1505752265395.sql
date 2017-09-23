@@ -27,12 +27,13 @@ CREATE TABLE IF NOT EXISTS subjects (
   name VARCHAR(255)
 );
 
-CREATE TABLE IF NOT EXISTS users_flashcards (
-  user_id integer REFERENCES users(id),
-  flashcard_id integer REFERENCES flashcards(id)
-);
 
 CREATE TABLE IF NOT EXISTS flashcards_subjects (
   flashcard_id integer REFERENCES flashcards(id),
   subject_id integer REFERENCES subjects(id)
+);
+
+CREATE TABLE IF NOT EXISTS users_flashcards (
+  user_id integer REFERENCES users(id),
+  flashcard_id integer REFERENCES flashcards(id)
 );
