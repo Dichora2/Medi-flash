@@ -36,7 +36,7 @@ flashcardController.create = (req, res) => {
     term: req.body.term,
     definition: req.body.definition,
     date_modified: req.body.date_modified,
-    keep_studying: req.body.keep_studying,
+    keep_studying: false,
   })
     .then(flashcard => {
       res.json({
@@ -88,9 +88,10 @@ flashcardController.destroy = (req, res) => {
 };
 
 flashcardController.sendApiDefinition = (req, res) => {
+  console.log(res.locals.definition);
   res.json({
-    message: `Definition for ${req.params.term}`,
-    weather: res.locals.definition,
+    header: `Definition for ${req.params.term}`,
+    definition: res.locals.definition,
   })
 }
 

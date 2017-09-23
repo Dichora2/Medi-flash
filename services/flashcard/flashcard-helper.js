@@ -13,11 +13,12 @@ function getDefinitionFromAPI(req, res, next) {
     .then(textRes => {
       parseString(textRes, function (err, result) {
         const def_array = result.entry_list.entry[0].def[0].sensb;
+        let definition = '';
         def_array.forEach((item,index) =>{
-          let definition;
+          console.log(item.sens[0].dt[0]);
           if (typeof item.sens[0].dt[0] === 'object') {
             definition += (index + 1) + ': ' + item.sens[0].dt[0]._ +
-             (item.sens[0].dt[0].fw) ? item.sens[0].dt[0].fw[0]:'' + ' ';
+             ((item.sens[0].dt[0].hasOwnProperty('fw')) ? item.sens[0].dt[0].fw[0]:'') + ' ';
           } else {
             definition += (index + 1) + ': ' + item.sens[0].dt[0] + ' ';
           }
