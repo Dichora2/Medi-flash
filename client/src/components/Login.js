@@ -17,7 +17,6 @@ class Login extends Component {
     }
 
     handleInputChange(e) {
-        console.log(this.state)
         const name = e.target.name;
         const value = e.target.value;
         this.setState({
@@ -27,7 +26,6 @@ class Login extends Component {
 
     handleFormSubmit(e){
         e.preventDefault();
-        console.log(this.state)
         axios('/auth/login', {
             method: 'POST',
             data: {
@@ -36,10 +34,11 @@ class Login extends Component {
             },
         })
         .then(res => {
-            console.log('in login',res);
+          if (res.data.auth) {
             this.setState({
                 fireRedirect: true,
             });
+          }
         })
         .catch(err => console.log('in error',err));
       e.target.reset();
@@ -48,7 +47,7 @@ class Login extends Component {
 
     render(){
         return (
-            <div> 
+            <div>
                 <a class="Register" href="/">Register</a>
 
                 <h1 className="login-header">Use your Medi-flash account to add, save, and test your knowledge.</h1>
@@ -58,7 +57,7 @@ class Login extends Component {
                     <input type="submit" value="Log in" />
                 </form>
                 {this.state.fireRedirect
-                    ? <Redirect push to={`/home`} />
+                    ? <Redirect push to={`/subjects`} />
                       : ''}
             </div>
         )
