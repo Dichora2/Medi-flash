@@ -16,9 +16,8 @@ subjectController.index = (req, res) => {
 };
 
 subjectController.show = (req, res) => {
-  Subject.findByUserSubject(req.params.id, req.user.id)
+  Subject.findById(req.params.id)
     .then(subject => {
-      console.log('inside findByUserSubject')
       res.json({
         data: subject,
       });
@@ -55,11 +54,11 @@ subjectController.update = (req, res) => {
       name: req.body.name,
       date_modified: req.body.date_modified,
     },
-    req.params.id
+    req.params.id,
   )
     .then(subject => {
       res.json({
-        data: subject
+        data: subject,
       });
     })
     .catch(err => {
@@ -80,6 +79,7 @@ subjectController.destroy = (req, res) => {
       res.status(500).json({ err });
     });
 };
+
 
 module.exports = subjectController;
 

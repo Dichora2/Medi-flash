@@ -48,7 +48,7 @@ class Login extends Component {
 
     render(){
         return (
-            <div>
+            <div> 
                 <a class="Register" href="/">Register</a>
 
                 <h1 className="login-header">Use your Medi-flash account to add, save, and test your knowledge.</h1>

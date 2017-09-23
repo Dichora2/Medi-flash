@@ -12,9 +12,6 @@ authRouter.get('/register', authHelpers.loginRedirect, (req, res) => {
   res.render('auth/register');
 });
 authRouter.post('/register', usersController.create);
-authRouter.post('/login', passport.authenticate('local'), (req, res) => {
-  res.json({ message: 'hi' });
-});
 // authRouter.post('/login', passport.authenticate('local'), (req, res) => {
 
 //   res.json({ message: 'hi',
@@ -46,7 +43,7 @@ authRouter.get('/failure', (req, res) => {
 })
 
 // ;, {
-//     successRedirect: '/',
+//     successRedirect: '/', 
 //     failureRedirect: '/auth/login',
 //     failureFlash: true,
 //   })
@@ -55,5 +52,5 @@ authRouter.get('/logout', (req, res) => {
     req.logout();
     res.redirect('/login');
   });
-
+  
   module.exports = authRouter;

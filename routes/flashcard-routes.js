@@ -5,7 +5,6 @@ const flashcardController = require('../controllers/flashcard-controller');
 const flashcardHelper = require('../services/flashcard/flashcard-helper');
 
 flashcardRouter.get('/', flashcardController.index);
-// flashcardRouter.get('/:userid/subject/:subjectid', flashcardController.subjectFlashcardIndex);
 flashcardRouter.post('/', flashcardController.create);
 
 flashcardRouter.get('/:id', flashcardController.show);
