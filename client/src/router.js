@@ -22,7 +22,7 @@ export default (
             <Route exact path='/home' component={App} />
             <Route exact path='/subjects' component={Subjects} />
             <Route exact path='/add' component={FlashcardAddForm} />
-            <Route exact path='/edit' component={FlashcardEditForm} />
+            <Route exact path='/edit/:id' component={FlashcardEditForm} />
 
             <Route exact path='/subjects/add' component={SubjectAddForm} />
 
