@@ -9,7 +9,7 @@
   font-family: museo-sans, sans-serif;
   max-width: 1024px;
   margin: auto;
-  background: #EDFEFF;
+  /* background: #EDFEFF; */
   
   
  }
@@ -216,7 +216,9 @@ a.individual-subject-link {
   font-size: 20px;
 }
 
-a.add-subject {
+
+
+a.add-subject, button {
   text-decoration: none;
   background-color: #0F77FE;
   padding: 1% 5%;
@@ -226,6 +228,22 @@ a.add-subject {
   float: right;
 }
 
+button {
+  border:none;
+  float: none;
+  
+}
+button.flashcard-button > a {
+  text-decoration: none;
+  color: white;  
+}
+
+button.flashcard-button{
+  float: right;
+  margin: 5px;
+  
+  
+}
 .subject-page-header{
   margin: 2% 0
 }
@@ -235,6 +253,47 @@ a.add-subject {
 
 .add-subject {
   padding: 5%;
+}
+
+/* /* subject.js */
+
+.cardArea{
+  height: 100vh;
+}
+
+.flashcard {
+  background-color:white;
+  border: 2px solid #02EBF5;
+  border-top: none;
+  height: 227px;
+  display: inline-block;
+  width: 48%;
+  margin: 5px;
+}
+button.flashcard-button-card {
+  display: inline;
+  width: 50%;
+  height: 40px;
+}
+
+.got-it{
+  background-color: #02EBF5;
+}
+
+.flashcard-term {
+  font-size: 1.4rem;
+  font-weight: 100;
+  text-align: center;
+  font-family: 'Nunito', sans-serif;
+  color: #0F77FE;
+  padding-top: 50px;
+}
+
+.flashcard-definition {
+  font-family: 'Nunito', sans-serif;
+  color: #0F77FE;
+  padding: 5px;
+  
 }
 /******************************************
 /* HELPER CLASSES
