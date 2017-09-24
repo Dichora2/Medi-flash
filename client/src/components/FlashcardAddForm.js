@@ -3,8 +3,9 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 import { Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-
+import Subject from './Subject.js'
 
 class FlashcardAddForm extends Component {
   constructor() {
@@ -58,7 +59,6 @@ class FlashcardAddForm extends Component {
       .get(`/flashcard/term/${this.state.term}`)
       .then(res => {
         console.log('--------------->', this.state)
-
         console.log('res = ',res.data);
         this.setState({
           definition: res.data.definition,
@@ -71,11 +71,14 @@ class FlashcardAddForm extends Component {
   }
 
   render() {
+    let path = '/subjects/user/' + this.props.match.params.id;
+    
     return (
-      <div className="add">
+      <div className="add-flashcard">
+
         <form onSubmit={this.handleFormSubmit}>
-          <label>
-            Term
+        <Link className="back-to-subjects " to={path}> ← back to all subjects</Link>
+
             <input
               type="text"
               placeholder="Term"
@@ -83,19 +86,17 @@ class FlashcardAddForm extends Component {
               value={this.state.term}
               onChange={this.handleInputChange}
             />
-          </label>
-          <label>
-            Definition
+            <p className='dictionary'>Merriam-Webster Medical Dictionary API</p>
+            <button onClick={this.getAPIData}>LOAD</button>
+
             <textarea id="comment" cols="40" rows="20"
               placeholder="Definition"
               name="definition"
               value={this.state.definition}
               onChange={this.handleInputChange}>
             </textarea>
-          </label>
-          <input type="submit" value="Submit!" />
+          <input className='submit' type="submit" value="SUBMIT" />
         </form>
-        <button onClick={this.getAPIData}>Load definition from dictionary</button>
         {this.state.fireRedirect
           ? <Redirect push to={`/subject/${this.state.newId}`} />
           : ''}
