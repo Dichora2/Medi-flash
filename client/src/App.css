@@ -160,12 +160,20 @@ input:focus {
 }
 
  .submit {
-  width: 200px;
+  /* width: 200px;
   height: 40px;
   background-color: #0F77FE;
   color: white;
-  font-size: 1rem;
+  font-size: 1rem; */
+
+
+  background-color: #0F77FE;
+  padding: 10px 20px;
+  letter-spacing: 2px;
+  font-size: .6rem;
+  color: white;
 }
+
 
 .linkarea {
   width: 200px;
@@ -300,6 +308,32 @@ button.flashcard-button-card {
   padding: 5px;
   
 }
+
+
+
+/* Flashcard Add Form */
+
+.add-flashcard{
+  margin: 5%;
+}
+
+
+
+#comment {
+  margin: 2% 0;
+  display: block;
+  width: 70%;
+  border: 2px solid #0F77FE;
+}
+
+p.dictionary {
+  color: #0F77FE;
+}
+
+
+
+
+
 /******************************************
 /* HELPER CLASSES
 /*******************************************/

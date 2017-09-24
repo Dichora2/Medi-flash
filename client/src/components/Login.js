@@ -60,7 +60,7 @@ class Login extends Component {
                 <form onSubmit={(e) => this.handleFormSubmit(e)}>
                     <input name="username" type="text" placeholder="username" required onChange={this.handleInputChange}/>
                     <input name="password" type="password" placeholder="password" required onChange={this.handleInputChange}/>
-                    <input className="submit" type="submit" value="Log in" />
+                    <input className="submit" type="submit" value="LOGIN" />
                 </form>
                 <a className="link" href="/register">Register</a>
 
