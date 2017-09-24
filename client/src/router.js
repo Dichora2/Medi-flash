@@ -29,7 +29,7 @@ export default (
 
             <Route exact path='/subjects/:id' component={Subject} />
             <Route exact path='/' component={Login} />
-            <Route exact path='/' component={Logout} />
+            {/* <Route exact path='/' component={Logout} /> */}
             <Route exact path='/register' component={Register} />
         </div>
     </BrowserRouter>

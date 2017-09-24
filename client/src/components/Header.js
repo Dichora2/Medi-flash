@@ -25,7 +25,7 @@ class Header extends Component {
                     </div>
                     <h1 className='website-title-header'><Link to='/'>Medi-flash</Link></h1>
                     <h4 className='user-name-header'>username</h4>
-                    <Logout />
+                    {/* <Logout /> */}
                 </div>
             </div>
         )
