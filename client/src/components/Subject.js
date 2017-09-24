@@ -1,3 +1,5 @@
+import FontAwesome from 'react-fontawesome';
+
 import React, { Component } from 'react';
 //import Subject data
 
@@ -7,6 +9,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import FlashcardToggle from './FlashcardToggle.js';
 import { Link } from 'react-router-dom';
+
 
 
 class Subject extends Component {
@@ -41,17 +44,18 @@ componentDidMount() {
           flashcards: res.data.data,
           //check if this works
         })
-        console.log('-------------->',res.data.data)
+        console.log('LENGTH-------------->',res.data.data.length)
       }
     }).catch(err => console.log('in error',err));
 }
 
   flashcardMap(array){
-    console.log('array = ', array);
+    console.log('arrayLength = ', array.length);
     return array.map((flashcard, index) => {
       console.log('flashcard = ',flashcard);
       return (
-          <FlashcardToggle flashcard_object={flashcard} />
+            <FlashcardToggle flashcard_object={flashcard} />
+
         //on click it needs the card needs to flip
       )
     })
@@ -60,11 +64,16 @@ componentDidMount() {
 
   renderSubjectWithFlashcards(){
     const subjectId = Number(this.props.match.params.id);
+
     let content;
     if (this.state.subjectLoaded){
-
+      
       const subjectName = this.state.subject.data.name
-      console.log('SUBJECT ---------->', this.state.subject.data);
+      const subjectDate = this.state.subject.data.date_modified
+      
+      console.log('SUBJECT ---------->', this.state.subject.data.name);
+      console.log('DATA ---------->', this.state.subject.data.date_modified);
+      console.log('EVERYTHING -------->', this.state.subject.data)
       
       return (
 
@@ -72,8 +81,11 @@ componentDidMount() {
         <div className='page-header'>
           <button className='add-flashcard flashcard-button'><Link to='/add'>+ ADD CARDS</Link></button>
           <button className='hard-flashcard flashcard-button'><Link to='/hmmm'>HARD ONES</Link></button>
+          <Link className="back-to-subjects " to={`/subjects`}> ← back to all subjects</Link>
 
           <h1 className='subject-page-header'>{subjectName}</h1>
+          <p className="subject-date">{subjectDate}</p>
+          <p className='subject-flashcard-count'>{}</p>
             <div className="cardArea">
               {this.flashcardMap(this.state.flashcards)}
         </div>
