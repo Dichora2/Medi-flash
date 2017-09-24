@@ -49,6 +49,8 @@ class Register extends Component {
          }
 
         render(){
+            let path = '/subjects/user/' + this.state.user_id;                
+            
             return (
                 <div className="auth-page">
                     <h1 className="auth-header">Use your Medi-flash account to add, save, and test your knowledge.</h1>
@@ -66,7 +68,7 @@ class Register extends Component {
 
 
                     {this.state.fireRedirect
-                        ? <Redirect push to={`/subjects`} />
+                        ? <Redirect push to={path} />
                         : ''}
                 </div>
             )
