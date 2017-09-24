@@ -74,12 +74,13 @@ componentDidMount() {
       console.log('SUBJECT ---------->', this.state.subject.data.name);
       console.log('DATA ---------->', this.state.subject.data.date_modified);
       console.log('EVERYTHING -------->', this.state.subject.data)
+      let path = '/subjects/user/' + this.props.match.params.id;
       
       return (
         <div className='page-header'>
           <button className='add-flashcard flashcard-button'><Link to='/add'>+ ADD CARDS</Link></button>
           <button className='hard-flashcard flashcard-button'><Link to='/hmmm'>HARD ONES</Link></button>
-          <Link className="back-to-subjects " to={`/subjects`}> ← back to all subjects</Link>
+          <Link className="back-to-subjects " to={path}> ← back to all subjects</Link>
 
           <h1 className='subject-page-header'>{subjectName}</h1>
           <p className="subject-date">{subjectDate}</p>

@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import axios from 'axios';
 import { Redirect } from 'react-router-dom';
 
+import { Link } from 'react-router-dom';
 
 class SubjectAddForm extends Component {
   constructor() {
@@ -59,6 +60,8 @@ class SubjectAddForm extends Component {
     let path = '/subjects/user/' + this.props.match.params.id;
     return (
       <div className="add-subject">
+                  <Link className="back-to-subjects " to={path}> ← back to all subjects</Link>
+
         <form onSubmit={this.handleFormSubmit}>
             <input
               type="text"
