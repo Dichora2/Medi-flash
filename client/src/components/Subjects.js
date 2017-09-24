@@ -40,7 +40,7 @@ class Subjects extends Component {
             return array.map(subject => {
                 return (
                 <li key={subject.id} className='individual-subject'>
-                    <Link to={`/subjects/${subject.id}`}>{subject.name}</Link>
+                    <Link className="individual-subject-link" to={`/subjects/${subject.id}`}>{subject.name}</Link>
                 </li>
                 )
             })
@@ -52,8 +52,13 @@ class Subjects extends Component {
     render(){
       return(
         <div className='subjects'>
-          <h1 className='subject-page-header'>Subjects</h1>
-          <Link to={`/subjects/add`}>add subject</Link>
+          <div className='page-header'>
+            <h1 className='subject-page-header'>Subjects</h1>
+            <Link className="add-subject" to={`/subjects/add`}>ADD SUBJECT</Link>
+
+
+          </div>
+
           <ul className='list-of-subjects'>
             {this.renderSubjects(this.state.subjects)}
           </ul>

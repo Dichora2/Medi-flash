@@ -96,7 +96,7 @@ h1.website-title-header a{
 
 
 
- .main-home-box h1 , .auth-header {
+ .main-home-box h1 , .auth-header , h1{
   font-family: 'Nunito', sans-serif;
   font-size: 2.5em;
   line-height: 3rem;
@@ -152,6 +152,7 @@ input:focus {
   text-decoration: none;
   color: #0F77FE;
   
+  
 
 }
 
@@ -170,6 +171,33 @@ input:focus {
 }
 
 
+/* //subjects.js */
+ul.list-of-subjects{
+  padding: 0;
+
+  -webkit-column-count: 2;
+  -moz-column-count: 2;
+  column-count: 2;
+}
+
+
+li.individual-subject {
+  list-style: none;
+  margin: auto;
+  padding: 5%;  
+  margin-bottom: 5%;
+  width: 350px;
+  height: 5%;
+  border: 1px solid #0F77FE;
+  border-top: 5px solid #0F77FE;
+}
+
+a.individual-subject-link {
+  text-decoration: none;
+  color: #0F77FE;
+  font-size: 1.2rem;
+  font-weight: 100;
+}
 
 .subject {
   width: 350px;
@@ -181,8 +209,22 @@ input:focus {
   font-size: 20px;
 }
 
+a.add-subject {
+  text-decoration: none;
+  background-color: #0F77FE;
+  padding: 1% 5%;
+  letter-spacing: 2px;
+  font-size: .6rem;
+  color: white;
+  float: right;
+}
 
-
+.subject-page-header{
+  margin: 2% 0
+}
+.page-header{
+  padding: 4% 5%;
+}
 /******************************************
 /* HELPER CLASSES
 /*******************************************/

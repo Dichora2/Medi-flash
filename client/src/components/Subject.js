@@ -32,7 +32,7 @@ componentDidMount() {
       })
       console.log('-------------->',res.data)
     }).catch(err => console.log(err));
-  axios.get(`/flashcard/user/3/subject/${this.props.match.params.id}/`)
+  axios.get(`/flashcard/user/20/subject/${this.props.match.params.id}/`)
     .then(res => {
       console.log('res.data = ',res.data);
       if (res.data.data) {
