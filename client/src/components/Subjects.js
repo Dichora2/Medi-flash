@@ -17,7 +17,6 @@ class Subjects extends Component {
         subjectsLoaded: false
       };
 
-      // this.Subjects = this.Subject.bind();
     }
 
 
@@ -26,12 +25,9 @@ class Subjects extends Component {
           method: 'GET',
         })
           .then(res => {
-            console.log('in login', this.state)
-            console.log('this is the res', res)
             this.setState({
 
                 subjects: res.data.data,
-                //console.log data make sure I am targetting the correct thing
                 subjectsLoaded: true
             })
           })
