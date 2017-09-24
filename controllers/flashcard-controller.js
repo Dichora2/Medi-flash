@@ -30,6 +30,20 @@ flashcardController.show = (req, res) => {
     });
 };
 
+flashcardController.showByUserSubject = (req, res) => {
+  Flashcard.findByUserSubject(req.params.user_id,req.params.subject_id)
+    .then(flashcard => {
+      res.json({
+        message: 'ok',
+        data: flashcard,
+      });
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json({ err });
+    });
+};
+
 flashcardController.create = (req, res) => {
   Flashcard.create({
     user_id: req.body.user_id,
