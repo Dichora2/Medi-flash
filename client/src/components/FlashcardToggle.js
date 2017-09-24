@@ -44,7 +44,8 @@ IGotIt() {
 toggle(){
     this.setState({
         show: !this.state.show
-    })
+    });
+    
 }
 
 
@@ -59,14 +60,13 @@ render() {
 
     console.log('flashcard in toggle = ',this.state.flashcard);
     return(
-        <div>
-            <h2 style={hide}>{this.state.flashcard.term}</h2>
-            <div className="flashcardDefinitionShow">
-                <h2 style={show}>{this.state.flashcard.definition}</h2>
-                <button onClick={this.toggle.bind(this)}>Back</button>
-                <button onClick={this.IGotIt.bind(this)}>I got it!</button>
+            <div className="flashcard clearfix">
+
+                <button className='flashcard-button-card' onClick={this.toggle.bind(this)}>DEFINITION</button>
+                <button className='flashcard-button-card got-it' onClick={this.IGotIt.bind(this)}>I GOT IT!</button>
+                <h3  className='flashcard-term' style={hide}>{this.state.flashcard.term}</h3>
+                <p className='flashcard-definition' style={show}>{this.state.flashcard.definition}</p>
             </div>
-        </div>
     )
 }
 
