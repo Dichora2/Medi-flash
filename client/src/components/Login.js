@@ -56,7 +56,7 @@ class Login extends Component {
                     <input name="password" type="password" placeholder="password" required onChange={this.handleInputChange}/>
                     <input className="submit" type="submit" value="Log in" />
                 </form>
-                <a className="link" href="/">Register</a>
+                <a className="link" href="/register">Register</a>
 
                 {this.state.fireRedirect
                     ? <Redirect push to={`/subjects`} />

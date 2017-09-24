@@ -62,8 +62,8 @@ class Register extends Component {
                     
 
                     </form>
+                    <a className="link" href="/">Login</a>
 
-                    <Link to={`/`}>login</Link>
 
                     {this.state.fireRedirect
                         ? <Redirect push to={`/subjects`} />
