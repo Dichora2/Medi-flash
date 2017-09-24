@@ -15,6 +15,19 @@ subjectController.index = (req, res) => {
     });
 };
 
+subjectController.indexUser = (req, res) => {
+  Subject.findAllByUser(req.params.id)
+    .then(subjects => {
+      res.json({
+        data: subjects,
+      });
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json({ err });
+    });
+};
+
 subjectController.show = (req, res) => {
   Subject.findById(req.params.id)
     .then(subject => {
@@ -31,7 +44,7 @@ subjectController.show = (req, res) => {
 subjectController.create = (req, res) => {
   console.log(req.user);
   Subject.create({
-    user_id: req.user.id,
+    user_id: req.body.user_id,
     name: req.body.name,
     date_modified: req.body.date_modified,
 

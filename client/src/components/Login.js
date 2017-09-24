@@ -8,6 +8,7 @@ class Login extends Component {
     constructor(props){
         super(props);
         this.state ={
+            user_id: 0,
             username: '',
             password: '',
             fireRedirect: false
@@ -35,7 +36,9 @@ class Login extends Component {
         })
         .then(res => {
           if (res.data.auth) {
+            console.log('user = ', res.data.user);
             this.setState({
+                user_id: res.data.user.id,
                 fireRedirect: true,
             });
           }
@@ -46,6 +49,9 @@ class Login extends Component {
 
 
     render(){
+        let path = '/subjects/user/' + this.state.user_id;
+        console.log('params = ',this.state.user_id)
+        console.log('path = ',path);
         return (
             <div className="auth-page">
 
@@ -59,7 +65,7 @@ class Login extends Component {
                 <a className="link" href="/register">Register</a>
 
                 {this.state.fireRedirect
-                    ? <Redirect push to={`/subjects`} />
+                    ? <Redirect push to={path} />
                       : ''}
             </div>
         )

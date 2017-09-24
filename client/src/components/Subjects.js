@@ -21,7 +21,7 @@ class Subjects extends Component {
 
 
     componentDidMount() {
-        axios('/subject', {
+        axios(`/subject/user/${this.props.match.params.id}`, {
           method: 'GET',
         })
           .then(res => {
@@ -36,6 +36,7 @@ class Subjects extends Component {
 
 
     renderSubjects(array){
+      console.log('user id = ',this.props.match.params.id);
        if(this.state.subjectsLoaded) {
             return array.map(subject => {
                 return (
@@ -50,11 +51,12 @@ class Subjects extends Component {
     }
 
     render(){
+      let path = '/subjects/add/user/' + this.props.match.params.id;
       return(
         <div className='subjects'>
           <div className='page-header'>
             <h1 className='subject-page-header'>Subjects</h1>
-            <Link className="add-subject" to={`/subjects/add`}>ADD SUBJECT</Link>
+            <Link className="add-subject" to={path}>ADD SUBJECT</Link>
 
 
           </div>
