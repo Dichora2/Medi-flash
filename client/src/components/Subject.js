@@ -35,7 +35,7 @@ componentDidMount() {
       })
       console.log('-------------->',res.data)
     }).catch(err => console.log(err));
-  axios.get(`/flashcard/user/20/subject/${this.props.match.params.id}/`)
+  axios.get(`/flashcard/user/3/subject/${this.props.match.params.id}/`)
     .then(res => {
       console.log('res.data = ',res.data);
       if (res.data.data) {
@@ -76,8 +76,6 @@ componentDidMount() {
       console.log('EVERYTHING -------->', this.state.subject.data)
       
       return (
-
-
         <div className='page-header'>
           <button className='add-flashcard flashcard-button'><Link to='/add'>+ ADD CARDS</Link></button>
           <button className='hard-flashcard flashcard-button'><Link to='/hmmm'>HARD ONES</Link></button>
@@ -87,6 +85,7 @@ componentDidMount() {
           <p className="subject-date">{subjectDate}</p>
           <p className='subject-flashcard-count'>{}</p>
             <div className="cardArea">
+
               {this.flashcardMap(this.state.flashcards)}
         </div>
 

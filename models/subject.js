@@ -7,6 +7,15 @@ Subject.findAll = () => {
   return db.query(`SELECT * FROM subjects`);
 };
 
+Subject.findAllByUser = (user_id) => {
+  return db.query(`
+    SELECT * FROM subjects
+    WHERE user_id = $1
+    `,
+    [user_id]
+  );
+};
+
 Subject.findById = id => {
 
   return db.oneOrNone(
@@ -15,7 +24,7 @@ Subject.findById = id => {
     WHERE id = $1
 
 
-    
+
   `,
     [id]
   );
