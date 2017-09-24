@@ -4,12 +4,15 @@
  @import url('https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700');
  /* replacing futura for now */
 
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+ 
+ 
 
  html {
   font-family: museo-sans, sans-serif;
   max-width: 1024px;
   margin: auto;
-  background: #EDFEFF;
+  /* background: #EDFEFF; */
   
   
  }
@@ -216,16 +219,37 @@ a.individual-subject-link {
   font-size: 20px;
 }
 
-a.add-subject {
+.subject-date, .back-to-subjects{
+  font-size: .8rem;
+  color: #4A4A4A;
+  text-decoration: none;
+}
+a.add-subject, button {
   text-decoration: none;
   background-color: #0F77FE;
-  padding: 1% 5%;
+  padding: 10px 20px;
   letter-spacing: 2px;
   font-size: .6rem;
   color: white;
   float: right;
 }
 
+button {
+  border:none;
+  float: none;
+  
+}
+button.flashcard-button > a {
+  text-decoration: none;
+  color: white;  
+}
+
+button.flashcard-button{
+  float: right;
+  margin: 5px;
+  
+  
+}
 .subject-page-header{
   margin: 2% 0
 }
@@ -235,6 +259,46 @@ a.add-subject {
 
 .add-subject {
   padding: 5%;
+}
+
+/* /* subject.js */
+.cardArea{
+  height: 100vh;
+}
+
+.flashcard {
+  background-color:white;
+  border: 2px solid #02EBF5;
+  border-top: none;
+  height: 227px;
+  display: inline-block;
+  width: 48%;
+  margin-right: 5px;
+}
+button.flashcard-button-card {
+  display: inline;
+  width: 50%;
+  height: 40px;
+}
+
+.got-it{
+  background-color: #02EBF5;
+}
+
+.flashcard-term {
+  font-size: 1.4rem;
+  font-weight: 100;
+  text-align: center;
+  font-family: 'Nunito', sans-serif;
+  color: #0F77FE;
+  padding-top: 50px;
+}
+
+.flashcard-definition {
+  font-family: 'Nunito', sans-serif;
+  color: #0F77FE;
+  padding: 5px;
+  
 }
 /******************************************
 /* HELPER CLASSES
