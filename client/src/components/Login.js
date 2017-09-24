@@ -50,6 +50,7 @@ class Login extends Component {
             <div className="auth-page">
 
                 <h1 className="auth-header">Use your Medi-flash account to add, save, and test your knowledge.</h1>
+
                 <form onSubmit={(e) => this.handleFormSubmit(e)}>
                     <input name="username" type="text" placeholder="username" required onChange={this.handleInputChange}/>
                     <input name="password" type="password" placeholder="password" required onChange={this.handleInputChange}/>
