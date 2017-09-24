@@ -50,7 +50,7 @@ authRouter.get('/failure', (req, res) => {
 // );
 authRouter.get('/logout', (req, res) => {
     req.logout();
-    res.redirect('/login');
+    res.redirect('/');
   });
   
   module.exports = authRouter;
