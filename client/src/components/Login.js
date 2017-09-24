@@ -47,15 +47,16 @@ class Login extends Component {
 
     render(){
         return (
-            <div>
-                <a class="Register" href="/">Register</a>
+            <div className="auth-page">
 
-                <h1 className="login-header">Use your Medi-flash account to add, save, and test your knowledge.</h1>
+                <h1 className="auth-header">Use your Medi-flash account to add, save, and test your knowledge.</h1>
                 <form onSubmit={(e) => this.handleFormSubmit(e)}>
                     <input name="username" type="text" placeholder="username" required onChange={this.handleInputChange}/>
                     <input name="password" type="password" placeholder="password" required onChange={this.handleInputChange}/>
-                    <input type="submit" value="Log in" />
+                    <input className="submit" type="submit" value="Log in" />
                 </form>
+                <a className="link" href="/">Register</a>
+
                 {this.state.fireRedirect
                     ? <Redirect push to={`/subjects`} />
                       : ''}

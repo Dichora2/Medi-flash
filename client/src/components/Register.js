@@ -50,19 +50,19 @@ class Register extends Component {
 
         render(){
             return (
-                <div>
-                    <h1 className="login-header">Use your Medi-flash account to add, save, and test your knowledge.</h1>
+                <div className="auth-page">
+                    <h1 className="auth-header">Use your Medi-flash account to add, save, and test your knowledge.</h1>
                     <form onSubmit={(e) => this.handleFormSubmit(e)}>
                         <input name="firstname" type="text" placeholder="firstname" required onChange={this.handleInputChange}/>
                         <input name="lastname" type="text" placeholder="lastname" required onChange={this.handleInputChange}/>
                         <input name="email" type="text" placeholder="email" required onChange={this.handleInputChange}/>
                         <input name="username" type="text" placeholder="username" required onChange={this.handleInputChange}/>
                         <input name="password" type="password" placeholder="password" required onChange={this.handleInputChange}/>
-                        <input type="submit" value="Sign up" />
+                        <input className='submit' type="submit" value="Sign up" />
                     
                     </form>
                     {this.state.fireRedirect
-                        ? <Redirect push to={`/home`} />
+                        ? <Redirect push to={`/subjects`} />
                         : ''}
                 </div>
             )
