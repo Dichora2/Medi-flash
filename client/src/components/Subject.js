@@ -51,9 +51,7 @@ componentDidMount() {
     return array.map((flashcard, index) => {
       console.log('flashcard = ',flashcard);
       return (
-        <div className='flash-card-term'>
           <FlashcardToggle flashcard_object={flashcard} />
-        </div>
         //on click it needs the card needs to flip
       )
     })
@@ -64,13 +62,22 @@ componentDidMount() {
     const subjectId = Number(this.props.match.params.id);
     let content;
     if (this.state.subjectLoaded){
+
+      const subjectName = this.state.subject.data.name
+      console.log('SUBJECT ---------->', this.state.subject.data);
+      
       return (
-          <div className='individual-subject-card'>
-            <h1>{this.state.subject.name} </h1>
-            <div>
+
+
+        <div className='page-header'>
+          <button className='add-flashcard flashcard-button'><Link to='/add'>+ ADD CARDS</Link></button>
+          <button className='hard-flashcard flashcard-button'><Link to='/hmmm'>HARD ONES</Link></button>
+
+          <h1 className='subject-page-header'>{subjectName}</h1>
+            <div className="cardArea">
               {this.flashcardMap(this.state.flashcards)}
-            </div>
-            <button className='add-flashcard'><Link to='/add'>Add New Flashcard</Link></button>
+        </div>
+
         </div>
       )
     }else{
@@ -83,10 +90,9 @@ componentDidMount() {
   render(){
     return(
       <div>
-          <button className='add-flashcard'><Link to='/add'>Add New Flashcard</Link></button>
           <div className='subject-page'>
             {this.renderSubjectWithFlashcards()}
-            <button className='edit-flashcard'><Link to='/edit'>Edit Flashcard</Link></button>
+            {/* <button className='edit-flashcard'><Link to='/edit'>Edit Flashcard</Link></button> */}
           </div>
       </div>
     )
