@@ -6,6 +6,7 @@ import Subject from './components/Subject'
 
 import Login from './components/Login.js'
 import Register from './components/Register.js'
+import Logout from './components/Logout.js'
 
 import FlashcardAddForm from './components/FlashcardAddForm.js'
 import FlashcardEditForm from './components/FlashcardEditForm.js'
@@ -28,6 +29,7 @@ export default (
 
             <Route exact path='/subjects/:id' component={Subject} />
             <Route exact path='/' component={Login} />
+            {/* <Route exact path='/' component={Logout} /> */}
             <Route exact path='/register' component={Register} />
         </div>
     </BrowserRouter>
