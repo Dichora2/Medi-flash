@@ -187,9 +187,16 @@ li.individual-subject {
   padding: 5%;  
   margin-bottom: 5%;
   width: 350px;
-  height: 5%;
+  height: 50px;
   border: 1px solid #0F77FE;
   border-top: 5px solid #0F77FE;
+}
+
+li.individual-subject:hover {
+  padding: 5% 10%;
+  border-left: 5px solid #0F77FE;
+  border-right: 5px solid #0F77FE;
+  
 }
 
 a.individual-subject-link {
@@ -224,6 +231,10 @@ a.add-subject {
 }
 .page-header{
   padding: 4% 5%;
+}
+
+.add-subject {
+  padding: 5%;
 }
 /******************************************
 /* HELPER CLASSES

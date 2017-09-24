@@ -57,10 +57,8 @@ class SubjectAddForm extends Component {
 
   render() {
     return (
-      <div className="add">
+      <div className="add-subject">
         <form onSubmit={this.handleFormSubmit}>
-          <label>
-            Subject Name
             <input
               type="text"
               placeholder="subject name"
@@ -68,8 +66,7 @@ class SubjectAddForm extends Component {
               value={this.state.name}
               onChange={this.handleInputChange}
             />
-          </label>
-          <input type="submit" value="Submit!" />
+          <input className="submit" type="submit" value="Submit!" />
         </form>
         {this.state.fireRedirect
             ? <Redirect push to={'/subjects'} />
