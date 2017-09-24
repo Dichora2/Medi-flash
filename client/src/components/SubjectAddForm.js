@@ -7,10 +7,10 @@ class SubjectAddForm extends Component {
   constructor() {
     super();
     this.state = {
-       
+
       name: '',
       date_modified: new Date(),
-      fireRedirect: false,      
+      fireRedirect: false,
     };
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
@@ -25,12 +25,12 @@ class SubjectAddForm extends Component {
   }
 
   handleFormSubmit(e) {
-    console.log('------------->', this.state);
+    console.log('------------->', this.props.match.params.id);
     e.preventDefault();
     axios('/subject', {
       method: 'POST',
       data: {
-        user_id: this.state.user_id, 
+        user_id: this.props.match.params.id,
         name: this.state.name,
         date_modified: this.state.date_modified,
       }
@@ -51,11 +51,12 @@ class SubjectAddForm extends Component {
           fireRedirect: true,
         });
       });
-      
+
     // e.target.reset();
   }
 
   render() {
+    let path = '/subjects/user/' + this.props.match.params.id;
     return (
       <div className="add-subject">
         <form onSubmit={this.handleFormSubmit}>
@@ -69,7 +70,7 @@ class SubjectAddForm extends Component {
           <input className="submit" type="submit" value="Submit!" />
         </form>
         {this.state.fireRedirect
-            ? <Redirect push to={'/subjects'} />
+            ? <Redirect push to={path} />
             : ''}
       </div>
     );

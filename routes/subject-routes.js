@@ -3,6 +3,7 @@ const subjectsRouter = express.Router();
 const subjectController = require('../controllers/subjects-controller');
 const authHelpers = require('../services/auth/auth-helpers')
 
+subjectsRouter.get('/user/:id', subjectController.indexUser);
 subjectsRouter.get('/', subjectController.index);
 subjectsRouter.get('/:id', subjectController.show);
 subjectsRouter.post('/', subjectController.create);
