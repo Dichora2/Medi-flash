@@ -4,8 +4,8 @@
  @import url('https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700');
  /* replacing futura for now */
 
- 
- 
+
+
 
 
 
@@ -22,7 +22,7 @@
 
  .hamburger {
   float: left;
-  
+
   display: inline-block;
   height: 65px;
   padding-top: 20px;
@@ -50,17 +50,17 @@ h1.website-title-header a{
   color: #0F77FE;
   font-weight: 100;
   font-family: museo-sans, sans-serif;
-} 
+}
 
 .user-name-header{
    margin: 35px;
    display: inline-flex;
    float: right;
-   
+
    font-weight: 100;
    font-family: museo-sans, sans-serif;
    color: #0F77FE;
-   
+
  }
 
 
@@ -76,9 +76,9 @@ h1.website-title-header a{
   /* this needs work obvi */
 }
  .home-content {
-  padding:  5% 0;   
+  padding:  5% 0;
   background-image: url(background-image.png)
-  
+
  }
  .main-home-box {
    margin: 2% 0 2% 4%;
@@ -134,7 +134,7 @@ input {
   width: 250px;
   height: 40px;
   outline: none;
-  
+
 }
 
 input::placeholder {
@@ -148,8 +148,8 @@ input::placeholder {
 
   text-decoration: none;
   color: #0F77FE;
-  
-  
+
+
 
 }
 
@@ -189,21 +189,21 @@ ul.list-of-subjects{
 li.individual-subject {
   list-style: none;
   margin: auto;
-  padding: 5%;  
+  padding: 5%;
   margin-bottom: 5%;
   width: 350px;
   height: 50px;
   border: 1px solid #0F77FE;
   border-top: 5px solid #0F77FE;
   transition: padding 0.5s ease;
-  
+
 }
 
 li.individual-subject:hover {
   padding: 5% 10%;
   border-left: 5px solid #0F77FE;
   border-right: 5px solid #0F77FE;
-  
+
 }
 
 a.individual-subject-link {
@@ -241,18 +241,18 @@ a.add-subject, button {
 button {
   border:none;
   float: none;
-  
+
 }
 button.flashcard-button > a {
   text-decoration: none;
-  color: white;  
+  color: white;
 }
 
 button.flashcard-button{
   float: right;
   margin: 5px;
-  
-  
+
+
 }
 .subject-page-header{
   margin: 2% 0
@@ -302,7 +302,7 @@ button.flashcard-button-card {
   font-family: 'Nunito', sans-serif;
   color: #0F77FE;
   padding: 5px;
-  
+
 }
 
 
@@ -357,9 +357,9 @@ p.dictionary {
   background-color: green;
   width: 80vw;
   transition: all 0.3s;
-  
-  
-}  
+
+
+}
 
 /* source: https://codepen.io/anon/pen/pWNZQz */
 
@@ -396,7 +396,7 @@ div.nav-list a:hover:before, div.nav-list a:hover:after
 .nav{
   height: 52px;
   border-left: 20px solid transparent;
-  
+
 }
 
 

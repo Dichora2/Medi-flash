@@ -42,6 +42,7 @@ class Subjects extends Component {
                 return (
                 <li key={subject.id} className='individual-subject'>
                     <Link className="individual-subject-link" to={`/subjects/${subject.id}`}>{subject.name}</Link>
+                    <Link to='/subjects/edit/user/'><button className='add-flashcard flashcard-button'>CHANGE TITLE</button></Link>
                 </li>
                 )
             })
