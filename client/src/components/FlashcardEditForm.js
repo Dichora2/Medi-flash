@@ -18,6 +18,7 @@ class FlashcardEditForm extends Component {
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
     this.deleteFlashcard = this.deleteFlashcard.bind(this);
+    this.cancelFlashcard = this.cancelFlashcard.bind(this);
   }
 
   componentDidMount() {
@@ -33,10 +34,13 @@ class FlashcardEditForm extends Component {
   }
 
   handleInputChange(e) {
+    e.preventDefault();
+    console.log('in handleInputChange');
+    console.log(e.target.value);
     const name = e.target.name;
     const value = e.target.value;
     this.setState({
-      [name]: value,
+      definition: e.target.value,
     });
   }
 
@@ -59,20 +63,28 @@ class FlashcardEditForm extends Component {
   }
 
   deleteFlashcard() {
-    console.log(this.state);
     axios
       .delete(`/flashcard/${this.state.newId}`)
       .then(res => {
         this.setState({
           term: '',
-          definition: ''
+          definition: '',
+          fireRedirect: true,
         });
       })
       .catch(err => console.log(err));
 
   }
 
+  cancelFlashcard() {
+    this.setState({
+      fireRedirect: true
+   });
+  }
+
   render() {
+    let path = '/subjects/' + this.props.match.params.subject_id + '/user/' + this.props.match.params.user_id
+    console.log('path in flashcardeditform = ',path);
     return (
       <div className="edit">
         <form onSubmit={this.handleFormSubmit}>
@@ -88,17 +100,19 @@ class FlashcardEditForm extends Component {
           </label>
           <label>
             Definition
-            <textarea id="comment" name="comment" cols="40" rows="15"
+            <textarea id="comment" name="definition" cols="40" rows="15"
               placeholder="Definition"
               value={this.state.definition}
-              onChange={this.handleInputChange}>
+              onChange={this.handleInputChange}
+              autoFocus>
             </textarea>
           </label>
-          <input type="submit" value="edit!" />
+          <input type="submit" value="Save Changes" />
         </form>
         <button onClick={this.deleteFlashcard}>Delete flashcard</button>
+        <button onClick={this.cancelFlashcard}>Cancel</button>
         {this.state.fireRedirect
-          ? <Redirect push to={`/flashcards/${this.state.newId}`} />
+          ? <Redirect push to={path} />
           : ''}
       </div>
     );

@@ -44,7 +44,7 @@ IGotIt() {
 toggle(){
     this.setState({
         show: !this.state.show
-    });    
+    });
 }
 
 render() {
@@ -56,12 +56,13 @@ render() {
     let show = {
         display: this.state.show ? "none" : "block"
     }
-
+    
     return(
             <div className="flashcard clearfix">
 
                 <button className='flashcard-button-card' onClick={this.toggle.bind(this)}>DEFINITION</button>
                 <button className='flashcard-button-card got-it' onClick={this.IGotIt.bind(this)}>I GOT IT!</button>
+                <Link className="edit-flashcard " to={pathFlashcards}> edit flashcard</Link>
                 <h3  className='flashcard-term' style={hide}>{this.state.flashcard.term}</h3>
                 <p className='flashcard-definition' style={show}>{this.state.flashcard.definition}</p>
             </div>

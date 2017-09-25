@@ -18,6 +18,7 @@ class Header extends Component {
     render(){
         return(
             <div className='header'>
+                <script src="https://use.fontawesome.com/23dcf0aa4b.js"></script>
                 <div className='header-content clearfix'>
                     <div className='hamburger' onClick={() => this.handleClickNav()}>
                     <Nav />
