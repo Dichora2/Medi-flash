@@ -56,8 +56,7 @@ class SubjectAddForm extends Component {
     let path = '/subjects/user/' + this.props.match.params.user_id;
     return (
       <div className="add-subject">
-                  <Link className="back-to-subjects " to={path}> ← back to all subjects</Link>
-
+        <Link className="back-to-subjects " to={path}> ← back to all subjects</Link>
         <form onSubmit={this.handleFormSubmit}>
             <input
               type="text"

@@ -87,10 +87,6 @@ componentDidMount() {
 
         </div>
       )
-    }else{
-      return (
-        <button className='add-flashcard'><Link to='/add'>Add New Flashcard</Link></button>
-      )
     }
   }
 
