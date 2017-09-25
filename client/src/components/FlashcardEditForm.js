@@ -88,7 +88,7 @@ class FlashcardEditForm extends Component {
           </label>
           <label>
             Definition
-            <textarea id="comment" name="comment" cols="40" rows="20"
+            <textarea id="comment" name="comment" cols="40" rows="15"
               placeholder="Definition"
               value={this.state.definition}
               onChange={this.handleInputChange}>

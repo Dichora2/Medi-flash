@@ -10,7 +10,6 @@ class SubjectAddForm extends Component {
     this.state = {
 
       name: '',
-      date_modified: new Date(),
       fireRedirect: false,
     };
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -26,18 +25,15 @@ class SubjectAddForm extends Component {
   }
 
   handleFormSubmit(e) {
-    console.log('------------->', this.props.match.params.id);
     e.preventDefault();
     axios('/subject', {
       method: 'POST',
       data: {
-        user_id: this.props.match.params.id,
+        user_id: this.props.match.params.user_id,
         name: this.state.name,
-        date_modified: this.state.date_modified,
       }
       })
       .then(res => {
-        console.log('successfully posted');
         this.setState({
           //this needs to bind to subjects
           //confirm if this is targeting the right thing
@@ -57,7 +53,7 @@ class SubjectAddForm extends Component {
   }
 
   render() {
-    let path = '/subjects/user/' + this.props.match.params.id;
+    let path = '/subjects/user/' + this.props.match.params.user_id;
     return (
       <div className="add-subject">
                   <Link className="back-to-subjects " to={path}> ← back to all subjects</Link>

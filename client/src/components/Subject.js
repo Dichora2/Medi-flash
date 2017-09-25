@@ -25,34 +25,31 @@ class Subject extends Component {
 
 //axios
 componentDidMount() {
+  let subjectData = {};
   axios.get(`/subject/${this.props.match.params.id}`)
     .then(res => {
-      console.log(res.data);
-      this.setState({
-        subjectLoaded: true,
-        subject: res.data,
-        //check if this works
-      })
-      console.log('-------------->',res.data)
+      console.log('res.data = ',res.data.data);
+      subjectData = res.data;
     }).catch(err => console.log(err));
-  axios.get(`/flashcard/user/3/subject/${this.props.match.params.id}/`)
+  let path = `/flashcard/user/${this.props.match.params.user_id}/subject/${this.props.match.params.id}`;
+  console.log('path = ',path);
+  axios.get(path)
     .then(res => {
-      console.log('res.data = ',res.data);
+      console.log('subjectData = ',subjectData);
       if (res.data.data) {
         this.setState({
+          subject: subjectData,
+          subjectLoaded: true,
           flashcardLoaded: true,
           flashcards: res.data.data,
           //check if this works
         })
-        console.log('LENGTH-------------->',res.data.data.length)
       }
     }).catch(err => console.log('in error',err));
 }
 
   flashcardMap(array){
-    console.log('arrayLength = ', array.length);
     return array.map((flashcard, index) => {
-      console.log('flashcard = ',flashcard);
       return (
             <FlashcardToggle flashcard_object={flashcard} />
 
@@ -65,22 +62,20 @@ componentDidMount() {
   renderSubjectWithFlashcards(){
     const subjectId = Number(this.props.match.params.id);
 
-    let content;
     if (this.state.subjectLoaded){
-      
-      const subjectName = this.state.subject.data.name
-      const subjectDate = this.state.subject.data.date_modified
-      
-      console.log('SUBJECT ---------->', this.state.subject.data.name);
-      console.log('DATA ---------->', this.state.subject.data.date_modified);
-      console.log('EVERYTHING -------->', this.state.subject.data)
-      let path = '/subjects/user/' + this.props.match.params.id;
-      
+      console.log('user_id = ',this.props.match.params.user_id);
+      console.log('subjectName = ',this.state.subject);
+      const subjectName = this.state.subject.data.name;
+      const subjectDate = this.state.subject.data.date_modified;
+
+      let pathSubjects = '/subjects/user/' + this.props.match.params.user_id;
+      let pathFlashcards = '/add/user/' + this.props.match.params.user_id + '/subjects/' + this.state.subject.data.id;
+
       return (
         <div className='page-header'>
-          <button className='add-flashcard flashcard-button'><Link to='/add'>+ ADD CARDS</Link></button>
+          <button className='add-flashcard flashcard-button'><Link to={pathFlashcards}>+ ADD CARDS</Link></button>
           <button className='hard-flashcard flashcard-button'><Link to='/hmmm'>HARD ONES</Link></button>
-          <Link className="back-to-subjects " to={path}> ← back to all subjects</Link>
+          <Link className="back-to-subjects " to={pathSubjects}> ← back to all subjects</Link>
 
           <h1 className='subject-page-header'>{subjectName}</h1>
           <p className="subject-date">{subjectDate}</p>

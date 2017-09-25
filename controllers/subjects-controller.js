@@ -42,12 +42,10 @@ subjectController.show = (req, res) => {
 };
 
 subjectController.create = (req, res) => {
-  console.log(req.user);
+  console.log('req.body = ',req.body);
   Subject.create({
     user_id: req.body.user_id,
-    name: req.body.name,
-    date_modified: req.body.date_modified,
-
+    name: req.body.name
   })
     .then(subject => {
       res.json({

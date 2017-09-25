@@ -21,13 +21,14 @@ export default (
         <div className='router'>
             <Header />
             <Route exact path='/home' component={App} />
-            <Route exact path='/subjects/user/:id' component={Subjects} />
-            <Route exact path='/add' component={FlashcardAddForm} />
+            <Route exact path='/subjects/user/:user_id' component={Subjects} />
+            <Route exact path='/add/user/:user_id/subjects/:subject_id' component={FlashcardAddForm} />
             <Route exact path='/edit/:id' component={FlashcardEditForm} />
 
-            <Route exact path='/subjects/add/user/:id' component={SubjectAddForm} />
+            <Route exact path='/subjects/add/user/:user_id' component={SubjectAddForm} />
 
             <Route exact path='/subjects/:id' component={Subject} />
+            <Route exact path='/subjects/:id/user/:user_id' component={Subject} />
             <Route exact path='/' component={Login} />
             {/* <Route exact path='/' component={Logout} /> */}
             <Route exact path='/register' component={Register} />

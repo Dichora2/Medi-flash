@@ -21,7 +21,7 @@ class Subjects extends Component {
 
 
     componentDidMount() {
-        axios(`/subject/user/${this.props.match.params.id}`, {
+        axios(`/subject/user/${this.props.match.params.user_id}`, {
           method: 'GET',
         })
           .then(res => {
@@ -36,12 +36,12 @@ class Subjects extends Component {
 
 
     renderSubjects(array){
-      console.log('user id = ',this.props.match.params.id);
        if(this.state.subjectsLoaded) {
             return array.map(subject => {
+                let pathSubject = `/subjects/${subject.id}/user/` + this.props.match.params.user_id;
                 return (
                 <li key={subject.id} className='individual-subject'>
-                    <Link className="individual-subject-link" to={`/subjects/${subject.id}`}>{subject.name}</Link>
+                    <Link className="individual-subject-link" to={pathSubject}>{subject.name}</Link>
                 </li>
                 )
             })
@@ -51,7 +51,8 @@ class Subjects extends Component {
     }
 
     render(){
-      let path = '/subjects/add/user/' + this.props.match.params.id;
+      console.log('user_id = ',this.props.match.params.user_id);
+      let path = '/subjects/add/user/' + this.props.match.params.user_id;
       return(
         <div className='subjects'>
           <div className='page-header'>

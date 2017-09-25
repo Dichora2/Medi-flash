@@ -20,8 +20,8 @@ Flashcard.findByUserSubject = (user_id, subject_id) => {
   return db.query(
     `
     SELECT * FROM flashcards
-    JOIN users_flashcards ON flashcards.id = users_flashcards.flashcard_id
-    JOIN flashcards_subjects ON flashcards.id = flashcards_subjects.flashcard_id
+    LEFT OUTER JOIN users_flashcards ON flashcards.id = users_flashcards.flashcard_id
+    LEFT OUTER JOIN flashcards_subjects ON flashcards.id = flashcards_subjects.flashcard_id
     WHERE users_flashcards.user_id = $1 AND flashcards_subjects.subject_id = $2
   `,
     [user_id, subject_id]
@@ -32,12 +32,13 @@ Flashcard.create = flashcard => {
   return db.one(
     `
     INSERT INTO flashcards
-    (user_id, term, definition, date_modified, keep_studying)
-    VALUES ($1, $2, $3, $4, false)
+    (user_id, term, definition, date_modified)
+    VALUES ($1, $2, $3, CURRENT_TIMESTAMP)
     RETURNING *
   `,
-    [flashcard.user_id, flashcard.term, flashcard.definition, flashcard.date_modified]
+    [flashcard.user_id, flashcard.term, flashcard.definition]
   );
+  return tempFlashcard;
 };
 
 Flashcard.update = (flashcard, id) => {
