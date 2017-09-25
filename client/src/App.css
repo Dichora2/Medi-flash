@@ -299,6 +299,21 @@ button.flashcard-button-card {
   margin: 0;
 }
 
+button.subject-edit {
+  width: 10%;
+  height: 80%;
+  top: 70%;
+  left: 80%;
+  position: relative;
+}
+button.subject-delete {
+  width: 10%;
+  height: 80%;
+  top: 70%;
+  right: 5%;
+  float: left;
+  position: relative;
+}
 .got-it{
   background-color: #02EBF5;
   margin: 0px

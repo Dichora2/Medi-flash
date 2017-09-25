@@ -6,8 +6,9 @@ import axios from 'axios';
 
 import Subject from './Subject';
 
-
 import SubjectAddForm from './SubjectAddForm';
+
+//import '../node_modules/font-awesome/css/font-awesome.min.css'; 
 
 class Subjects extends Component {
     constructor(){
@@ -42,6 +43,10 @@ class Subjects extends Component {
                 return (
                 <li key={subject.id} className='individual-subject'>
                     <Link className="individual-subject-link" to={pathSubject}>{subject.name}</Link>
+                    <div>
+                      <button className="subject-edit"><Link to='/edit'>+</Link></button>
+                      <button className="subject-delete">-</button>
+                    </div>
                 </li>
                 )
             })
@@ -59,7 +64,7 @@ class Subjects extends Component {
             <h1 className='subject-page-header'>Subjects</h1>
             <Link className="add-subject" to={path}>ADD SUBJECT</Link>
           </div>
-          <ul className='list-of-subjects'>
+          <ul className='list-of-subjects'>       
             {this.renderSubjects(this.state.subjects)}
           </ul>
         </div>
