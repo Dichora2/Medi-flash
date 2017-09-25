@@ -9,6 +9,11 @@ flashcardRouter.post('/', flashcardController.create);
 
 flashcardRouter.get('/:id', flashcardController.show);
 flashcardRouter.get('/user/:user_id/subject/:subject_id', flashcardController.showByUserSubject);
+
+flashcardRouter.get('/user/:user_id/subject/:subject_id/hardones', flashcardController.showByUserSubjectHardOnes);
+flashcardRouter.put('/:id/updateKeepStudying', flashcardController.updateKeepStudying)
+
+
 flashcardRouter.put('/:id', flashcardController.update);
 flashcardRouter.delete('/:id', flashcardController.destroy);
 

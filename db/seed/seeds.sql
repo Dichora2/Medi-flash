@@ -26,11 +26,11 @@ INSERT INTO subjects (user_id, date_modified,name) VALUES (3,'8/4/17','Atoms');
 INSERT INTO subjects (user_id, date_modified,name) VALUES (3,'9/20/17','Chem 101');
 INSERT INTO subjects (user_id, date_modified,name) VALUES (3,'9/5/17','Join Pain');
 
-INSERT INTO users_flashcards (user_id, flashcard_id) VALUES (3, 25);
-INSERT INTO users_flashcards (user_id, flashcard_id) VALUES (3, 26);
+INSERT INTO users_flashcards (user_id, flashcard_id) VALUES (20, 25);
+INSERT INTO users_flashcards (user_id, flashcard_id) VALUES (20, 20);
 
-INSERT INTO flashcards_subjects (flashcard_id, subject_id) VALUES (25, 25);
-INSERT INTO flashcards_subjects (flashcard_id, subject_id) VALUES (26, 25);
+INSERT INTO flashcards_subjects (flashcard_id, subject_id) VALUES (25, 44);
+INSERT INTO flashcards_subjects (flashcard_id, subject_id) VALUES (20, 44);
 
 
 

@@ -12,44 +12,43 @@ class FlashcardToggle extends Component {
 
 constructor(props) {
     super(props);
-    console.log('in constructor ', this.props.flashcard_object);
+    // console.log('FLASHCARD ----------> ', this.props.flashcard_object);
+    // console.log('KEEEP STUDYING ---------->', this.props.flashcard_object.keep_studying)
     this.state = {
         show: true,
         flashcard: this.props.flashcard_object,
-        //need to get the data here first
+        keep_studying: this.props.flashcard_object.keep_studying
     };
+    console.log('this is your state ---------->', this.state)
 }
-
-
-// componentDidMount() {
-//     axios.get(`/flashcard/${this.props.match.params.id}`)
-//       .then(res => {
-//         this.setState({
-//             flashcard: res.data.flashcard,
-//             //console.log data make sure I am targetting the correct thing
-//         })
-//       })
-
-//       console.log('------->this is the state from flashcard',this.state)
-//   }
-
-
-
 
 
 IGotIt() {
-    console.log('--------->this must change the keep_studying flag to false for this flashcard<---------')
+
+    axios 
+        .put(`/flashcard/${this.state.flashcard.id}/updateKeepStudying`, {
+            id: this.state.flashcard.id
+        })
+        .then(res => {
+            this.setState({
+                keep_studying: !this.state.keep_studying
+            });
+            this.forceUpdate();            
+        })
+        .catch(err => console.log(err));        
 }
+
+
+
 
 toggle(){
     this.setState({
         show: !this.state.show
     });
-
 }
 
-
 render() {
+    console.log(this.state)
     let hide = {
         display: this.state.show ? "block" : "none"
     }
@@ -57,10 +56,7 @@ render() {
     let show = {
         display: this.state.show ? "none" : "block"
     }
-
-    console.log('flashcard in toggle = ',this.state.flashcard);
-    let pathFlashcards = '/edit/user/' + this.props.user_id + '/' + this.state.flashcard.id + '/' +
-      'subjects/' + this.props.subject_id;
+    
     return(
             <div className="flashcard clearfix">
 

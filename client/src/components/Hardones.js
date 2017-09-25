@@ -12,7 +12,7 @@ import { Link } from 'react-router-dom';
 
 
 
-class Subject extends Component {
+class HardOnes extends Component {
     constructor() {
       super();
       this.state = {
@@ -26,24 +26,23 @@ class Subject extends Component {
 //axios
 componentDidMount() {
   let subjectData = {};
-  console.log('subject id = ',this.props.match.params.id);
   axios.get(`/subject/${this.props.match.params.id}`)
     .then(res => {
       console.log('res.data = ',res.data.data);
       subjectData = res.data;
+      
     }).catch(err => console.log(err));
-  let path = `/flashcard/user/${this.props.match.params.user_id}/subject/${this.props.match.params.id}`;
-  console.log('path = ',path);
-  axios.get(path)
-    .then(res => {
-      console.log('subjectData = ',subjectData);
+    
+  let path = `/flashcard/user/${this.props.match.params.user_id}/subject/${this.props.match.params.id}/hardones`;
+  
+  axios.get(path)  
+  .then(res => {
       if (res.data.data) {
         this.setState({
           subject: subjectData,
           subjectLoaded: true,
           flashcardLoaded: true,
           flashcards: res.data.data,
-          //check if this works
         })
       }
     }).catch(err => console.log('in error',err));
@@ -52,10 +51,7 @@ componentDidMount() {
   flashcardMap(array){
     return array.map((flashcard, index) => {
       return (
-            <FlashcardToggle flashcard_object={flashcard} user_id={this.props.match.params.user_id}
-              subject_id={this.props.match.params.id}/>
-
-        //on click it needs the card needs to flip
+            <FlashcardToggle flashcard_object={flashcard} />
       )
     })
   }
@@ -71,20 +67,10 @@ componentDidMount() {
       const subjectDate = this.state.subject.data.date_modified;
 
       let pathSubjects = '/subjects/user/' + this.props.match.params.user_id;
-      let pathFlashcards = '/add/user/' + this.props.match.params.user_id + '/subjects/' + this.state.subject.data.id;
-      let pathHardOnes = '/subjects/' + this.state.subject.data.id + '/user/' + this.props.match.params.user_id + '/hardones';      
 
-
-      
-      
-      
-      console.log('------->', this.props.match.params)
       return (
         <div className='page-header'>
-          <i class="fa fa-pencil-square" ></i>
-          <FontAwesome name='rocket' size='2x' />
-          <button className='add-flashcard flashcard-button'><Link to={pathFlashcards}>+ ADD CARDS</Link></button>
-          <button className='hard-flashcard flashcard-button'><Link to={pathHardOnes}>HARD ONES</Link></button>
+
           <Link className="back-to-subjects " to={pathSubjects}> ← back to all subjects</Link>
 
           <h1 className='subject-page-header'>{subjectName}</h1>
@@ -113,4 +99,4 @@ componentDidMount() {
 }
 
 
-export default Subject;
+export default HardOnes;

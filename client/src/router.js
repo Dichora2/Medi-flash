@@ -11,6 +11,7 @@ import Logout from './components/Logout.js'
 import FlashcardAddForm from './components/FlashcardAddForm.js'
 import FlashcardEditForm from './components/FlashcardEditForm.js'
 
+import HardOnes from './components/Hardones.js'
 
 import SubjectAddForm from './components/SubjectAddForm.js'
 import Header from './components/Header.js'
@@ -28,8 +29,15 @@ export default (
 
             <Route exact path='/subjects/add/user/:user_id' component={SubjectAddForm} />
 
+
+
+
             <Route exact path='/subjects/:id' component={Subject} />
             <Route exact path='/subjects/:id/user/:user_id' component={Subject} />
+
+
+            <Route exact path='/subjects/:id/user/:user_id/hardones' component={HardOnes} />
+
             <Route exact path='/' component={Login} />
             {/* <Route exact path='/' component={Logout} /> */}
             <Route exact path='/register' component={Register} />
