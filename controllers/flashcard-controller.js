@@ -49,7 +49,7 @@ flashcardController.showByUserSubject = (req, res) => {
 
 ///////new
 flashcardController.showByUserSubjectHardOnes = (req, res) => {
-  Flashcard.showByUserSubjectHardOnes(req.params.user_id,req.params.subject_id)
+  Flashcard.showByUserSubjectHardOnes(req.params.user_id, req.params.subject_id)
     .then(flashcard => {
       res.json({
         message: 'ok',

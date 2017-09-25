@@ -30,15 +30,15 @@ Flashcard.findByUserSubject = (user_id, subject_id) => {
 
 
 Flashcard.showByUserSubjectHardOnes = (user_id, subject_id) => {
+  console.log('in showByUserSubjectHardOnes model----> ', user_id, subject_id)
   return db.query(
     `
     SELECT * FROM flashcards 
     LEFT OUTER JOIN users_flashcards ON flashcards.id = users_flashcards.flashcard_id
     LEFT OUTER JOIN flashcards_subjects ON flashcards.id = flashcards_subjects.flashcard_id
-    WHERE users_flashcards.user_id = $1 AND flashcards_subjects.subject_id = $2 AND flashcards.keep_studying = true
-    `
-  ), 
-  [user_id, subject_id]
+    WHERE users_flashcards.user_id = $1 AND flashcards_subjects.subject_id = $2 AND keep_studying = true
+    `, [user_id, subject_id]
+  )
 }
 
 

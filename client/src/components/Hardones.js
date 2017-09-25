@@ -30,12 +30,13 @@ componentDidMount() {
     .then(res => {
       console.log('res.data = ',res.data.data);
       subjectData = res.data;
+      
     }).catch(err => console.log(err));
+    
   let path = `/flashcard/user/${this.props.match.params.user_id}/subject/${this.props.match.params.id}/hardones`;
-  console.log('path========>  ',path);
-  axios.get(path)
-    .then(res => {
-      console.log('subjectData = ',subjectData);
+  
+  axios.get(path)  
+  .then(res => {
       if (res.data.data) {
         this.setState({
           subject: subjectData,
@@ -66,7 +67,6 @@ componentDidMount() {
       const subjectDate = this.state.subject.data.date_modified;
 
       let pathSubjects = '/subjects/user/' + this.props.match.params.user_id;
-      let pathFlashcards = '/add/user/' + this.props.match.params.user_id + '/subjects/' + this.state.subject.data.id;
 
       return (
         <div className='page-header'>
