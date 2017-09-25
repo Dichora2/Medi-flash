@@ -22,7 +22,7 @@ class Logout extends Component {
     changeToLogout(e){
         e.preventDefault();
         axios('/logout', {
-            method: 'POST',
+            method: 'GET',
             data: {
                 // username: this.state.username,
                 fireRedirect: false                

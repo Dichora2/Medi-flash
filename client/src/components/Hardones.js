@@ -12,7 +12,7 @@ import { Link } from 'react-router-dom';
 
 
 
-class Subject extends Component {
+class HardOnes extends Component {
     constructor() {
       super();
       this.state = {
@@ -31,8 +31,8 @@ componentDidMount() {
       console.log('res.data = ',res.data.data);
       subjectData = res.data;
     }).catch(err => console.log(err));
-  let path = `/flashcard/user/${this.props.match.params.user_id}/subject/${this.props.match.params.id}`;
-  console.log('path = ',path);
+  let path = `/flashcard/user/${this.props.match.params.user_id}/subject/${this.props.match.params.id}/hardones`;
+  console.log('path========>  ',path);
   axios.get(path)
     .then(res => {
       console.log('subjectData = ',subjectData);
@@ -42,7 +42,6 @@ componentDidMount() {
           subjectLoaded: true,
           flashcardLoaded: true,
           flashcards: res.data.data,
-          //check if this works
         })
       }
     }).catch(err => console.log('in error',err));
@@ -52,8 +51,6 @@ componentDidMount() {
     return array.map((flashcard, index) => {
       return (
             <FlashcardToggle flashcard_object={flashcard} />
-
-        //on click it needs the card needs to flip
       )
     })
   }
@@ -70,17 +67,10 @@ componentDidMount() {
 
       let pathSubjects = '/subjects/user/' + this.props.match.params.user_id;
       let pathFlashcards = '/add/user/' + this.props.match.params.user_id + '/subjects/' + this.state.subject.data.id;
-      let pathHardOnes = '/subjects/' + this.state.subject.data.id + '/user/' + this.props.match.params.user_id + '/hardones';      
 
-
-      
-      
-      
-      console.log('------->', this.props.match.params)
       return (
         <div className='page-header'>
-          <button className='add-flashcard flashcard-button'><Link to={pathFlashcards}>+ ADD CARDS</Link></button>
-          <button className='hard-flashcard flashcard-button'><Link to={pathHardOnes}>HARD ONES</Link></button>
+
           <Link className="back-to-subjects " to={pathSubjects}> ← back to all subjects</Link>
 
           <h1 className='subject-page-header'>{subjectName}</h1>
@@ -109,4 +99,4 @@ componentDidMount() {
 }
 
 
-export default Subject;
+export default HardOnes;

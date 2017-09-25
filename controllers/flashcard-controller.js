@@ -46,6 +46,26 @@ flashcardController.showByUserSubject = (req, res) => {
     });
 };
 
+
+///////new
+flashcardController.showByUserSubjectHardOnes = (req, res) => {
+  Flashcard.showByUserSubjectHardOnes(req.params.user_id,req.params.subject_id)
+    .then(flashcard => {
+      res.json({
+        message: 'ok',
+        data: flashcard,
+      });
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json({ err });
+    });
+};
+
+
+
+
+
 flashcardController.create = (req, res) => {
   let flashcardData = {};
   Flashcard.create({
