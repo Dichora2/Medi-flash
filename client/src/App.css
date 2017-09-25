@@ -21,7 +21,7 @@
  /* header */
 
  .header {
-   height: 90px;
+   height: 80px;
    background: #333333;
    /* width: 100vw; */
   }
@@ -34,14 +34,17 @@
 
  .hamburger {
   display: inline-block;
-  padding: 20px;
-  margin-right: 35%; 
+  margin: 0;
+
+
+  height: 65px;
+  padding-top: 15px;
 }
  .hamburger-nav-icon{
    width: 50px;
    height: 2px;
    background: white;
-   margin: 20%;
+   margin: 20% 0;
    display: block;
   }
 
@@ -145,9 +148,7 @@ input::placeholder {
   color: #0F77FE;
   font-size: 1rem;
 }
-input:focus { 
-  
-}
+
 
 
  a.link {
@@ -330,9 +331,92 @@ p.dictionary {
   color: #0F77FE;
 }
 
+/* NAV brought to use by https://www.codementor.io/chrisharrington/how-to-build-a-sliding-menu-using-react-js-and-less-css-du107mpij */
 
 
 
+
+
+
+.nav-icon {
+  width: 50vw;
+  background:#0F77FE;
+  height: 100vh;
+  position: absolute;
+}
+
+
+.nav-list {
+  background:#0F77FE;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  margin: 0 auto;
+	text-align: center;
+}
+
+.nav-list:after {
+  background-color: green;
+  width: 80vw;
+  transition: all 0.3s;
+  
+  
+}  
+
+/* source: https://codepen.io/anon/pen/pWNZQz */
+
+
+div.nav-list a:before, div.nav-list a:after
+{
+    position: absolute;
+    opacity: 0;
+    font-size: 40px;
+    top: 0px;
+    transition: all 0.3s;
+}
+
+div.nav-list a:before
+{
+    content: '(';
+    left: -30px;
+    transform: translateX(20px);
+}
+
+div.nav-list a:after
+{
+    content: ')';
+    right: -30px;
+    transform: translateX(-40px);
+}
+
+div.nav-list a:hover:before, div.nav-list a:hover:after
+{
+    opacity: 1;
+    transform: translateX(0px);
+}
+
+.nav{
+  height: 55px;
+  border-left: 20px solid transparent;
+  
+}
+
+
+.nav-link {
+  color: #FFF;
+  text-decoration: none;
+  font-family: 'Nunito', sans-serif;
+  font-size: 2em;
+  font-weight: 100;
+  margin: 0px 10px;
+  padding: 10px 10px;
+  position: relative;
+  z-index: 0;
+  cursor: pointer;
+}
 
 /******************************************
 /* HELPER CLASSES
