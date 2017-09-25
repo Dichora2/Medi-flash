@@ -13,7 +13,6 @@ class FlashcardAddForm extends Component {
     this.state = {
       term: '',
       definition: '',
-      date_modified: new Date(),
       fireRedirect: false,
     };
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -35,10 +34,10 @@ class FlashcardAddForm extends Component {
     e.preventDefault();
     axios
       .post('/flashcard', {
-        user_id: this.state.user_id,
+        subject_id: this.props.match.params.subject_id,
+        user_id: this.props.match.params.user_id,
         term: this.state.term,
         definition: this.state.definition,
-        date_modified: this.state.date_modified
       })
       .then(res => {
         console.log('--------------->', this.state)
@@ -46,6 +45,7 @@ class FlashcardAddForm extends Component {
         console.log(res);
         this.setState({
           newId: res.data.data.id,
+          fireRedirect: true
           //confirm if this is targeting the right thing
           // fireRedirect: true,
         });
@@ -55,6 +55,7 @@ class FlashcardAddForm extends Component {
   }
 
   getAPIData(e) {
+    e.preventDefault();
     axios
       .get(`/flashcard/term/${this.state.term}`)
       .then(res => {
@@ -71,13 +72,15 @@ class FlashcardAddForm extends Component {
   }
 
   render() {
-    let path = '/subjects/user/' + this.props.match.params.id;
-    
+    console.log('user_id in add flashcard = ',this.props.match.params.user_id);
+    let path = '/subjects/user/' + this.props.match.params.user_id;
+    let pathSubject = `/subjects/${this.props.match.params.subject_id}/user/${this.props.match.params.user_id}`;
+
     return (
       <div className="add-flashcard">
 
         <form onSubmit={this.handleFormSubmit}>
-        <Link className="back-to-subjects " to={path}> ← back to all subjects</Link>
+            <Link className="back-to-subjects " to={path}> ← back to all subjects</Link>
 
             <input
               type="text"
@@ -89,16 +92,16 @@ class FlashcardAddForm extends Component {
             <p className='dictionary'>Merriam-Webster Medical Dictionary API</p>
             <button onClick={this.getAPIData}>LOAD</button>
 
-            <textarea id="comment" cols="40" rows="20"
+            <textarea id="comment" cols="40" rows="15"
               placeholder="Definition"
               name="definition"
               value={this.state.definition}
               onChange={this.handleInputChange}>
             </textarea>
-          <input className='submit' type="submit" value="SUBMIT" />
+            <input className='submit' type="submit" value="SUBMIT" />
         </form>
         {this.state.fireRedirect
-          ? <Redirect push to={`/subject/${this.state.newId}`} />
+          ? <Redirect push to={pathSubject} />
           : ''}
       </div>
     );

@@ -35,10 +35,10 @@ Subject.create = subject => {
     `
     INSERT INTO subjects
     (user_id, name, date_modified)
-    VALUES ($1, $2, $3)
+    VALUES ($1, $2, CURRENT_TIMESTAMP)
     RETURNING *
   `,
-    [subject.user_id, subject.name, subject.date_modified]
+    [subject.user_id, subject.name]
   );
 };
 

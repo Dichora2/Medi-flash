@@ -1,4 +1,6 @@
 const Flashcard = require('../models/flashcard');
+const UserFlashcard = require('../models/userFlashcard');
+const FlashcardSubject = require('../models/flashcardSubject');
 
 const flashcardController = {};
 
@@ -45,23 +47,45 @@ flashcardController.showByUserSubject = (req, res) => {
 };
 
 flashcardController.create = (req, res) => {
+  let flashcardData = {};
   Flashcard.create({
+    subject_id: req.body.subject_id,
     user_id: req.body.user_id,
     term: req.body.term,
     definition: req.body.definition,
-    date_modified: req.body.date_modified,
-    keep_studying: false,
   })
     .then(flashcard => {
-      res.json({
-        message: 'ok',
-        data: flashcard,
-      });
+      console.log('flashcard = ',flashcard);
+      flashcardData = flashcard;
+      UserFlashcard.create({
+        user_id: req.body.user_id,
+        flashcard_id: flashcardData.id
+      })
+        .then(flashcard => {
+        })
+        .catch(err => {
+          console.log(err);
+          res.status(500).json({ err });
+        });
+      FlashcardSubject.create({
+        subject_id: req.body.subject_id,
+        flashcard_id: flashcardData.id
+      })
+        .then(flashcard => {
+        })
+        .catch(err => {
+          console.log(err);
+          res.status(500).json({ err });
+        });
     })
     .catch(err => {
-      console.log(err);
+      console.log('in error',err);
       res.status(500).json({ err });
     });
+  res.json({
+    data: flashcardData,
+    message: 'ok',
+  });
 };
 
 flashcardController.update = (req, res) => {
