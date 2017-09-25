@@ -35,6 +35,9 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
+// Added to migrate to heroku
+app.use(express.static(path.join(__dirname,'client/build')));
+
 app.use((req, res, next) => {
   console.log('---------- req.user ---------')
   console.log(Date.now());
@@ -56,9 +59,9 @@ app.use((req, res, next) => {
 });
 */
 //views
- app.get('/', function(req, res) {
-     res.send('hello world');
-});
+//  app.get('/', function(req, res) {
+//      res.send('hello world');
+// });
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
@@ -74,6 +77,10 @@ const subjectRoutes = require('./routes/subject-routes');
 app.use('/subject', subjectRoutes);
 const flashcardRoutes = require('./routes/flashcard-routes');
 app.use('/flashcard', flashcardRoutes);
+
+app.get('/', (req, res) => {
+  res.sendFile(path.resolve('client/build/index.html'));
+});
 
 app.use('*', (req, res) => {
   res.status(400).json({
