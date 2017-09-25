@@ -12,42 +12,29 @@ class FlashcardToggle extends Component {
 
 constructor(props) {
     super(props);
-    console.log('in constructor ', this.props.flashcard_object);
+    // console.log('FLASHCARD ----------> ', this.props.flashcard_object);
+    // console.log('KEEEP STUDYING ---------->', this.props.flashcard_object.keep_studying)
     this.state = {
         show: true,
         flashcard: this.props.flashcard_object,
-        //need to get the data here first
+        keep_studying: this.props.flashcard_object.keep_studying
     };
+    console.log('this is your state ---------->', this.state)
 }
 
 
-// componentDidMount() {
-//     axios.get(`/flashcard/${this.props.match.params.id}`)
-//       .then(res => {
-//         this.setState({
-//             flashcard: res.data.flashcard,
-//             //console.log data make sure I am targetting the correct thing
-//         })
-//       })
-
-//       console.log('------->this is the state from flashcard',this.state)
-//   }
-
-
-
-
-
 IGotIt() {
-    console.log('--------->this must change the keep_studying flag to false for this flashcard<---------')
+    let bool = !this.state.keep_studying
+    this.setState({
+        keep_studying: bool,
+    }, () => { console.log('this is your state after clicking ---------->', this.state) })
 }
 
 toggle(){
     this.setState({
         show: !this.state.show
-    });
-    
+    });    
 }
-
 
 render() {
     let hide = {
@@ -58,7 +45,6 @@ render() {
         display: this.state.show ? "none" : "block"
     }
 
-    console.log('flashcard in toggle = ',this.state.flashcard);
     return(
             <div className="flashcard clearfix">
 
