@@ -23,6 +23,7 @@ export default (
             <Route exact path='/home' component={App} />
             <Route exact path='/subjects/user/:user_id' component={Subjects} />
             <Route exact path='/add/user/:user_id/subjects/:subject_id' component={FlashcardAddForm} />
+            <Route exact path='/edit/user/:user_id/:id/subjects/:subject_id' component={FlashcardEditForm} />
             <Route exact path='/edit/:id' component={FlashcardEditForm} />
 
             <Route exact path='/subjects/add/user/:user_id' component={SubjectAddForm} />

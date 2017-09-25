@@ -26,6 +26,7 @@ class Subject extends Component {
 //axios
 componentDidMount() {
   let subjectData = {};
+  console.log('subject id = ',this.props.match.params.id);
   axios.get(`/subject/${this.props.match.params.id}`)
     .then(res => {
       console.log('res.data = ',res.data.data);
@@ -51,7 +52,8 @@ componentDidMount() {
   flashcardMap(array){
     return array.map((flashcard, index) => {
       return (
-            <FlashcardToggle flashcard_object={flashcard} />
+            <FlashcardToggle flashcard_object={flashcard} user_id={this.props.match.params.user_id}
+              subject_id={this.props.match.params.id}/>
 
         //on click it needs the card needs to flip
       )
@@ -73,6 +75,8 @@ componentDidMount() {
 
       return (
         <div className='page-header'>
+          <i class="fa fa-pencil-square" ></i>
+          <FontAwesome name='rocket' size='2x' />
           <button className='add-flashcard flashcard-button'><Link to={pathFlashcards}>+ ADD CARDS</Link></button>
           <button className='hard-flashcard flashcard-button'><Link to='/hmmm'>HARD ONES</Link></button>
           <Link className="back-to-subjects " to={pathSubjects}> ← back to all subjects</Link>
