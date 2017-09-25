@@ -13,7 +13,7 @@
 
  .header {
    height: 80px;
-   background: #333333;
+   background: #f9f9f9;
   }
 
  .header-content{
@@ -32,7 +32,7 @@
  .hamburger-nav-icon{
    width: 40px;
    height: 2px;
-   background: white;
+   background: #0F77FE;
    margin: 20% 0;
    display: block;
   }
@@ -47,7 +47,7 @@ h1.website-title-header {
 
 h1.website-title-header a{
   text-decoration: none;
-  color: white;
+  color: #0F77FE;
   font-weight: 100;
   font-family: museo-sans, sans-serif;
 } 
@@ -59,7 +59,7 @@ h1.website-title-header a{
    
    font-weight: 100;
    font-family: museo-sans, sans-serif;
-   color: white;
+   color: #0F77FE;
    
  }
 
@@ -417,8 +417,12 @@ body {
   font-family: museo-sans, sans-serif;
   max-width: 1024px;
   margin: auto;
-  
-  
+  background-color: white;
+  height: 100vh;
+ }
+
+ html {
+   background-color: #f9f9f9;
  }
 
 
