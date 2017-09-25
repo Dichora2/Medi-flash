@@ -58,10 +58,7 @@ class Subjects extends Component {
           <div className='page-header'>
             <h1 className='subject-page-header'>Subjects</h1>
             <Link className="add-subject" to={path}>ADD SUBJECT</Link>
-
-
           </div>
-
           <ul className='list-of-subjects'>
             {this.renderSubjects(this.state.subjects)}
           </ul>
