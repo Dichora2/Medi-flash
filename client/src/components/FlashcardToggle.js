@@ -57,6 +57,9 @@ render() {
         display: this.state.show ? "none" : "block"
     }
     
+    let pathFlashcards = '/edit/user/' + this.props.user_id + '/' + this.state.flashcard.id + '/' +
+    'subjects/' + this.props.subject_id;
+
     return(
             <div className="flashcard clearfix">
 
