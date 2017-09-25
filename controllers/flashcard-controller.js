@@ -63,6 +63,24 @@ flashcardController.showByUserSubjectHardOnes = (req, res) => {
 };
 
 
+//this is the sontroller to update the true and false for keep_studying
+
+flashcardController.updateKeepStudying = (req, res) => {
+  console.log('route hit at updateKeepStudying!')
+  Flashcard.updateKeepStudying(req.params.id)
+  .then (flashcard => {
+    console.log('inside updateKeepStudying controller method!')
+    // console.log(flashcard)
+    res.json({   
+      message: 'ok',
+      data: flashcard,
+    });
+  })
+  .catch(err => {
+    console.log(err);
+    res.status(500).json({ err });
+  });
+};
 
 
 

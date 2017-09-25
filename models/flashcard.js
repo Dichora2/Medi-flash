@@ -85,4 +85,19 @@ Flashcard.destroy = id => {
   );
 };
 
+
+
+Flashcard.updateKeepStudying = id => {
+  console.log('model method updateKeepStudying hit!')
+  return db.one(
+    `
+    UPDATE flashcards SET
+      keep_studying = NOT keep_studying WHERE id =$1
+    RETURNING *
+  `,
+    [id] 
+  );
+};
+
+
 module.exports = Flashcard;

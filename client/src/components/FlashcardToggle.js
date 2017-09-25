@@ -24,11 +24,22 @@ constructor(props) {
 
 
 IGotIt() {
-    let bool = !this.state.keep_studying
-    this.setState({
-        keep_studying: bool,
-    }, () => { console.log('this is your state after clicking ---------->', this.state) })
+
+    axios 
+        .put(`/flashcard/${this.state.flashcard.id}/updateKeepStudying`, {
+            id: this.state.flashcard.id
+        })
+        .then(res => {
+            this.setState({
+                keep_studying: !this.state.keep_studying
+            });
+            this.forceUpdate();            
+        })
+        .catch(err => console.log(err));        
 }
+
+
+
 
 toggle(){
     this.setState({
@@ -37,6 +48,7 @@ toggle(){
 }
 
 render() {
+    console.log(this.state)
     let hide = {
         display: this.state.show ? "block" : "none"
     }
