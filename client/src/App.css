@@ -14,25 +14,23 @@
  .header {
    height: 80px;
    background: #333333;
-   /* width: 100vw; */
   }
 
  .header-content{
-   max-width: 1024px;
    height: 90px;
-
  }
 
  .hamburger {
+  float: left;
+  
   display: inline-block;
-  margin: 0;
-
-
   height: 65px;
-  padding-top: 15px;
+  padding-top: 20px;
 }
+
+
  .hamburger-nav-icon{
-   width: 50px;
+   width: 40px;
    height: 2px;
    background: white;
    margin: 20% 0;
@@ -40,8 +38,11 @@
   }
 
 
-.website-title-header {
-  display: inline-flex;
+h1.website-title-header {
+  display: inline-block;
+  font-size: 1.5rem;
+  padding: 15px;
+  float: left;
 }
 
 h1.website-title-header a{
@@ -55,6 +56,7 @@ h1.website-title-header a{
    margin: 35px;
    display: inline-flex;
    float: right;
+   
    font-weight: 100;
    font-family: museo-sans, sans-serif;
    color: white;
@@ -187,18 +189,18 @@ ul.list-of-subjects{
 li.individual-subject {
   list-style: none;
   margin: auto;
-  padding: 2%;  
+  padding: 5%;  
   margin-bottom: 5%;
   width: 350px;
   height: 50px;
   border: 1px solid #0F77FE;
   border-top: 5px solid #0F77FE;
-  transition: padding 0.2s ease;
+  transition: padding 0.5s ease;
   
 }
 
 li.individual-subject:hover {
-  padding: 2% 5%;
+  padding: 5% 10%;
   border-left: 5px solid #0F77FE;
   border-right: 5px solid #0F77FE;
   
@@ -392,7 +394,7 @@ div.nav-list a:hover:before, div.nav-list a:hover:after
 }
 
 .nav{
-  height: 55px;
+  height: 52px;
   border-left: 20px solid transparent;
   
 }
