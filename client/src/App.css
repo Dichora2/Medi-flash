@@ -4,18 +4,9 @@
  @import url('https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700');
  /* replacing futura for now */
 
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
  
  
 
- html {
-  font-family: museo-sans, sans-serif;
-  max-width: 1024px;
-  margin: auto;
-  /* background: #EDFEFF; */
-  
-  
- }
 
 
  /* header */
@@ -196,16 +187,18 @@ ul.list-of-subjects{
 li.individual-subject {
   list-style: none;
   margin: auto;
-  padding: 5%;  
+  padding: 2%;  
   margin-bottom: 5%;
   width: 350px;
   height: 50px;
   border: 1px solid #0F77FE;
   border-top: 5px solid #0F77FE;
+  transition: padding 0.2s ease;
+  
 }
 
 li.individual-subject:hover {
-  padding: 5% 10%;
+  padding: 2% 5%;
   border-left: 5px solid #0F77FE;
   border-right: 5px solid #0F77FE;
   
@@ -417,6 +410,15 @@ div.nav-list a:hover:before, div.nav-list a:hover:after
   z-index: 0;
   cursor: pointer;
 }
+
+body {
+  font-family: museo-sans, sans-serif;
+  max-width: 1024px;
+  margin: auto;
+  
+  
+ }
+
 
 /******************************************
 /* HELPER CLASSES
