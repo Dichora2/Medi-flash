@@ -107,7 +107,7 @@ class FlashcardEditForm extends Component {
               autoFocus>
             </textarea>
           </label>
-          <input type="submit" value="edit!" />
+          <input type="submit" value="Save Changes" />
         </form>
         <button onClick={this.deleteFlashcard}>Delete flashcard</button>
         <button onClick={this.cancelFlashcard}>Cancel</button>

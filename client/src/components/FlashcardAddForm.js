@@ -18,6 +18,7 @@ class FlashcardAddForm extends Component {
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
     this.getAPIData = this.getAPIData.bind(this);
+    this.cancelFlashcard = this.cancelFlashcard.bind(this);
   }
 
   handleInputChange(e) {
@@ -71,6 +72,12 @@ class FlashcardAddForm extends Component {
 
   }
 
+  cancelFlashcard() {
+    this.setState({
+      fireRedirect: true
+   });
+  }
+
   render() {
     console.log('user_id in add flashcard = ',this.props.match.params.user_id);
     let path = '/subjects/user/' + this.props.match.params.user_id;
@@ -101,6 +108,7 @@ class FlashcardAddForm extends Component {
             </textarea>
             <input className='submit' type="submit" value="SUBMIT" />
         </form>
+        <button onClick={this.cancelFlashcard}>Cancel</button>
         {this.state.fireRedirect
           ? <Redirect push to={pathSubject} />
           : ''}

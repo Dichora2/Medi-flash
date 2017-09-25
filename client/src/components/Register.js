@@ -7,6 +7,7 @@ class Register extends Component {
         constructor(props){
             super(props);
             this.state ={
+                user_id: '',
                 firstname: '',
                 lastname: '',
                 email: '',
@@ -39,8 +40,9 @@ class Register extends Component {
                 }
             })
             .then(res => {
-              console.log('in register',res);
+              console.log('in register',res.data);
               this.setState({
+                user_id: res.data.user.id,
                 fireRedirect: true,
               });
             })
@@ -49,10 +51,10 @@ class Register extends Component {
          }
 
         render(){
-            let path = '/subjects/user/' + this.props.match.params.id;
-            
+            let path = '/subjects/user/' + this.state.user_id;
+
             return (
-                
+
                 <div className="auth-page">
                     <h1 className="auth-header">Use your Medi-flash account to add, save, and test your knowledge.</h1>
                     <form onSubmit={(e) => this.handleFormSubmit(e)}>
@@ -62,7 +64,7 @@ class Register extends Component {
                         <input name="username" type="text" placeholder="username" required onChange={this.handleInputChange}/>
                         <input name="password" type="password" placeholder="password" required onChange={this.handleInputChange}/>
                         <input className='submit' type="submit" value="SIGN UP" />
-                    
+
 
                     </form>
                     <a className="link" href="/">Login</a>
