@@ -81,13 +81,13 @@ class FlashcardAddForm extends Component {
               name="term"
               value={this.state.term}
               onChange={this.handleInputChange}
+              autoFocus
             />
             <p className='dictionary'>Merriam-Webster Medical Dictionary API</p>
             <button onClick={this.getAPIData}>LOAD</button>
             <textarea id="comment" cols="40" rows="15"
               placeholder="Definition"
               name="definition"
-              autoFocus
               value={this.state.definition}
               onChange={this.handleInputChange}>
             </textarea>
