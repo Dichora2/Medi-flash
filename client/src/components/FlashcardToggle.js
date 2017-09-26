@@ -6,14 +6,12 @@ import Image from '../images/pencil.svg'
 
 class FlashcardToggle extends Component {
 
-//this class will render the toggle between the term and definition of a flashcard
 
 //code reference https://codepen.io/anon/pen/XeKKoe
 
 constructor(props) {
     super(props);
-    // console.log('FLASHCARD ----------> ', this.props.flashcard_object);
-    // console.log('KEEEP STUDYING ---------->', this.props.flashcard_object.keep_studying)
+    // console.log('flashcard ----------> ', this.props.flashcard_object);
     this.state = {
         show: true,
         flashcard: this.props.flashcard_object,
@@ -24,7 +22,6 @@ constructor(props) {
 
 
 IGotIt() {
-
     axios 
         .put(`/flashcard/${this.state.flashcard.id}/updateKeepStudying`, {
             id: this.state.flashcard.id
@@ -60,7 +57,6 @@ render() {
 
     return(
             <div className="flashcard clearfix">
-
                 <button className='flashcard-button-card' onClick={this.toggle.bind(this)}>DEFINITION</button>
                 <button className='flashcard-button-card got-it' onClick={this.IGotIt.bind(this)}>I GOT IT!</button>
                 <Link className="edit-flashcard " to={pathFlashcards}><img src={Image} /></Link>
