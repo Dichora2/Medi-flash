@@ -1,7 +1,9 @@
-
  /* fonts */
+
  @import url('https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700');
 
+
+ 
 
  /* header */
  .header {
@@ -15,12 +17,10 @@
 
  .hamburger {
   float: left;
-  
   display: inline-block;
   height: 65px;
   padding-top: 20px;
 }
-
 
  .hamburger-nav-icon{
    width: 40px;
@@ -48,10 +48,11 @@ h1.website-title-header a{
 .user-name-header{
    margin: 35px;
    display: inline-flex;
-   float: right;   
+   float: right;
    font-weight: 100;
    font-family: museo-sans, sans-serif;
    color: #0F77FE;
+   
  }
 
 
@@ -64,14 +65,15 @@ h1.website-title-header a{
   color: #0F77FE;
  }
 
-
 /* login + register*/
+
 
 .auth-page{
   max-width: 50%;
   margin: auto;
   padding: 5% 0;
 }
+
 
 input {
   background-color: transparent;
@@ -90,18 +92,10 @@ input::placeholder {
   font-size: 1rem;
 }
 
- a.link {
 
+ a.link {
   text-decoration: none;
   color: #0F77FE;
-}
-
-label {
-  color: #0F77FE;  
-}
-
-.edit {
-  padding:5%;
 }
 
  .submit {
@@ -119,17 +113,14 @@ label {
   background-color: #0F77FE;
 }
 
-
 /* subjects.js */
 ul.list-of-subjects{
   max-width: 1024px;
   margin: 6px;
-
 }
 
 
 li.individual-subject {
-  
    list-style: none;
    display: inline-block;   
    padding: 5%;  
@@ -252,12 +243,12 @@ button.flashcard-button-card {
 }
 
 
-
 /* Flashcard Add Form */
 
 .add-flashcard{
   margin: 5%;
 }
+
 
 #comment {
   margin: 2% 0;
@@ -271,12 +262,8 @@ p.dictionary {
 }
 
 
+/* code reference for nav:  https://www.codementor.io/chrisharrington/how-to-build-a-sliding-menu-using-react-js-and-less-css-du107mpij */ */
 
-
-
- /* reference code: https://www.codementor.io/chrisharrington/how-to-build-a-sliding-menu-using-react-js-and-less-css-du107mpij */ */
-
-/* nav code reference: https://codepen.io/anon/pen/pWNZQz */
 
 .nav-icon {
   width: 50vw;
@@ -285,6 +272,7 @@ p.dictionary {
   position: absolute;
 }
 
+
 .nav-list {
   background:#0F77FE;
   min-height: 100vh;
@@ -292,16 +280,23 @@ p.dictionary {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
   margin: 0 auto;
 	text-align: center;
 }
 
 .nav-list:after {
+  background-color: green;
   width: 80vw;
-  transition: all 0.3s;  
+  transition: all 0.3s;
+  
+  
 }  
 
-div.nav-list a:before, div.nav-list a:after {
+/* code source for nav animation: https://codepen.io/anon/pen/pWNZQz */
+
+div.nav-list a:before, div.nav-list a:after
+{
     position: absolute;
     opacity: 0;
     font-size: 40px;
@@ -309,13 +304,16 @@ div.nav-list a:before, div.nav-list a:after {
     transition: all 0.3s;
 }
 
-div.nav-list a:before {
+
+div.nav-list a:before
+{
     content: '(';
     left: -30px;
     transform: translateX(20px);
 }
 
-div.nav-list a:after{
+div.nav-list a:after
+{
     content: ')';
     right: -30px;
     transform: translateX(-40px);
@@ -328,7 +326,7 @@ div.nav-list a:hover:before, div.nav-list a:hover:after{
 
 .nav{
   height: 52px;
-  border-left: 20px solid transparent;
+  border-left: 20px solid transparent; 
 }
 
 
@@ -357,13 +355,20 @@ body {
    background-color: #f9f9f9;
  }
 
-
  img {
-   width: 30px;
-   height: 30px;
-   padding: 3%;
-   float: right;
- }
+  width: 30px;
+  height: 30px;
+  padding: 3%;
+  float: right;
+}
+
+label {
+  color: #0F77FE;  
+}
+
+.edit {
+  padding:5%;
+}
 
 /******************************************
 /* HELPER CLASSES
