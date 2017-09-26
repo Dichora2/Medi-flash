@@ -1,16 +1,9 @@
 
  /* fonts */
-
  @import url('https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700');
- /* replacing futura for now */
-
- 
- 
-
 
 
  /* header */
-
  .header {
    height: 80px;
    background: #f9f9f9;
@@ -55,43 +48,11 @@ h1.website-title-header a{
 .user-name-header{
    margin: 35px;
    display: inline-flex;
-   float: right;
-   
+   float: right;   
    font-weight: 100;
    font-family: museo-sans, sans-serif;
    color: #0F77FE;
-   
  }
-
-
-
-
- /* homepage content */
-
- .homepage {
-  max-width: 1024px;
-  height: 100vh;
-  margin: auto;
-  /* this needs work obvi */
-}
- .home-content {
-  padding:  5% 0;   
-  background-image: url(background-image.png)
-  
- }
- .main-home-box {
-   margin: 2% 0 2% 4%;
-   height: 300px;
-   max-width: 282px;
-   display: inline-flex;
- }
-
-
-
-
-
-
-
 
 
  .main-home-box h1 , .auth-header , h1{
@@ -102,26 +63,15 @@ h1.website-title-header a{
   margin: auto;
   color: #0F77FE;
  }
-/* needs hover */
 
-
- /* .homepage {
-   width: 80%;
-   margin: 0 auto;
- } */
-
-
-/* user's subject page */
 
 /* login + register*/
-
 
 .auth-page{
   max-width: 50%;
   margin: auto;
   padding: 5% 0;
 }
-
 
 input {
   background-color: transparent;
@@ -133,7 +83,6 @@ input {
   width: 250px;
   height: 40px;
   outline: none;
-  
 }
 
 input::placeholder {
@@ -145,7 +94,6 @@ input::placeholder {
 
   text-decoration: none;
   color: #0F77FE;
-  
 }
 
 label {
@@ -172,31 +120,16 @@ label {
 }
 
 
-/* //subjects.js */
+/* subjects.js */
 ul.list-of-subjects{
   max-width: 1024px;
   margin: 6px;
-  /* -webkit-column-count: 2;
-  -moz-column-count: 2;
-  column-count: 2; */
+
 }
 
 
 li.individual-subject {
   
-  /* list-style: none;
-  margin: auto;
-  padding: 5%;  
-  margin-bottom: 5%;
-  width: 350px;
-  height: 60px;
-  border: 1px solid #0F77FE;
-  border-top: 5px solid #0F77FE;
-  transition: padding 0.5s ease;
-   */
-
-
-
    list-style: none;
    display: inline-block;   
    padding: 5%;  
@@ -205,13 +138,10 @@ li.individual-subject {
    width: 36%;
    border: 1px solid #0F77FE;
    border-top: 5px solid #0F77FE;
-   transition:all 0.3s ease;
    transition:all 0.9s ease;
-   
 }
 
 li.individual-subject:hover {
-
   background-color: #EDFEFF;
   transform: scale(1.05);
 }
@@ -238,6 +168,7 @@ a.individual-subject-link {
   color: #4A4A4A;
   text-decoration: none;
 }
+
 a.add-subject, button {
   text-decoration: none;
   background-color: #0F77FE;
@@ -252,9 +183,9 @@ button {
   border:none;
   height: 40px;
   float: none;
-  margin: 3px;
-  
+  margin: 3px; 
 }
+
 button.flashcard-button > a {
   text-decoration: none;
   color: white;  
@@ -262,12 +193,13 @@ button.flashcard-button > a {
 
 button.flashcard-button{
   float: right;
-  margin: 3px;
-  
+  margin: 3px;  
 }
+
 .subject-page-header{
   margin: 2% 0
 }
+
 .page-header{
   padding: 4% 5%;
 }
@@ -276,7 +208,6 @@ button.flashcard-button{
   padding: 5%;
 }
 
-/* /* subject.js */
 .cardArea{
   height: 100vh;
 }
@@ -318,7 +249,6 @@ button.flashcard-button-card {
   color: #0F77FE;
   padding: 5px;
     margin: 0px
-  
 }
 
 
@@ -328,8 +258,6 @@ button.flashcard-button-card {
 .add-flashcard{
   margin: 5%;
 }
-
-
 
 #comment {
   margin: 2% 0;
@@ -342,12 +270,13 @@ p.dictionary {
   color: #0F77FE;
 }
 
-/* NAV brought to use by https://www.codementor.io/chrisharrington/how-to-build-a-sliding-menu-using-react-js-and-less-css-du107mpij */
 
 
 
 
+ /* reference code: https://www.codementor.io/chrisharrington/how-to-build-a-sliding-menu-using-react-js-and-less-css-du107mpij */ */
 
+/* nav code reference: https://codepen.io/anon/pen/pWNZQz */
 
 .nav-icon {
   width: 50vw;
@@ -356,7 +285,6 @@ p.dictionary {
   position: absolute;
 }
 
-
 .nav-list {
   background:#0F77FE;
   min-height: 100vh;
@@ -364,7 +292,6 @@ p.dictionary {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
   margin: 0 auto;
 	text-align: center;
 }
@@ -374,11 +301,7 @@ p.dictionary {
   transition: all 0.3s;  
 }  
 
-/* source: https://codepen.io/anon/pen/pWNZQz */
-
-
-div.nav-list a:before, div.nav-list a:after
-{
+div.nav-list a:before, div.nav-list a:after {
     position: absolute;
     opacity: 0;
     font-size: 40px;
@@ -386,22 +309,19 @@ div.nav-list a:before, div.nav-list a:after
     transition: all 0.3s;
 }
 
-div.nav-list a:before
-{
+div.nav-list a:before {
     content: '(';
     left: -30px;
     transform: translateX(20px);
 }
 
-div.nav-list a:after
-{
+div.nav-list a:after{
     content: ')';
     right: -30px;
     transform: translateX(-40px);
 }
 
-div.nav-list a:hover:before, div.nav-list a:hover:after
-{
+div.nav-list a:hover:before, div.nav-list a:hover:after{
     opacity: 1;
     transform: translateX(0px);
 }
@@ -409,7 +329,6 @@ div.nav-list a:hover:before, div.nav-list a:hover:after
 .nav{
   height: 52px;
   border-left: 20px solid transparent;
-  
 }
 
 
