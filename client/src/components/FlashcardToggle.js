@@ -39,8 +39,6 @@ IGotIt() {
 }
 
 
-
-
 toggle(){
     this.setState({
         show: !this.state.show
