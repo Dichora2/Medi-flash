@@ -43,11 +43,13 @@ class Subjects extends Component {
                 let pathSubject = `/subjects/${subject.id}/user/` + this.props.match.params.user_id;
                 return (
                 <li key={subject.id} className='individual-subject'>
+
                     <Link className="individual-subject-link" to={pathSubject}>{subject.name}</Link>
                     <div>
                       <Link className="subject-edit" to='/subjects/edit/user/ + this.props.match.params.user_id'>Edit</Link>
                      <button onClick ={this.deleteSubject} className="subject-delete">-</button>
                     </div>
+
                 </li>
                 )
             })
