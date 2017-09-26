@@ -72,7 +72,6 @@ h1.website-title-header a{
   max-width: 1024px;
   height: 100vh;
   margin: auto;
-  background-color: #EDFEFF;
   /* this needs work obvi */
 }
  .home-content {
@@ -142,25 +141,22 @@ input::placeholder {
   font-size: 1rem;
 }
 
-
-
  a.link {
 
   text-decoration: none;
   color: #0F77FE;
   
-  
+}
 
+label {
+  color: #0F77FE;  
+}
+
+.edit {
+  padding:5%;
 }
 
  .submit {
-  /* width: 200px;
-  height: 40px;
-  background-color: #0F77FE;
-  color: white;
-  font-size: 1rem; */
-
-
   background-color: #0F77FE;
   padding: 10px 20px;
   letter-spacing: 2px;
@@ -178,32 +174,46 @@ input::placeholder {
 
 /* //subjects.js */
 ul.list-of-subjects{
-  padding: 0;
-
-  -webkit-column-count: 2;
+  max-width: 1024px;
+  margin: 6px;
+  /* -webkit-column-count: 2;
   -moz-column-count: 2;
-  column-count: 2;
+  column-count: 2; */
 }
 
 
 li.individual-subject {
-  list-style: none;
+  
+  /* list-style: none;
   margin: auto;
   padding: 5%;  
   margin-bottom: 5%;
   width: 350px;
-  height: 50px;
+  height: 60px;
   border: 1px solid #0F77FE;
   border-top: 5px solid #0F77FE;
   transition: padding 0.5s ease;
-  
+   */
+
+
+
+   list-style: none;
+   display: inline-block;   
+   padding: 5%;  
+   margin: 1%;
+   float: left;
+   width: 36%;
+   border: 1px solid #0F77FE;
+   border-top: 5px solid #0F77FE;
+   transition:all 0.3s ease;
+   transition:all 0.9s ease;
+   
 }
 
 li.individual-subject:hover {
-  padding: 5% 10%;
-  border-left: 5px solid #0F77FE;
-  border-right: 5px solid #0F77FE;
-  
+
+  background-color: #EDFEFF;
+  transform: scale(1.05);
 }
 
 a.individual-subject-link {
@@ -240,7 +250,9 @@ a.add-subject, button {
 
 button {
   border:none;
+  height: 40px;
   float: none;
+  margin: 3px;
   
 }
 button.flashcard-button > a {
@@ -250,8 +262,7 @@ button.flashcard-button > a {
 
 button.flashcard-button{
   float: right;
-  margin: 5px;
-  
+  margin: 3px;
   
 }
 .subject-page-header{
@@ -278,15 +289,19 @@ button.flashcard-button{
   display: inline-block;
   width: 48%;
   margin-right: 5px;
+  overflow-x: hidden;  
 }
+
 button.flashcard-button-card {
   display: inline;
   width: 50%;
   height: 40px;
+  margin: 0;
 }
 
 .got-it{
   background-color: #02EBF5;
+  margin: 0px
 }
 
 .flashcard-term {
@@ -295,13 +310,14 @@ button.flashcard-button-card {
   text-align: center;
   font-family: 'Nunito', sans-serif;
   color: #0F77FE;
-  padding-top: 50px;
+  padding-top: 30px;
 }
 
 .flashcard-definition {
   font-family: 'Nunito', sans-serif;
   color: #0F77FE;
   padding: 5px;
+    margin: 0px
   
 }
 
@@ -354,11 +370,8 @@ p.dictionary {
 }
 
 .nav-list:after {
-  background-color: green;
   width: 80vw;
-  transition: all 0.3s;
-  
-  
+  transition: all 0.3s;  
 }  
 
 /* source: https://codepen.io/anon/pen/pWNZQz */
