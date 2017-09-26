@@ -81,15 +81,13 @@ componentDidMount() {
       console.log('------->', this.props.match.params)
       return (
         <div className='page-header'>
-          <i class="fa fa-pencil-square" ></i>
-          <FontAwesome name='rocket' size='2x' />
+
           <button className='add-flashcard flashcard-button'><Link to={pathFlashcards}>+ ADD CARDS</Link></button>
           <button className='hard-flashcard flashcard-button'><Link to={pathHardOnes}>HARD ONES</Link></button>
           <Link className="back-to-subjects " to={pathSubjects}> ← back to all subjects</Link>
 
           <h1 className='subject-page-header'>{subjectName}</h1>
           <p className="subject-date">{subjectDate}</p>
-          <p className='subject-flashcard-count'>{}</p>
             <div className="cardArea">
 
               {this.flashcardMap(this.state.flashcards)}

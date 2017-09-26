@@ -141,25 +141,22 @@ input::placeholder {
   font-size: 1rem;
 }
 
-
-
  a.link {
 
   text-decoration: none;
   color: #0F77FE;
   
-  
+}
 
+label {
+  color: #0F77FE;  
+}
+
+.edit {
+  padding:5%;
 }
 
  .submit {
-  /* width: 200px;
-  height: 40px;
-  background-color: #0F77FE;
-  color: white;
-  font-size: 1rem; */
-
-
   background-color: #0F77FE;
   padding: 10px 20px;
   letter-spacing: 2px;
@@ -253,7 +250,9 @@ a.add-subject, button {
 
 button {
   border:none;
+  height: 40px;
   float: none;
+  margin: 3px;
   
 }
 button.flashcard-button > a {
@@ -263,8 +262,7 @@ button.flashcard-button > a {
 
 button.flashcard-button{
   float: right;
-  margin: 5px;
-  
+  margin: 3px;
   
 }
 .subject-page-header{
@@ -298,10 +296,12 @@ button.flashcard-button-card {
   display: inline;
   width: 50%;
   height: 40px;
+  margin: 0;
 }
 
 .got-it{
   background-color: #02EBF5;
+  margin: 0px
 }
 
 .flashcard-term {
@@ -310,13 +310,14 @@ button.flashcard-button-card {
   text-align: center;
   font-family: 'Nunito', sans-serif;
   color: #0F77FE;
-  padding-top: 50px;
+  padding-top: 30px;
 }
 
 .flashcard-definition {
   font-family: 'Nunito', sans-serif;
   color: #0F77FE;
   padding: 5px;
+    margin: 0px
   
 }
 
@@ -369,11 +370,8 @@ p.dictionary {
 }
 
 .nav-list:after {
-  background-color: green;
   width: 80vw;
-  transition: all 0.3s;
-  
-  
+  transition: all 0.3s;  
 }  
 
 /* source: https://codepen.io/anon/pen/pWNZQz */

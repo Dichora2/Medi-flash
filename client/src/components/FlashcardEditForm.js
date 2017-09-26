@@ -88,16 +88,13 @@ class FlashcardEditForm extends Component {
     return (
       <div className="edit">
         <form onSubmit={this.handleFormSubmit}>
-          <label>
-            Term
-            <input
+            <input className='term-placeholder'
               type="text"
               placeholder="term"
               name="term"
               value={this.state.term}
               onChange={this.handleInputChange}
             />
-          </label>
           <label>
             Definition
             <textarea id="comment" name="definition" cols="40" rows="15"
@@ -107,10 +104,10 @@ class FlashcardEditForm extends Component {
               autoFocus>
             </textarea>
           </label>
-          <input type="submit" value="Save Changes" />
+          <input className='submit' type="submit" value="SUBMIT" />
         </form>
-        <button onClick={this.deleteFlashcard}>Delete flashcard</button>
-        <button onClick={this.cancelFlashcard}>Cancel</button>
+        <button onClick={this.deleteFlashcard}>DELETE</button>
+        <button onClick={this.cancelFlashcard}>CANCEL</button>
         {this.state.fireRedirect
           ? <Redirect push to={path} />
           : ''}
