@@ -22,12 +22,12 @@ componentDidMount() {
     .then(res => {
       console.log('res.data = ',res.data.data);
       subjectData = res.data;
-      
+
     }).catch(err => console.log(err));
-    
+
   let path = `/flashcard/user/${this.props.match.params.user_id}/subject/${this.props.match.params.id}/hardones`;
-  
-  axios.get(path)  
+
+  axios.get(path)
   .then(res => {
       if (res.data.data) {
         this.setState({
@@ -57,10 +57,12 @@ componentDidMount() {
       const subjectName = this.state.subject.data.name;
       const subjectDate = this.state.subject.data.date_modified;
       let pathSubjects = '/subjects/user/' + this.props.match.params.user_id;
+      let pathSubject = `/subjects/${this.state.subject.data.id}/user/` + this.props.match.params.user_id;
 
       return (
         <div className='page-header'>
           <Link className="back-to-subjects " to={pathSubjects}> ← back to all subjects</Link>
+          <Link className="back-to-subjects " to={pathSubject}> ← back to all flashcards</Link>
           <h1 className='subject-page-header'>{subjectName}</h1>
           <p className="subject-date">{subjectDate}</p>
           <p className='subject-flashcard-count'>{}</p>
