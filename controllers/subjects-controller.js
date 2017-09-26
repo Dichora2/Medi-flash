@@ -59,6 +59,7 @@ subjectController.create = (req, res) => {
 };
 
 subjectController.update = (req, res) => {
+  console.log("I'm Here");
   Subject.update(
     {
       
