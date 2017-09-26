@@ -7,7 +7,7 @@ subjectRouter.get('/user/:id', subjectController.indexUser);
 subjectRouter.get('/', subjectController.index);
 subjectRouter.get('/:id', subjectController.show);
 subjectRouter.post('/', subjectController.create);
-// subjectsRouter.get('/:id/edit', subjectController.update);
+//subjectsRouter.get('/:id/edit', subjectController.update);
 subjectRouter.put('/:id', subjectController.update);
 subjectRouter.delete('/:id', subjectController.destroy);
 
