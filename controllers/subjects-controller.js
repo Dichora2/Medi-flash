@@ -80,8 +80,10 @@ subjectController.update = (req, res) => {
 };
 
 subjectController.destroy = (req, res) => {
+  console.log("in destroy")
   Subject.destroy(req.params.id)
     .then(subject => {
+      console.log("===subject===",subject)
       res.json({
         data: subject,
       });

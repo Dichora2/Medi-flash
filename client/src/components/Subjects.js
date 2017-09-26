@@ -14,6 +14,7 @@ class Subjects extends Component {
     constructor(){
       super();
       this.state = {
+        newId: 1,
         subjects: [],
         subjectsLoaded: false
       };
@@ -27,7 +28,7 @@ class Subjects extends Component {
         })
           .then(res => {
             this.setState({
-
+                //newId: subjects.data.id,
                 subjects: res.data.data,
                 subjectsLoaded: true
             })
@@ -61,12 +62,12 @@ class Subjects extends Component {
     deleteSubject() {
       
       axios
-      .delete(`/subject/${this.state.newId}`)
+      .delete(`/subjects/${this.state.newId}`)
       .then(res => {
         this.setState({
-          subject: '',
+          subjects: '',
           definition: '',
-          date_modified: ''
+          date_modified: '',
         })
       })
       .catch(err => console.log(err));
