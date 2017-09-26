@@ -46,13 +46,11 @@ Subject.update = (subject, id) => {
   return db.one(
     `
     UPDATE subjects
-      user_id = $1,
-      date_modified = $2,
-      name = $3,
-    WHERE id = $4
+      name = $1
+    WHERE id = $2
     RETURNING *
   `,
-    [user_id, date_created, name]
+    [name,id]
   );
 };
 

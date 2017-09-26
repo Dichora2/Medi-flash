@@ -17,7 +17,7 @@ class Subjects extends Component {
         subjects: [],
         subjectsLoaded: false
       };
-
+      this.deleteSubject = this.deleteSubject.bind(this);
     }
 
 
@@ -33,6 +33,7 @@ class Subjects extends Component {
             })
           })
           .catch(err => console.log('in error',err));
+          let pathSubjects = '/subjects/user/' + this.props.match.params.user_id;
          }
 
 
@@ -44,8 +45,8 @@ class Subjects extends Component {
                 <li key={subject.id} className='individual-subject'>
                     <Link className="individual-subject-link" to={pathSubject}>{subject.name}</Link>
                     <div>
-                      <button className="subject-edit"><Link to='/edit'>+</Link></button>
-                      <button className="subject-delete">-</button>
+                      <Link className="subject-edit" to='/subjects/edit/user/ + this.props.match.params.user_id'>Edit</Link>
+                     <button onClick ={this.deleteSubject} className="subject-delete">-</button>
                     </div>
                 </li>
                 )
@@ -53,6 +54,19 @@ class Subjects extends Component {
        } else {
            return <p>no subjects yet!</p>
        }
+    }
+    deleteSubject() {
+      
+      axios
+      .delete(`/subject/${this.state.newId}`)
+      .then(res => {
+        this.setState({
+          subject: '',
+          definition: '',
+          date_modified: ''
+        })
+      })
+      .catch(err => console.log(err));
     }
 
     render(){

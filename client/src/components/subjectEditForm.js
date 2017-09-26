@@ -8,23 +8,30 @@ class subjectEditForm extends Component {
   constructor() {
     super();
     this.state = {
-        subject: '',
-        definition: '',
-        date_modified: '',
+        name: '',
+        id:null,
         fireRedirect: false,  
     };
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
   
-  componentDidMount() {
-    axios.get(`/subject/${this.props.match.params.id}`)
-      .then((res) => {
+  
+
+  componentDidMount(){
+    
+    
+    axios.get(`http://localhost:3001/subject/${this.props.match.params.id}`)
+      .then((res,req) => {
+        
+        console.log(res.data,'<----this is the data');
+        console.log(this.props.match.params.id,'this is the id')
         const subject = res.data;
+        
         this.setState({
-          term: subject.term,
-          definition: subject.definition.term,
-          date_modified: subject.date_modified,
+          name: res.data.data.name,
+          id:this.props.match.params.id
         })
       }).catch(err => console.log(err));
   }
@@ -38,57 +45,68 @@ class subjectEditForm extends Component {
   }
 
   handleFormSubmit(e) {
-    e.preventDefault();
-    axios
-      .put(`/subject/${this.props.match.params.id}`, {
-        term: this.state.term,
-        definition: this.state.definition,
-        date_modified: this.state.date_modified
-      })
-      .then(res => {
-        this.setState({
-          newId: res.data.id,
-          fireRedirect: true,
-        });
-      })
-      .catch(err => console.log(err));
-    e.target.reset();
+    // e.preventDefault();
+    // axios
+    //   .put(`/subject/${this.props.match.params.id}`, {
+    //     term: this.state.term,
+    //     definition: this.state.definition,
+    //     date_modified: this.state.date_modified
+    //   })
+    //   .then(res => {
+    //     this.setState({
+    //       newId: res.data.id,
+    //       fireRedirect: true,
+    //     });
+    //   })
+    //   .catch(err => console.log(err));
+    // e.target.reset();
   }
+
+  // handleClick(){
+  //   console.log('this is working')
+
+  //   axios.put(`http://localhost:3001/subject/${this.props.match.params.id}/edit`)
+  //     .then((res,req) => {
+  //       console.log(res.data,'<----this is the data')
+  //       const subject = res.data;
+  //       this.setState({
+  //         name: res.data.data.name
+  //       })
+  //     }).catch(err => console.log(err));
+  // }
+
+  handleClick(){
+   
+    console.log('this is working')
+    console.log(this.state,'this is the state')
+     
+     axios.put(`http://localhost:3001/subject/${this.state.id}`,{
+      name:this.state.name
+     })
+     
+    
+     //   .catch(err => console.log(err));
+  }
+  
 
   render() {
     return (
       <div className="edit">
         <form onSubmit={this.handleFormSubmit}>
+      
           <label>
-            Term
+            Name
             <input
+              id='input'
               type="text"
-              placeholder="term"
-              name="term"
-              value={this.state.term}
-              onChange={this.handleInputChange}
-            />
+              placeholder="name"
+              name="name"
+              value={this.state.name}
+              onChange={this.handleInputChange}/>
+              <button onClick={this.handleClick}>edit</button>
+            
           </label>
-          <label>
-            Definition
-            <input
-              type="text"
-              placeholder="definition"
-              name="definition"
-              value={this.state.definition}
-              onChange={this.handleInputChange}
-            />
-          </label>
-          <label>
-            Date
-            <input
-              type="text"
-              placeholder="date"
-              name="date_modified"
-              value={this.state.date_modified}
-              onChange={this.handleInputChange}
-            />
-          </label>
+        
           <input type="submit" value="edit!" />
         </form>
         {this.state.fireRedirect
