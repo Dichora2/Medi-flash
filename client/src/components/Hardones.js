@@ -1,11 +1,4 @@
-import FontAwesome from 'react-fontawesome';
-
 import React, { Component } from 'react';
-//import Subject data
-
-//here were present one subject,
-//with all the flashcards associated with that Subject for user
-
 import axios from 'axios';
 import FlashcardToggle from './FlashcardToggle.js';
 import { Link } from 'react-router-dom';
@@ -23,7 +16,6 @@ class HardOnes extends Component {
       }
     }
 
-//axios
 componentDidMount() {
   let subjectData = {};
   axios.get(`/subject/${this.props.match.params.id}`)
@@ -56,7 +48,6 @@ componentDidMount() {
     })
   }
 
-
   renderSubjectWithFlashcards(){
     const subjectId = Number(this.props.match.params.id);
 
@@ -65,14 +56,11 @@ componentDidMount() {
       console.log('subjectName = ',this.state.subject);
       const subjectName = this.state.subject.data.name;
       const subjectDate = this.state.subject.data.date_modified;
-
       let pathSubjects = '/subjects/user/' + this.props.match.params.user_id;
 
       return (
         <div className='page-header'>
-
           <Link className="back-to-subjects " to={pathSubjects}> ← back to all subjects</Link>
-
           <h1 className='subject-page-header'>{subjectName}</h1>
           <p className="subject-date">{subjectDate}</p>
           <p className='subject-flashcard-count'>{}</p>
@@ -91,7 +79,6 @@ componentDidMount() {
       <div>
           <div className='subject-page'>
             {this.renderSubjectWithFlashcards()}
-            {/* <button className='edit-flashcard'><Link to='/edit'>Edit Flashcard</Link></button> */}
           </div>
       </div>
     )

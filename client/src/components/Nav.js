@@ -1,5 +1,3 @@
-
-
 import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
 import App from '../App';
@@ -7,7 +5,6 @@ import Flexbox from 'flexbox-react';
 import Logout from './Logout.js'
 
 
-// var
 
 class Nav extends React.Component {
 	constructor() {
@@ -40,18 +37,13 @@ class Nav extends React.Component {
                         <div className="hamburger-nav-icon"></div>
                         <div className="hamburger-nav-icon"></div> 
                 </div>
-
             </div>
-
 				<div className='nav-icon' style={ shown }>
                     <div className='nav-list'>
                         <a className='nav-link'>Subjects</a>
                         <a className='nav-link'>Search Flashcards</a>
                         <a className='nav-link'>Signout</a>
-						
-
                     </div>
-
                 </div>
 				<h2 style={ hidden }></h2>
 			</div>
