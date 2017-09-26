@@ -39,7 +39,7 @@ export default (
             <Route exact path='/subjects/:id/user/:user_id/hardones' component={HardOnes} />
 
             <Route exact path='/' component={Login} />
-             <Route exact path='/logout' component={Login} />
+            <Route exact path='/logout' component={Login} />
             <Route exact path='/register' component={Register} />
         </div>
     </BrowserRouter>
