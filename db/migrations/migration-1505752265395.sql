@@ -27,11 +27,11 @@ CREATE TABLE IF NOT EXISTS subjects (
 );
 
 CREATE TABLE IF NOT EXISTS users_flashcards (
-  user_id integer REFERENCES users(id),
-  flashcard_id integer REFERENCES flashcards(id)
+  user_id integer REFERENCES users(id) ON DELETE CASCADE,
+  flashcard_id integer REFERENCES flashcards(id) ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS flashcards_subjects (
-  flashcard_id integer REFERENCES flashcards(id),
-  subject_id integer REFERENCES subjects(id)
+  flashcard_id integer REFERENCES flashcards(id) ON DELETE CASCADE,
+  subject_id integer REFERENCES subjects(id) ON DELETE CASCADE
 );
