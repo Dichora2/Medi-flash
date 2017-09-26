@@ -22,7 +22,7 @@ class subjectEditForm extends Component {
   componentDidMount(){
     
     
-    axios.get(`http://localhost:3001/subject/${this.props.match.params.id}`)
+    axios.get(`http://localhost:3000/subject/${this.props.match.params.id}`)
       .then((res,req) => {
         
         console.log(res.data,'<----this is the data');
@@ -80,7 +80,7 @@ class subjectEditForm extends Component {
     console.log('this is working')
     console.log(this.state,'this is the state')
      
-     axios.put(`http://localhost:3001/subject/${this.state.id}`,{
+     axios.put(`http://localhost:3000/subject/${this.state.id}`,{
       name:this.state.name
      })
      
