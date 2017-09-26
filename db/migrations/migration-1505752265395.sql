@@ -1,4 +1,3 @@
-\c medi-flash_db;
 
 
 
