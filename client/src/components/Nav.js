@@ -46,7 +46,7 @@ class Nav extends React.Component {
 				<div className='nav-icon' style={ shown }>
                     <div className='nav-list'>
                         <a className='nav-link'>Subjects</a>
-                        <a className='nav-link'>Your cards</a>
+                        <a className='nav-link'>Search Flashcards</a>
                         <a className='nav-link'>Signout</a>
 						
 
