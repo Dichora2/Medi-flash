@@ -1,14 +1,12 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import { Redirect } from 'react-router-dom';
-
 import { Link } from 'react-router-dom';
 
 class SubjectAddForm extends Component {
   constructor() {
     super();
     this.state = {
-
       name: '',
       fireRedirect: false,
     };
@@ -35,21 +33,15 @@ class SubjectAddForm extends Component {
       })
       .then(res => {
         this.setState({
-          //this needs to bind to subjects
-          //confirm if this is targeting the right thing
           fireRedirect: true,
         });
       })
       .catch(err => {
         console.log('in err ', err);
         this.setState({
-          //this needs to bind to subjects
-          //confirm if this is targeting the right thing
           fireRedirect: true,
         });
       });
-
-    // e.target.reset();
   }
 
   render() {

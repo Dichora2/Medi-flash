@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
-
 import axios from 'axios';
-
 import { Redirect } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-
 import Subject from './Subject.js'
 
 class FlashcardAddForm extends Component {
@@ -29,8 +26,6 @@ class FlashcardAddForm extends Component {
     });
   }
 
-
-
   handleFormSubmit(e) {
     e.preventDefault();
     axios
@@ -42,13 +37,10 @@ class FlashcardAddForm extends Component {
       })
       .then(res => {
         console.log('--------------->', this.state)
-
         console.log(res);
         this.setState({
           newId: res.data.data.id,
           fireRedirect: true
-          //confirm if this is targeting the right thing
-          // fireRedirect: true,
         });
       })
       .catch(err => console.log(err));
@@ -64,12 +56,9 @@ class FlashcardAddForm extends Component {
         console.log('res = ',res.data);
         this.setState({
           definition: res.data.definition,
-          //confirm if this is targeting the right thing
-          // fireRedirect: true,
         });
       })
       .catch(err => console.log(err));
-
   }
 
   cancelFlashcard() {
@@ -82,13 +71,10 @@ class FlashcardAddForm extends Component {
     console.log('user_id in add flashcard = ',this.props.match.params.user_id);
     let path = '/subjects/user/' + this.props.match.params.user_id;
     let pathSubject = `/subjects/${this.props.match.params.subject_id}/user/${this.props.match.params.user_id}`;
-
     return (
       <div className="add-flashcard">
-
         <form onSubmit={this.handleFormSubmit}>
             <Link className="back-to-subjects " to={path}> ← back to all subjects</Link>
-
             <input
               type="text"
               placeholder="Term"
@@ -98,7 +84,6 @@ class FlashcardAddForm extends Component {
             />
             <p className='dictionary'>Merriam-Webster Medical Dictionary API</p>
             <button onClick={this.getAPIData}>LOAD</button>
-
             <textarea id="comment" cols="40" rows="15"
               placeholder="Definition"
               name="definition"

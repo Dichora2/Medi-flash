@@ -1,15 +1,7 @@
-import FontAwesome from 'react-fontawesome';
-
 import React, { Component } from 'react';
-//import Subject data
-
-//here were present one subject,
-//with all the flashcards associated with that Subject for user
-
 import axios from 'axios';
 import FlashcardToggle from './FlashcardToggle.js';
 import { Link } from 'react-router-dom';
-
 
 
 class Subject extends Component {
@@ -23,7 +15,6 @@ class Subject extends Component {
       }
     }
 
-//axios
 componentDidMount() {
   let subjectData = {};
   console.log('subject id = ',this.props.match.params.id);
@@ -43,7 +34,6 @@ componentDidMount() {
           subjectLoaded: true,
           flashcardLoaded: true,
           flashcards: res.data.data,
-          //check if this works
         })
       }
     }).catch(err => console.log('in error',err));
@@ -54,8 +44,6 @@ componentDidMount() {
       return (
             <FlashcardToggle flashcard_object={flashcard} user_id={this.props.match.params.user_id}
               subject_id={this.props.match.params.id}/>
-
-        //on click it needs the card needs to flip
       )
     })
   }
@@ -69,15 +57,9 @@ componentDidMount() {
       console.log('subjectName = ',this.state.subject);
       const subjectName = this.state.subject.data.name;
       const subjectDate = this.state.subject.data.date_modified;
-
       let pathSubjects = '/subjects/user/' + this.props.match.params.user_id;
       let pathFlashcards = '/add/user/' + this.props.match.params.user_id + '/subjects/' + this.state.subject.data.id;
       let pathHardOnes = '/subjects/' + this.state.subject.data.id + '/user/' + this.props.match.params.user_id + '/hardones';      
-
-
-      
-      
-      
       console.log('------->', this.props.match.params)
       return (
         <div className='page-header'>
@@ -89,10 +71,8 @@ componentDidMount() {
           <h1 className='subject-page-header'>{subjectName}</h1>
           <p className="subject-date">{subjectDate}</p>
             <div className="cardArea">
-
               {this.flashcardMap(this.state.flashcards)}
         </div>
-
         </div>
       )
     }
@@ -103,7 +83,6 @@ componentDidMount() {
       <div>
           <div className='subject-page'>
             {this.renderSubjectWithFlashcards()}
-            {/* <button className='edit-flashcard'><Link to='/edit'>Edit Flashcard</Link></button> */}
           </div>
       </div>
     )
