@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-
 import axios from 'axios';
-
 import { Redirect } from 'react-router-dom';
 
 class subjectEditForm extends Component {
@@ -24,7 +22,7 @@ class subjectEditForm extends Component {
         this.setState({
           term: subject.term,
           definition: subject.definition.term,
-          date_created: subject.date_created,
+          date_modified: subject.date_modified,
         })
       }).catch(err => console.log(err));
   }
@@ -43,7 +41,7 @@ class subjectEditForm extends Component {
       .put(`/subject/${this.props.match.params.id}`, {
         term: this.state.term,
         definition: this.state.definition,
-        date_created: this.state.date_created
+        date_modified: this.state.date_modified
       })
       .then(res => {
         this.setState({
@@ -84,8 +82,8 @@ class subjectEditForm extends Component {
             <input
               type="text"
               placeholder="date"
-              name="date_created"
-              value={this.state.date_created}
+              name="date_modified"
+              value={this.state.date_modified}
               onChange={this.handleInputChange}
             />
           </label>

@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-
 import axios from 'axios';
-
 import { Redirect } from 'react-router-dom';
 
 
@@ -9,42 +7,48 @@ class FlashcardEditForm extends Component {
   constructor() {
     super();
     this.state = {
+        newId: 0,
         term: '',
         definition: '',
-        date_created: '',
-        fireRedirect: false,  
+        date_modified: new Date(),
+        fireRedirect: false,
     };
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
+    this.deleteFlashcard = this.deleteFlashcard.bind(this);
+    this.cancelFlashcard = this.cancelFlashcard.bind(this);
   }
-  
+
   componentDidMount() {
-    axios.get(`/flashcards/${this.props.match.params.id}`)
+    axios.get(`/flashcard/${this.props.match.params.id}`)
       .then((res) => {
         const flashcard = res.data;
         this.setState({
-          term: flashcard.term,
-          definition: flashcard.definition.term,
-          date_created: flashcard.date_created,
+          newId: flashcard.data.id,
+          term: flashcard.data.term,
+          definition: flashcard.data.definition
         })
       }).catch(err => console.log(err));
   }
 
   handleInputChange(e) {
+    e.preventDefault();
+    console.log('in handleInputChange');
+    console.log(e.target.value);
     const name = e.target.name;
     const value = e.target.value;
     this.setState({
-      [name]: value,
+      definition: e.target.value,
     });
   }
 
   handleFormSubmit(e) {
     e.preventDefault();
     axios
-      .put(`/flashcards/${this.props.match.params.id}`, {
+      .put(`/flashcard/${this.props.match.params.id}`, {
         term: this.state.term,
         definition: this.state.definition,
-        date_created: this.state.date_created
+        date_modified: this.state.date_modified
       })
       .then(res => {
         this.setState({
@@ -56,44 +60,54 @@ class FlashcardEditForm extends Component {
     e.target.reset();
   }
 
+  deleteFlashcard() {
+    axios
+      .delete(`/flashcard/${this.state.newId}`)
+      .then(res => {
+        this.setState({
+          term: '',
+          definition: '',
+          fireRedirect: true,
+        });
+      })
+      .catch(err => console.log(err));
+
+  }
+
+  cancelFlashcard() {
+    this.setState({
+      fireRedirect: true
+   });
+  }
+
   render() {
+    let path = '/subjects/' + this.props.match.params.subject_id + '/user/' + this.props.match.params.user_id
+    console.log('path in flashcardeditform = ',path);
     return (
       <div className="edit">
         <form onSubmit={this.handleFormSubmit}>
-          <label>
-            Term
-            <input
+            <input className='term-placeholder'
               type="text"
               placeholder="term"
               name="term"
               value={this.state.term}
               onChange={this.handleInputChange}
             />
-          </label>
           <label>
             Definition
-            <input
-              type="text"
-              placeholder="definition"
-              name="definition"
+            <textarea id="comment" name="definition" cols="40" rows="15"
+              placeholder="Definition"
               value={this.state.definition}
               onChange={this.handleInputChange}
-            />
+              autoFocus>
+            </textarea>
           </label>
-          <label>
-            Date
-            <input
-              type="text"
-              placeholder="date"
-              name="date_created"
-              value={this.state.date_created}
-              onChange={this.handleInputChange}
-            />
-          </label>
-          <input type="submit" value="edit!" />
+          <input className='submit' type="submit" value="SUBMIT" />
         </form>
+        <button onClick={this.deleteFlashcard}>DELETE</button>
+        <button onClick={this.cancelFlashcard}>CANCEL</button>
         {this.state.fireRedirect
-          ? <Redirect push to={`/flashcards/${this.state.newId}`} />
+          ? <Redirect push to={path} />
           : ''}
       </div>
     );

@@ -1,12 +1,25 @@
-const subject = require('../models/subject');
+const Subject = require('../models/subject');
 
 const subjectController = {};
 
 subjectController.index = (req, res) => {
-  subject.findAll()
-    .then(subject => {
+  Subject.findAll()
+    .then(subjects => {
       res.json({
-        data: subject,
+        data: subjects,
+      });
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json({ err });
+    });
+};
+
+subjectController.indexUser = (req, res) => {
+  Subject.findAllByUser(req.params.id)
+    .then(subjects => {
+      res.json({
+        data: subjects,
       });
     })
     .catch(err => {
@@ -16,7 +29,7 @@ subjectController.index = (req, res) => {
 };
 
 subjectController.show = (req, res) => {
-  subject.findById(req.params.id)
+  Subject.findById(req.params.id)
     .then(subject => {
       res.json({
         data: subject,
@@ -29,12 +42,10 @@ subjectController.show = (req, res) => {
 };
 
 subjectController.create = (req, res) => {
-  subject.create({
+  console.log('req.body = ',req.body);
+  Subject.create({
     user_id: req.body.user_id,
-    term: req.body.term,
-    definition: req.body.definition,
-    date_modified: req.body.date_modified,
-  
+    name: req.body.name
   })
     .then(subject => {
       res.json({
@@ -48,14 +59,13 @@ subjectController.create = (req, res) => {
 };
 
 subjectController.update = (req, res) => {
-  subject.update(
+  Subject.update(
     {
       user_id: req.body.user_id,
-      term: req.body.term,
-      definition: req.body.definition,
+      name: req.body.name,
       date_modified: req.body.date_modified,
     },
-    req.params.id,
+    req.params.id
   )
     .then(subject => {
       res.json({
@@ -69,7 +79,7 @@ subjectController.update = (req, res) => {
 };
 
 subjectController.destroy = (req, res) => {
-  subject.destroy(req.params.id)
+  Subject.destroy(req.params.id)
     .then(subject => {
       res.json({
         data: subject,
@@ -81,4 +91,6 @@ subjectController.destroy = (req, res) => {
     });
 };
 
-module.exports = subjectsController;
+
+module.exports = subjectController;
+

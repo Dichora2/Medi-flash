@@ -1,15 +1,14 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import { Redirect } from 'react-router-dom';
-
+import { Link } from 'react-router-dom';
 
 class SubjectAddForm extends Component {
   constructor() {
     super();
     this.state = {
       name: '',
-      date_created: '',
-      fireRedirect: false,      
+      fireRedirect: false,
     };
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
@@ -25,30 +24,32 @@ class SubjectAddForm extends Component {
 
   handleFormSubmit(e) {
     e.preventDefault();
-    axios
-      .post('/subjects', {
+    axios('/subject', {
+      method: 'POST',
+      data: {
+        user_id: this.props.match.params.user_id,
         name: this.state.name,
-        date_created: this.state.date_created,
+      }
       })
       .then(res => {
-        console.log(res);
         this.setState({
-          newId: res.data.subject.id,
-
-          //confirm if this is targeting the right thing
           fireRedirect: true,
         });
       })
-      .catch(err => console.log(err));
-    e.target.reset();
+      .catch(err => {
+        console.log('in err ', err);
+        this.setState({
+          fireRedirect: true,
+        });
+      });
   }
 
   render() {
+    let path = '/subjects/user/' + this.props.match.params.user_id;
     return (
-      <div className="add">
+      <div className="add-subject">
+        <Link className="back-to-subjects " to={path}> ← back to all subjects</Link>
         <form onSubmit={this.handleFormSubmit}>
-          <label>
-            Subject Name
             <input
               type="text"
               placeholder="subject name"
@@ -56,22 +57,11 @@ class SubjectAddForm extends Component {
               value={this.state.name}
               onChange={this.handleInputChange}
             />
-          </label>
-          <label>
-            Date
-            <input
-              type="date_created"
-              placeholder="date"
-              name="date_created"
-              value={this.state.date_created}
-              onChange={this.handleInputChange}
-            />
-          </label>
-          <input type="submit" value="Submit!" />
+          <input className="submit" type="submit" value="Submit!" />
         </form>
         {this.state.fireRedirect
-          ? <Redirect push to={`/subjects`} />
-          : ''}
+            ? <Redirect push to={path} />
+            : ''}
       </div>
     );
   }

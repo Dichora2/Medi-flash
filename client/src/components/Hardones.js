@@ -4,7 +4,8 @@ import FlashcardToggle from './FlashcardToggle.js';
 import { Link } from 'react-router-dom';
 
 
-class Subject extends Component {
+
+class HardOnes extends Component {
     constructor() {
       super();
       this.state = {
@@ -17,17 +18,17 @@ class Subject extends Component {
 
 componentDidMount() {
   let subjectData = {};
-  console.log('subject id = ',this.props.match.params.id);
   axios.get(`/subject/${this.props.match.params.id}`)
     .then(res => {
       console.log('res.data = ',res.data.data);
       subjectData = res.data;
+
     }).catch(err => console.log(err));
-  let path = `/flashcard/user/${this.props.match.params.user_id}/subject/${this.props.match.params.id}`;
-  console.log('path = ',path);
+
+  let path = `/flashcard/user/${this.props.match.params.user_id}/subject/${this.props.match.params.id}/hardones`;
+
   axios.get(path)
-    .then(res => {
-      console.log('subjectData = ',subjectData);
+  .then(res => {
       if (res.data.data) {
         this.setState({
           subject: subjectData,
@@ -42,12 +43,10 @@ componentDidMount() {
   flashcardMap(array){
     return array.map((flashcard, index) => {
       return (
-            <FlashcardToggle flashcard_object={flashcard} user_id={this.props.match.params.user_id}
-              subject_id={this.props.match.params.id}/>
+            <FlashcardToggle flashcard_object={flashcard} />
       )
     })
   }
-
 
   renderSubjectWithFlashcards(){
     const subjectId = Number(this.props.match.params.id);
@@ -58,21 +57,20 @@ componentDidMount() {
       const subjectName = this.state.subject.data.name;
       const subjectDate = this.state.subject.data.date_modified;
       let pathSubjects = '/subjects/user/' + this.props.match.params.user_id;
-      let pathFlashcards = '/add/user/' + this.props.match.params.user_id + '/subjects/' + this.state.subject.data.id;
-      let pathHardOnes = '/subjects/' + this.state.subject.data.id + '/user/' + this.props.match.params.user_id + '/hardones';      
-      console.log('------->', this.props.match.params)
+      let pathSubject = `/subjects/${this.state.subject.data.id}/user/` + this.props.match.params.user_id;
+
       return (
         <div className='page-header'>
-
-          <button className='add-flashcard flashcard-button'><Link to={pathFlashcards}>+ ADD CARDS</Link></button>
-          <button className='hard-flashcard flashcard-button'><Link to={pathHardOnes}>HARD ONES</Link></button>
           <Link className="back-to-subjects " to={pathSubjects}> ← back to all subjects</Link>
-
+          <Link className="back-to-subjects " to={pathSubject}> ← back to all flashcards</Link>
           <h1 className='subject-page-header'>{subjectName}</h1>
           <p className="subject-date">{subjectDate}</p>
+          <p className='subject-flashcard-count'>{}</p>
             <div className="cardArea">
+
               {this.flashcardMap(this.state.flashcards)}
         </div>
+
         </div>
       )
     }
@@ -90,4 +88,4 @@ componentDidMount() {
 }
 
 
-export default Subject;
+export default HardOnes;

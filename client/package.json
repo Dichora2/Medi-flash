@@ -15,15 +15,17 @@
     "react-addons-transition-group": "^15.6.0",
     "react-dom": "^15.6.1",
     "react-flexbox-grid": "^1.1.5",
+    "react-fontawesome": "^1.6.1",
     "react-router-dom": "^4.2.2",
     "react-scripts": "^1.0.13",
     "reactstrap": "^4.8.0"
   },
   "scripts": {
-    "start": "PORT=3001 react-scripts start"
+    "start": "PORT=3001 react-scripts start",
+    "win_start": "SET PORT=3001 && react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
-  "proxy": "http://localhost:3001"
+  "proxy": "http://localhost:3000"
 }

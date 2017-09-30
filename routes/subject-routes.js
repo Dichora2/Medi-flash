@@ -1,11 +1,15 @@
 const express = require('express');
 const subjectsRouter = express.Router();
-const subjectsController = require('../controllers/subjects-controller');
+const subjectController = require('../controllers/subjects-controller');
+const authHelpers = require('../services/auth/auth-helpers')
 
-subjectsRouter.get('/', subjectsController.index);
-subjectsRputer.post('/', subjectsController.create);
-subjectsRouter.get('/:id/edit', subjectsController.edit);
-subjectsRouter.put('/:id', subjectsController.update);
-subjectsRouter.delete('/:id', subjectsController.destroy);
+subjectsRouter.get('/user/:id', subjectController.indexUser);
+subjectsRouter.get('/', subjectController.index);
+subjectsRouter.get('/:id', subjectController.show);
+subjectsRouter.post('/', subjectController.create);
+subjectsRouter.get('/:id/edit', subjectController.update);
+subjectsRouter.put('/:id', subjectController.update);
+subjectsRouter.delete('/:id', subjectController.destroy);
+
 
 module.exports = subjectsRouter;

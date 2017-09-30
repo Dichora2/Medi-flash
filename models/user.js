@@ -16,11 +16,13 @@ User.create = user => {
   return db.one(`
     INSERT INTO users
     (username, firstname, lastname, email, password_digest)
-    VALUES ($1, $2, $3)
+    VALUES ($1, $2, $3, $4, $5)
     RETURNING *
   `, [user.username, user.firstname, user.lastname, user.email, user.password_digest]);
 };
-User.findAll = () => {
-  return db.query('SELECT * FROM user ORDER BY id ASC');
-};
+
 module.exports = User;
+
+
+
+

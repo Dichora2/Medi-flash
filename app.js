@@ -7,16 +7,25 @@ const session = require('express-session');
 const passport = require('passport');
 const bodyParser = require('body-parser');
 const express = require('express');
+const cors = require('cors');
 
 //App initialization
 const app = express();
 require('dotenv').config();
+
+app.use((req, res, next) => {
+  console.log('------- LOGGING METHOD ------');
+  console.log(req.method);
+  if (req.method == 'OPTIONS') console.log('what the fuck');
+  next();
+})
 
 //middlewares
 app.use(methodOverride('_method'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(logger('dev'));
+app.use(cors())
 app.use(cookieParser());
 app.use(session({
   secret: process.env.SECRET_KEY,
@@ -26,15 +35,33 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
+// Added to migrate to heroku
+app.use(express.static(path.join(__dirname,'client/build')));
+
+app.use((req, res, next) => {
+  console.log('---------- req.user ---------')
+  console.log(Date.now());
+  console.log(req.user);
+  if (req.user) console.log(req.user.id);
+  next();
+});
+
+app.use((req, res, next) => {
+  console.log('----------- REQ.SESSION -----------');
+  console.log(Date.now());
+  console.log(req.session);
+  next();
+})
+
 //static sheets
 /*app.get('/', (req, res) => {
   res.render('auth/login');
 });
 */
 //views
- app.get('/', function(req, res) {
-     res.send('hello world');
-});
+//  app.get('/', function(req, res) {
+//      res.send('hello world');
+// });
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
@@ -51,9 +78,13 @@ app.use('/subject', subjectRoutes);
 const flashcardRoutes = require('./routes/flashcard-routes');
 app.use('/flashcard', flashcardRoutes);
 
+app.get('/', (req, res) => {
+  res.sendFile(path.resolve('client/build/index.html'));
+});
+
 app.use('*', (req, res) => {
   res.status(400).json({
     message: 'Endpoint not found!',
   });
 });
- ff385b43e3e288df1839a9ab841d7b01580a1012
+
