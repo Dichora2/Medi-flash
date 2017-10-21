@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import Subject from './Subject';
-import SubjectAddForm from './SubjectAddForm';
 
 class Subjects extends Component {
     constructor(){
@@ -12,7 +10,7 @@ class Subjects extends Component {
         subjectsLoaded: false
       };
     }
-    
+
     componentDidMount() {
         axios(`/subject/user/${this.props.match.params.user_id}`, {
           method: 'GET',
@@ -25,7 +23,7 @@ class Subjects extends Component {
             })
           })
           .catch(err => console.log('in error',err));
-         }
+    }
 
 
     renderSubjects(array){

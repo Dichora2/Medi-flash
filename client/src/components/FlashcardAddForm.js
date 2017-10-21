@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Redirect } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import Subject from './Subject.js'
 
 class FlashcardAddForm extends Component {
   constructor() {

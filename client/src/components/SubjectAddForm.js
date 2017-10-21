@@ -56,6 +56,7 @@ class SubjectAddForm extends Component {
               name="name"
               value={this.state.name}
               onChange={this.handleInputChange}
+              autoFocus
             />
           <input className="submit" type="submit" value="Submit!" />
         </form>

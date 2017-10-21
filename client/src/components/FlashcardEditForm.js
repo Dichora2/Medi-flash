@@ -35,8 +35,8 @@ class FlashcardEditForm extends Component {
     e.preventDefault();
     console.log('in handleInputChange');
     console.log(e.target.value);
-    const name = e.target.name;
-    const value = e.target.value;
+    // const name = e.target.name;
+    // const value = e.target.value;
     this.setState({
       definition: e.target.value,
     });
