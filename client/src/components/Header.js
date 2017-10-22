@@ -26,7 +26,7 @@ class Header extends Component {
                         <div className="hamburger-nav-icon"></div>
                         <div className="hamburger-nav-icon"></div> */}
                     </div>
-                    <h1 className='website-title-header'><Link to='/'>Medi-flash</Link></h1>
+                    <h1 className='website-title-header'><Link to='/'>Medi-Flash</Link></h1>
                 </div>
             </div>
         )
