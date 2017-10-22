@@ -43,23 +43,23 @@ componentDidMount() {
     return array.map((flashcard, index) => {
       return (
             <FlashcardToggle flashcard_object={flashcard} user_id={this.props.match.params.user_id}
-              subject_id={this.props.match.params.id}/>
+              key={this.props.match.params.id} subject_id={this.props.match.params.id}/>
       )
     })
   }
 
 
   renderSubjectWithFlashcards(){
-    const subjectId = Number(this.props.match.params.id);
+    // const subjectId = Number(this.props.match.params.id);
 
     if (this.state.subjectLoaded){
       console.log('user_id = ',this.props.match.params.user_id);
       console.log('subjectName = ',this.state.subject);
       const subjectName = this.state.subject.data.name;
-      const subjectDate = this.state.subject.data.date_modified;
+      const subjectDate = this.state.subject.data.date_modified.toLocaleString().substr(0,10);
       let pathSubjects = '/subjects/user/' + this.props.match.params.user_id;
       let pathFlashcards = '/add/user/' + this.props.match.params.user_id + '/subjects/' + this.state.subject.data.id;
-      let pathHardOnes = '/subjects/' + this.state.subject.data.id + '/user/' + this.props.match.params.user_id + '/hardones';      
+      let pathHardOnes = '/subjects/' + this.state.subject.data.id + '/user/' + this.props.match.params.user_id + '/hardones';
       console.log('------->', this.props.match.params)
       return (
         <div className='page-header'>

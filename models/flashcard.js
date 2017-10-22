@@ -19,7 +19,7 @@ Flashcard.findById = id => {
 Flashcard.findByUserSubject = (user_id, subject_id) => {
   return db.query(
     `
-    SELECT * FROM flashcards 
+    SELECT * FROM flashcards
     LEFT OUTER JOIN users_flashcards ON flashcards.id = users_flashcards.flashcard_id
     LEFT OUTER JOIN flashcards_subjects ON flashcards.id = flashcards_subjects.flashcard_id
     WHERE users_flashcards.user_id = $1 AND flashcards_subjects.subject_id = $2
@@ -33,7 +33,7 @@ Flashcard.showByUserSubjectHardOnes = (user_id, subject_id) => {
   console.log('in showByUserSubjectHardOnes model----> ', user_id, subject_id)
   return db.query(
     `
-    SELECT * FROM flashcards 
+    SELECT * FROM flashcards
     LEFT OUTER JOIN users_flashcards ON flashcards.id = users_flashcards.flashcard_id
     LEFT OUTER JOIN flashcards_subjects ON flashcards.id = flashcards_subjects.flashcard_id
     WHERE users_flashcards.user_id = $1 AND flashcards_subjects.subject_id = $2 AND keep_studying = true
@@ -66,7 +66,7 @@ Flashcard.update = (flashcard, id) => {
       user_id = $1,
       term = $2,
       definition = $3,
-      date_modified = $4,
+      date_modified = CURRENT_TIMESTAMP,
       keep_studying = $5
     WHERE id = $6
     RETURNING *
@@ -95,7 +95,7 @@ Flashcard.updateKeepStudying = id => {
       keep_studying = NOT keep_studying WHERE id =$1
     RETURNING *
   `,
-    [id] 
+    [id]
   );
 };
 

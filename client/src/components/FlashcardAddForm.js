@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Redirect } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import Subject from './Subject.js'
 
 class FlashcardAddForm extends Component {
   constructor() {
@@ -38,10 +37,13 @@ class FlashcardAddForm extends Component {
       .then(res => {
         console.log('--------------->', this.state)
         console.log(res);
-        this.setState({
+
+        // Wait 1 second before redirecting to the subject page so the back end can up date the database
+        let timeoutID = window.setTimeout(this.setState({
           newId: res.data.data.id,
           fireRedirect: true
-        });
+        }).bind(this)
+        , 1000);
       })
       .catch(err => console.log(err));
     e.target.reset();
@@ -74,6 +76,8 @@ class FlashcardAddForm extends Component {
     return (
       <div className="add-flashcard">
         <form onSubmit={this.handleFormSubmit}>
+            <Link className="back-to-subjects " to={pathSubject}> ← back to subject page</Link>
+            <br />
             <Link className="back-to-subjects " to={path}> ← back to all subjects</Link>
             <input
               type="text"

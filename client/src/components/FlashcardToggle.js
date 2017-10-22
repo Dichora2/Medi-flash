@@ -22,7 +22,7 @@ constructor(props) {
 
 
 IGotIt() {
-    axios 
+    axios
         .put(`/flashcard/${this.state.flashcard.id}/updateKeepStudying`, {
             id: this.state.flashcard.id
         })
@@ -30,9 +30,9 @@ IGotIt() {
             this.setState({
                 keep_studying: !this.state.keep_studying
             });
-            this.forceUpdate();            
+            this.forceUpdate();
         })
-        .catch(err => console.log(err));        
+        .catch(err => console.log(err));
 }
 
 
@@ -51,16 +51,19 @@ render() {
     let show = {
         display: this.state.show ? "none" : "block"
     }
-    
+
     let pathFlashcards = '/edit/user/' + this.props.user_id + '/' + this.state.flashcard.id + '/' +
     'subjects/' + this.props.subject_id;
 
     return(
             <div className="flashcard clearfix">
-                <button className='flashcard-button-card' onClick={this.toggle.bind(this)}>DEFINITION</button>
+                <button className='flashcard-button-card' onClick={this.toggle.bind(this)}>
+                  {this.state.show ? 'DEFINITION' : 'TERM'}
+                </button>
                 <button className='flashcard-button-card got-it' onClick={this.IGotIt.bind(this)}>I GOT IT!</button>
                 <Link className="edit-flashcard " to={pathFlashcards}><img src={Image} /></Link>
                 <h3  className='flashcard-term' style={hide}>{this.state.flashcard.term}</h3>
+                <h3  className='flashcard-term' style={hide}>{this.state.flashcard.date_modified.substr(0,10)}</h3>
                 <p className='flashcard-definition' style={show}>{this.state.flashcard.definition}</p>
             </div>
     )
