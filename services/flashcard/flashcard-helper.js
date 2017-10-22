@@ -17,10 +17,25 @@ function getDefinitionFromAPI(req, res, next) {
         def_array.forEach((item,index) =>{
           console.log(item.sens[0].dt[0]);
           if (typeof item.sens[0].dt[0] === 'object') {
-            definition += (index + 1) + ': ' + item.sens[0].dt[0]._ +
+            console.log('item.sens[0].dt[0] is object = ', item.sens[0].dt[0]);
+            definition += (index + 1) + ': ' +
+            ((item.sens[0].dt[0].hasOwnProperty('_')) ? item.sens[0].dt[0]._ : item.sens[0].dt[0].sx) +
              ((item.sens[0].dt[0].hasOwnProperty('fw')) ? item.sens[0].dt[0].fw[0]:'') + ' ';
           } else {
             definition += (index + 1) + ': ' + item.sens[0].dt[0] + ' ';
+            if (item.sens.length > 1) {
+              for (i=1; i < item.sens.length; i++) {
+                definition += '(' + item.sens[i].sn[0] + ') '
+                if (item.sens[i].dt[0].hasOwnProperty('_')) {
+                  definition += item.sens[i].dt[0]['_'];
+                } else {
+                  definition += item.sens[i].dt[0]
+                }
+                console.log(`item.sens[${i}].dt[0] = `,item.sens[i].dt[0]);
+                definition += ' ';
+                console.log(`item.sens[${i}] = `,item.sens[i]);
+              }
+            }
           }
         });
         res.locals.definition = definition;

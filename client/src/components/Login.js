@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import axios from 'axios';
+import cookies from 'cookies-js';
 
 class Login extends Component {
 
@@ -36,6 +37,8 @@ class Login extends Component {
         .then(res => {
           if (res.data.auth) {
             console.log('user = ', res.data.user);
+            console.log('user id = ', res.data.user.id);
+            cookies.set('user_id', res.data.user.id);
             this.setState({
                 user_id: res.data.user.id,
                 fireRedirect: true,

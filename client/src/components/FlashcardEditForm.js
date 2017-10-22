@@ -38,7 +38,8 @@ class FlashcardEditForm extends Component {
     const name = e.target.name;
     const value = e.target.value;
     this.setState({
-      definition: e.target.value,
+      [name]: value
+      // definition: e.target.value,
     });
   }
 

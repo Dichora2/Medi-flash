@@ -1,6 +1,6 @@
 
 import React, {Component} from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import './App.css';
 import Header from './components/Header.js'
 
@@ -10,7 +10,7 @@ class App extends Component {
 
       <div>
         <Header />
-        
+
           <div className="homepage">
               <div className='home'>
                 <div className='home-content '>
