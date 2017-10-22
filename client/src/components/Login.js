@@ -11,6 +11,7 @@ class Login extends Component {
             user_id: 0,
             username: '',
             password: '',
+            errorMessage: '',
             fireRedirect: false
         };
         this.handleInputChange = this.handleInputChange.bind(this);
@@ -40,12 +41,18 @@ class Login extends Component {
             console.log('user id = ', res.data.user.id);
             cookies.set('user_id', res.data.user.id);
             this.setState({
-                user_id: res.data.user.id,
-                fireRedirect: true,
+              user_id: res.data.user.id,
+              fireRedirect: true,
+            });
+          } else {
+            this.setState({
+              errorMessage: 'Invalid login, please try again.'
             });
           }
         })
-        .catch(err => console.log('in error',err));
+        .catch(err => {
+          console.log('in error',err);
+        });
       e.target.reset();
     }
 
@@ -58,7 +65,7 @@ class Login extends Component {
             <div className="auth-page">
 
                 <h1 className="auth-header">Use your Medi-flash account to add, save, and test your knowledge.</h1>
-
+                <h4>{this.state.errorMessage}</h4>
                 <form onSubmit={(e) => this.handleFormSubmit(e)}>
                     <input name="username" type="text" placeholder="username" required onChange={this.handleInputChange}/>
                     <input name="password" type="password" placeholder="password" required onChange={this.handleInputChange}/>

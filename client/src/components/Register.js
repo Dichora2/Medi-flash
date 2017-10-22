@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import axios from 'axios';
+import cookies from 'cookies-js';
 
 class Register extends Component {
 
@@ -13,6 +14,7 @@ class Register extends Component {
                 email: '',
                 username: '',
                 password: '',
+                errorMessage: '',
                 fireRedirect: false
             };
             this.handleInputChange = this.handleInputChange.bind(this);
@@ -41,12 +43,19 @@ class Register extends Component {
             })
             .then(res => {
               console.log('in register',res.data);
+              cookies.set('user_id', res.data.user.id);
               this.setState({
                 user_id: res.data.user.id,
                 fireRedirect: true,
+                errorMessage: ''
               });
             })
-            .catch(err => console.log('in error',err));
+            .catch(err => {
+              console.log('in error',err)
+              this.setState({
+                errorMessage: 'User name already exists. Please try a different name.'
+              })
+            });
           e.target.reset();
          }
 
@@ -55,6 +64,7 @@ class Register extends Component {
             return (
                 <div className="auth-page">
                     <h1 className="auth-header">Use your Medi-flash account to add, save, and test your knowledge.</h1>
+                    <h4>{this.state.errorMessage}</h4>
                     <form onSubmit={(e) => this.handleFormSubmit(e)}>
                         <input name="firstname" type="text" placeholder="firstname" required onChange={this.handleInputChange}/>
                         <input name="lastname" type="text" placeholder="lastname" required onChange={this.handleInputChange}/>
