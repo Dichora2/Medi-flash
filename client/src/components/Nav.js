@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
 import App from '../App';
 import Flexbox from 'flexbox-react';
-import Logout from './Logout.js'
 import cookies from 'cookies-js';
 
 
@@ -16,6 +15,10 @@ class Nav extends React.Component {
       'user_id': cookies.get('user_id')
 		};
 	}
+
+  logout() {
+    cookies.set('user_id', 0);
+  }
 
 	toggle() {
 		this.setState({
@@ -46,8 +49,8 @@ class Nav extends React.Component {
 
 				<div className='nav-icon' style={ shown }>
                     <div className='nav-list'>
-                        <a href={path} className='nav-link'>Subjects</a>
-                        <a href='/logout' className='nav-link'>Signout</a>
+                        <a href={(this.state.user_id !== '0') ? path : '/'} className='nav-link'>Subjects</a>
+                        <a href='/logout' onClick={this.logout} className='nav-link'>Signout</a>
 
 
                     </div>
