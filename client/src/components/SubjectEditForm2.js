@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Redirect } from 'react-router-dom';
 
-class SubjectEditForm extends Component {
+class SubjectEditForm2 extends Component {
   constructor() {
     super();
     this.state = {
@@ -98,4 +98,4 @@ class SubjectEditForm extends Component {
   }
 }
 
-export default SubjectEditForm;
+export default SubjectEditForm2;
