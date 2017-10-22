@@ -13,6 +13,7 @@ import FlashcardEditForm from './components/FlashcardEditForm.js'
 import HardOnes from './components/Hardones.js'
 
 import SubjectAddForm from './components/SubjectAddForm.js'
+import SubjectEditForm from './components/SubjectEditForm.js'
 import Header from './components/Header.js'
 
 
@@ -31,7 +32,7 @@ export default (
 
 
 
-            <Route exact path='/subjects/:id' component={Subject} />
+            <Route exact path='/subjects/edit/:id/user/:user_id' component={SubjectEditForm} />
             <Route exact path='/subjects/:id/user/:user_id' component={Subject} />
 
 

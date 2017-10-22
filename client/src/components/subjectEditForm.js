@@ -2,26 +2,27 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Redirect } from 'react-router-dom';
 
-class subjectEditForm extends Component {
+class SubjectEditForm extends Component {
   constructor() {
     super();
     this.state = {
         subject: '',
-        definition: '',
         date_modified: '',
-        fireRedirect: false,  
+        fireRedirect: false,
     };
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
+    this.deleteSubject = this.deleteSubject.bind(this);
+    this.cancelSubject = this.cancelSubject.bind(this);
   }
-  
+
   componentDidMount() {
     axios.get(`/subject/${this.props.match.params.id}`)
       .then((res) => {
-        const subject = res.data;
+        const subject = res.data.data;
+        console.log('subject = ',subject);
         this.setState({
-          term: subject.term,
-          definition: subject.definition.term,
+          subject: subject.name,
           date_modified: subject.date_modified,
         })
       }).catch(err => console.log(err));
@@ -39,13 +40,12 @@ class subjectEditForm extends Component {
     e.preventDefault();
     axios
       .put(`/subject/${this.props.match.params.id}`, {
-        term: this.state.term,
-        definition: this.state.definition,
+        name: this.state.subject,
         date_modified: this.state.date_modified
       })
       .then(res => {
         this.setState({
-          newId: res.data.id,
+          newId: res.data.data.id,
           fireRedirect: true,
         });
       })
@@ -53,48 +53,49 @@ class subjectEditForm extends Component {
     e.target.reset();
   }
 
+  deleteSubject() {
+    axios
+      .delete(`/subject/${this.props.match.params.id}`)
+      .then(res => {
+        this.setState({
+          subject: '',
+          fireRedirect: true,
+        });
+      })
+      .catch(err => console.log(err));
+
+  }
+
+  cancelSubject() {
+    this.setState({
+      fireRedirect: true
+   });
+  }
+
   render() {
     return (
       <div className="edit">
         <form onSubmit={this.handleFormSubmit}>
           <label>
-            Term
+            Subject
             <input
               type="text"
-              placeholder="term"
-              name="term"
-              value={this.state.term}
+              placeholder="subject"
+              name="subject"
+              value={this.state.subject}
               onChange={this.handleInputChange}
             />
           </label>
-          <label>
-            Definition
-            <input
-              type="text"
-              placeholder="definition"
-              name="definition"
-              value={this.state.definition}
-              onChange={this.handleInputChange}
-            />
-          </label>
-          <label>
-            Date
-            <input
-              type="text"
-              placeholder="date"
-              name="date_modified"
-              value={this.state.date_modified}
-              onChange={this.handleInputChange}
-            />
-          </label>
-          <input type="submit" value="edit!" />
+          <input type="submit" className="submit" value="edit!" />
         </form>
+        <button onClick={this.deleteSubject}>DELETE</button>
+        <button onClick={this.cancelSubject}>CANCEL</button>
         {this.state.fireRedirect
-          ? <Redirect push to={`/subject/${this.state.newId}`} />
+          ? <Redirect push to={`/subjects/user/${this.props.match.params.user_id}`} />
           : ''}
       </div>
     );
   }
 }
 
-export default subjectEditForm;
+export default SubjectEditForm;

@@ -45,21 +45,20 @@ Subject.create = subject => {
 Subject.update = (subject, id) => {
   return db.one(
     `
-    UPDATE subjects
-      user_id = $1,
-      date_modified = $2,
-      name = $3,
-    WHERE id = $4
+    UPDATE subjects SET
+      name = $1,
+      date_modified = CURRENT_TIMESTAMP
+    WHERE id = $2
     RETURNING *
   `,
-    [user_id, date_created, name]
+    [subject.name, id]
   );
 };
 
 Subject.destroy = id => {
   return db.none(
     `
-    DELETE FROM subject
+    DELETE FROM subjects
     WHERE id = $1
   `,
     [id]

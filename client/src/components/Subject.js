@@ -43,7 +43,7 @@ componentDidMount() {
     return array.map((flashcard, index) => {
       return (
             <FlashcardToggle flashcard_object={flashcard} user_id={this.props.match.params.user_id}
-              subject_id={this.props.match.params.id}/>
+              key={this.props.match.params.id} subject_id={this.props.match.params.id}/>
       )
     })
   }

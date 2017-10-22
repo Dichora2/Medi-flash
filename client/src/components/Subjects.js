@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import Image from '../images/pencil.svg'
 
 class Subjects extends Component {
     constructor(){
@@ -30,9 +31,11 @@ class Subjects extends Component {
        if(this.state.subjectsLoaded) {
             return array.map(subject => {
                 let pathSubject = `/subjects/${subject.id}/user/` + this.props.match.params.user_id;
+                let pathEditSubject = `/subjects/edit/${subject.id}/user/` + this.props.match.params.user_id;
                 return (
                 <li key={subject.id} className='individual-subject'>
                     <Link className="individual-subject-link" to={pathSubject}>{subject.name}</Link>
+                    <Link className="individual-subject-link" to={pathEditSubject}><img src={Image} /></Link>
                 </li>
                 )
             })
