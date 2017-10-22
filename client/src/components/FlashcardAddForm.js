@@ -15,6 +15,7 @@ class FlashcardAddForm extends Component {
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
     this.getAPIData = this.getAPIData.bind(this);
     this.cancelFlashcard = this.cancelFlashcard.bind(this);
+    this.pauseSetState = this.pauseSetState.bind(this);
   }
 
   handleInputChange(e) {
@@ -23,6 +24,12 @@ class FlashcardAddForm extends Component {
     this.setState({
       [name]: value,
     });
+  }
+
+  pauseSetState() {
+    this.setState({
+          fireRedirect: true
+        })
   }
 
   handleFormSubmit(e) {
@@ -37,13 +44,10 @@ class FlashcardAddForm extends Component {
       .then(res => {
         console.log('--------------->', this.state)
         console.log(res);
-
+        console.log('before setTimeout');
         // Wait 1 second before redirecting to the subject page so the back end can up date the database
-        let timeoutID = window.setTimeout(this.setState({
-          newId: res.data.data.id,
-          fireRedirect: true
-        }).bind(this)
-        , 1000);
+        let timeoutID = setTimeout(this.pauseSetState, 1000);
+        // this.pauseSetState(res.data.data.id);
       })
       .catch(err => console.log(err));
     e.target.reset();
