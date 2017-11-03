@@ -59,7 +59,6 @@ class Login extends Component {
 
     render(){
         let path = '/subjects/user/' + this.state.user_id;
-        console.log('params = ',this.state.user_id)
         console.log('path = ',path);
         return (
             <div className="auth-page">
