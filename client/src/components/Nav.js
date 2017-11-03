@@ -35,12 +35,13 @@ class Nav extends React.Component {
 			display: this.state.shown ? "none" : "block"
 		}
 
-    let path = `/subjects/user/${this.state.user_id}`;
+    let path = `/subjects/user/${cookies.get('user_id')}`;
 
 		return (
 			<div>
             <div onClick={this.toggle.bind(this)}>
                 <div className='nav'>
+                        <div className="hamburger-nav-icon"></div>
                         <div className="hamburger-nav-icon"></div>
                         <div className="hamburger-nav-icon"></div>
                 </div>
@@ -49,7 +50,7 @@ class Nav extends React.Component {
 
 				<div className='nav-icon' style={ shown }>
                     <div className='nav-list'>
-                        <a href={(this.state.user_id !== '0') ? path : '/'} className='nav-link'>Subjects</a>
+                        <a href={(cookies.get('user_id') !== '0') ? path : '/'} className='nav-link'>Subjects</a>
                         <a href='/logout' onClick={this.logout} className='nav-link'>Signout</a>
 
 

@@ -4,6 +4,7 @@ import App from '../App';
 import Flexbox from 'flexbox-react';
 import Logout from './Logout.js'
 import Nav from './Nav.js'
+import cookies from 'cookies-js';
 
 class Header extends Component {
 
@@ -16,20 +17,21 @@ class Header extends Component {
 
 
     render(){
-        return(
-            <div className='header'>
-                <div className='header-content clearfix'>
-                    <div className='hamburger' onClick={() => this.handleClickNav()}>
-                    <Nav />
+      let pathSubjects = '/subjects/user/' + cookies.get('user_id');
+      return(
+          <div className='header'>
+              <div className='header-content clearfix'>
+                  <div className='hamburger' onClick={() => this.handleClickNav()}>
+                  <Nav />
 
-                        {/* <div className="hamburger-nav-icon"></div>
-                        <div className="hamburger-nav-icon"></div>
-                        <div className="hamburger-nav-icon"></div> */}
-                    </div>
-                    <h1 className='website-title-header'><Link to='/'>Medi-Flash</Link></h1>
-                </div>
-            </div>
-        )
+                      {/* <div className="hamburger-nav-icon"></div>
+                      <div className="hamburger-nav-icon"></div>
+                      <div className="hamburger-nav-icon"></div> */}
+                  </div>
+                  <h1 className='website-title-header'><Link to={pathSubjects}>Medi-Flash</Link></h1>
+              </div>
+          </div>
+      )
     }
 
 }
