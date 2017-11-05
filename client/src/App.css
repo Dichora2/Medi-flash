@@ -15,7 +15,7 @@
 
 .hamburger {
  float: left;
- 
+
  display: inline-block;
  height: 65px;
  padding-top: 20px;
@@ -41,7 +41,7 @@ h1.website-title-header a{
  color: #0F77FE;
  font-weight: 100;
  font-family: museo-sans, sans-serif;
-} 
+}
 
 .user-name-header{
   margin: 35px;
@@ -110,6 +110,20 @@ a.link {
 
 
 /* subjects */
+
+.subjects-pencil {
+  width: 1.3rem;
+}
+
+.subject-label {
+  font-size: 2.5rem;
+}
+
+.subject-input {
+  color: #0F77FE;
+  font-size: 1.5rem;
+}
+
 ul.list-of-subjects{
   max-width: 1024px;
   margin: 6px;
@@ -117,8 +131,8 @@ ul.list-of-subjects{
 
 li.individual-subject {
    list-style: none;
-   display: inline-block;   
-   padding: 5%;  
+   display: inline-block;
+   padding: 5%;
    margin: 1%;
    float: left;
    width: 36%;
@@ -169,17 +183,17 @@ button {
   border:none;
   height: 40px;
   float: none;
-  margin: 3px; 
+  margin: 3px;
 }
 
 button.flashcard-button > a {
   text-decoration: none;
-  color: white;  
+  color: white;
 }
 
 button.flashcard-button{
   float: right;
-  margin: 3px;  
+  margin: 3px;
 }
 
 .subject-page-header{
@@ -206,7 +220,7 @@ button.flashcard-button{
   display: inline-block;
   width: 48%;
   margin-right: 5px;
-  overflow-x: hidden;  
+  overflow-x: hidden;
 }
 
 button.flashcard-button-card {
@@ -281,7 +295,7 @@ p.dictionary {
  background-color: green;
  width: 80vw;
  transition: all 0.3s;
-}  
+}
 
 /* code source for nav animation: https://codepen.io/anon/pen/pWNZQz */
 
@@ -349,7 +363,7 @@ img {
 }
 
 label {
-  color: #0F77FE;  
+  color: #0F77FE;
 }
 
 .edit {

@@ -35,7 +35,9 @@ class Subjects extends Component {
                 return (
                 <li key={subject.id} className='individual-subject'>
                     <Link className="individual-subject-link" to={pathSubject}>{subject.name}</Link>
-                    <Link className="individual-subject-link" to={pathEditSubject}><img src={Image} /></Link>
+                    <Link className="individual-subject-link" to={pathEditSubject}>
+                      <img src={Image} className="subjects-pencil" />
+                    </Link>
                 </li>
                 )
             })
