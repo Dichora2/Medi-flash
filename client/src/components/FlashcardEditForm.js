@@ -87,7 +87,7 @@ class FlashcardEditForm extends Component {
     return (
       <div className="edit">
         <form onSubmit={this.handleFormSubmit}>
-            <input className='term-placeholder'
+            <input className='flashcard-term term-placeholder'
               type="text"
               placeholder="term"
               name="term"
@@ -97,6 +97,7 @@ class FlashcardEditForm extends Component {
           <label>
             Definition
             <textarea id="comment" name="definition" cols="40" rows="15"
+              className="flashcard-definition"
               placeholder="Definition"
               value={this.state.definition}
               onChange={this.handleInputChange}

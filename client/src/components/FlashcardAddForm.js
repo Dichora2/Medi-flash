@@ -81,9 +81,8 @@ class FlashcardAddForm extends Component {
       <div className="add-flashcard">
         <form onSubmit={this.handleFormSubmit}>
             <Link className="back-to-subjects " to={pathSubject}> ← back to subject page</Link>
-            <br />
-            <Link className="back-to-subjects " to={path}> ← back to all subjects</Link>
             <input
+              className="flashcard-term term-placeholder"
               type="text"
               placeholder="Term"
               name="term"
@@ -94,6 +93,7 @@ class FlashcardAddForm extends Component {
             <p className='dictionary'>Merriam-Webster Medical Dictionary API</p>
             <button onClick={this.getAPIData}>LOAD</button>
             <textarea id="comment" cols="40" rows="15"
+              className="flashcard-definition"
               placeholder="Definition"
               name="definition"
               value={this.state.definition}

@@ -22,21 +22,21 @@ componentDidMount() {
     .then(res => {
       console.log('res.data = ',res.data.data);
       subjectData = res.data;
+      let path = `/flashcard/user/${this.props.match.params.user_id}/subject/${this.props.match.params.id}`;
+      console.log('path = ',path);
+      axios.get(path)
+        .then(res => {
+          console.log('subjectData = ',subjectData);
+          if (res.data.data) {
+            this.setState({
+              subject: subjectData,
+              subjectLoaded: true,
+              flashcardLoaded: true,
+              flashcards: res.data.data,
+            })
+          }
+        }).catch(err => console.log('in error',err));
     }).catch(err => console.log(err));
-  let path = `/flashcard/user/${this.props.match.params.user_id}/subject/${this.props.match.params.id}`;
-  console.log('path = ',path);
-  axios.get(path)
-    .then(res => {
-      console.log('subjectData = ',subjectData);
-      if (res.data.data) {
-        this.setState({
-          subject: subjectData,
-          subjectLoaded: true,
-          flashcardLoaded: true,
-          flashcards: res.data.data,
-        })
-      }
-    }).catch(err => console.log('in error',err));
 }
 
   flashcardMap(array){
