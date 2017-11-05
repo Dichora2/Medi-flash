@@ -77,7 +77,7 @@ class SubjectEditForm2 extends Component {
       <div className="edit">
         <form onSubmit={this.handleFormSubmit}>
           <label className="subject-label">
-            Subject
+            Edit Subject
             <input
               className="subject-input"
               type="text"

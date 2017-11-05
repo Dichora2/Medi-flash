@@ -53,7 +53,7 @@ class SubjectAddForm extends Component {
         <br />
         <form onSubmit={this.handleFormSubmit}>
           <label className="subject-label">
-            Subject
+            Add Subject
             <input
               className="subject-input"
               type="text"

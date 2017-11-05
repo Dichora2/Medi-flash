@@ -61,8 +61,6 @@ componentDidMount() {
 
       return (
         <div className='page-header'>
-          <Link className="back-to-subjects " to={pathSubjects}> ← back to all subjects</Link>
-          <br />
           <Link className="back-to-subjects " to={pathSubject}> ← back to all flashcards</Link>
           <h1 className='subject-page-header'>{subjectName}</h1>
           <p className="subject-date">{subjectDate}</p>
