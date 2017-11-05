@@ -244,8 +244,13 @@ button.flashcard-button-card {
   padding-top: 30px;
 }
 
+.term-placeholder {
+  text-align: left;
+}
+
 .flashcard-definition {
   font-family: 'Nunito', sans-serif;
+  font-size: 1rem;
   color: #0F77FE;
   padding: 5px;
     margin: 0px

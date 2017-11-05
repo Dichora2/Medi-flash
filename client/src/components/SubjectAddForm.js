@@ -49,8 +49,13 @@ class SubjectAddForm extends Component {
     return (
       <div className="add-subject">
         <Link className="back-to-subjects " to={path}> ← back to all subjects</Link>
+        <br />
+        <br />
         <form onSubmit={this.handleFormSubmit}>
+          <label className="subject-label">
+            Subject
             <input
+              className="subject-input"
               type="text"
               placeholder="subject name"
               name="name"
@@ -58,6 +63,7 @@ class SubjectAddForm extends Component {
               onChange={this.handleInputChange}
               autoFocus
             />
+          </label>
           <input className="submit" type="submit" value="Submit!" />
         </form>
         {this.state.fireRedirect
