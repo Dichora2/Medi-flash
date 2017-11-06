@@ -70,9 +70,9 @@ componentDidMount() {
 
           <h1 className='subject-page-header'>{subjectName}</h1>
           <p className="subject-date">{subjectDate}</p>
-            <div className="cardArea">
-              {this.flashcardMap(this.state.flashcards)}
-        </div>
+          <div className="cardArea">
+            {this.flashcardMap(this.state.flashcards)}
+          </div>
         </div>
       )
     }

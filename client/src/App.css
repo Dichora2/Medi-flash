@@ -124,11 +124,6 @@ a.link {
   font-size: 1.5rem;
 }
 
-ul.list-of-subjects{
-  max-width: 1024px;
-  margin: 6px;
-}
-
 li.individual-subject {
    list-style: none;
    display: inline-block;
@@ -202,6 +197,7 @@ button.flashcard-button{
 
 .page-header{
   padding: 4% 5%;
+  margin-left: 2.3%;
 }
 
 .add-subject {
@@ -219,7 +215,6 @@ button.flashcard-button{
   height: 227px;
   display: inline-block;
   width: 48%;
-  margin-right: 5px;
   overflow-x: hidden;
 }
 
@@ -232,7 +227,6 @@ button.flashcard-button-card {
 
 .got-it{
   background-color: #02EBF5;
-  margin: 0px
 }
 
 .flashcard-term {
@@ -393,3 +387,26 @@ label {
 
 .is-visible {
  display: block; }
+
+@media (max-width: 35rem) {
+  .auth-header {
+    font-size: 1.4rem;
+  }
+
+  ul.list-of-subjects{
+    margin-left: -1.8rem;
+  }
+
+  .page-header{
+    margin-left: 1.9%;
+  }
+
+  button.flashcard-button-card.got-it {
+    float: right;
+  }
+
+  .auth-page{
+   margin-left: 17%;
+  }
+
+}

@@ -52,8 +52,10 @@ class Subjects extends Component {
       return(
         <div className='subjects'>
           <div className='page-header'>
-            <h1 className='subject-page-header'>Subjects</h1>
-            <Link className="add-subject" to={path}>ADD SUBJECT</Link>
+            <h1 className='subject-page-header'>
+              Subjects
+              <Link className="add-subject" to={path}>ADD SUBJECT</Link>
+            </h1>
           </div>
           <ul className='list-of-subjects'>
             {this.renderSubjects(this.state.subjects)}
