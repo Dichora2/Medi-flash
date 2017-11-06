@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 class FlashcardEditForm extends Component {
@@ -83,10 +84,12 @@ class FlashcardEditForm extends Component {
 
   render() {
     let path = '/subjects/' + this.props.match.params.subject_id + '/user/' + this.props.match.params.user_id
+    let pathSubject = `/subjects/${this.props.match.params.subject_id}/user/${this.props.match.params.user_id}`;
     console.log('path in flashcardeditform = ',path);
     return (
       <div className="edit">
         <form onSubmit={this.handleFormSubmit}>
+            <Link className="back-to-subjects " to={pathSubject}> ← back to subject page</Link>
             <input className='flashcard-term term-placeholder'
               type="text"
               placeholder="term"
@@ -97,11 +100,11 @@ class FlashcardEditForm extends Component {
           <label>
             Definition
             <textarea id="comment" name="definition" cols="40" rows="15"
+              autoFocus
               className="flashcard-definition"
               placeholder="Definition"
               value={this.state.definition}
-              onChange={this.handleInputChange}
-              autoFocus>
+              onChange={this.handleInputChange}>
             </textarea>
           </label>
           <input className='submit' type="submit" value="SUBMIT" />
