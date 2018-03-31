@@ -62,7 +62,6 @@ subjectController.update = (req, res) => {
   Subject.update(
     {
       name: req.body.name,
-      date_modified: req.body.date_modified,
     },
     req.params.id
   )
