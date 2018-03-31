@@ -41,11 +41,6 @@ Flashcard.showByUserSubjectHardOnes = (user_id, subject_id) => {
   )
 }
 
-
-
-
-
-
 Flashcard.create = flashcard => {
   return db.one(
     `
@@ -63,15 +58,13 @@ Flashcard.update = (flashcard, id) => {
   return db.one(
     `
     UPDATE flashcards SET
-      user_id = $1,
-      term = $2,
-      definition = $3,
-      date_modified = CURRENT_TIMESTAMP,
-      keep_studying = $5
-    WHERE id = $6
+      term = $1,
+      definition = $2,
+      date_modified = CURRENT_TIMESTAMP
+    WHERE id = $3
     RETURNING *
   `,
-    [flashcard.user_id, flashcard.term, flashcard.definition, flashcard.date_modified, flashcard.keep_studying, id]
+    [flashcard.term, flashcard.definition, id]
   );
 };
 

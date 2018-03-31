@@ -1,4 +1,5 @@
 //dependencies
+const express = require('express');
 const path = require('path')
 const logger = require('morgan');
 const methodOverride = require('method-override');
@@ -6,17 +7,15 @@ const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const passport = require('passport');
 const bodyParser = require('body-parser');
-const express = require('express');
 const cors = require('cors');
+require('dotenv').config();
 
 //App initialization
 const app = express();
-require('dotenv').config();
 
 app.use((req, res, next) => {
   console.log('------- LOGGING METHOD ------');
   console.log(req.method);
-  if (req.method == 'OPTIONS') console.log('what the fuck');
   next();
 })
 
@@ -42,7 +41,6 @@ app.use((req, res, next) => {
   console.log('---------- req.user ---------')
   console.log(Date.now());
   console.log(req.user);
-  if (req.user) console.log(req.user.id);
   next();
 });
 
@@ -53,20 +51,11 @@ app.use((req, res, next) => {
   next();
 })
 
-//static sheets
-/*app.get('/', (req, res) => {
-  res.render('auth/login');
-});
-*/
-//views
-//  app.get('/', function(req, res) {
-//      res.send('hello world');
-// });
-
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Listening on port ${PORT}`);
 });
+
 //routes
 const authRoutes = require('./routes/auth-routes');
 app.use('/auth', authRoutes);

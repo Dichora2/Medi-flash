@@ -3,17 +3,12 @@ import axios from 'axios';
 import { Redirect } from 'react-router-dom';
 
 class SubjectEditForm2 extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
         subject: '',
-        date_modified: '',
         fireRedirect: false,
     };
-    this.handleInputChange = this.handleInputChange.bind(this);
-    this.handleFormSubmit = this.handleFormSubmit.bind(this);
-    this.deleteSubject = this.deleteSubject.bind(this);
-    this.cancelSubject = this.cancelSubject.bind(this);
   }
 
   componentDidMount() {
@@ -23,12 +18,11 @@ class SubjectEditForm2 extends Component {
         console.log('subject = ',subject);
         this.setState({
           subject: subject.name,
-          date_modified: subject.date_modified,
         })
       }).catch(err => console.log(err));
   }
 
-  handleInputChange(e) {
+  handleInputChange = (e) => {
     const name = e.target.name;
     const value = e.target.value;
     this.setState({
@@ -36,12 +30,11 @@ class SubjectEditForm2 extends Component {
     });
   }
 
-  handleFormSubmit(e) {
+  handleFormSubmit = (e) => {
     e.preventDefault();
     axios
       .put(`/subject/${this.props.match.params.id}`, {
         name: this.state.subject,
-        date_modified: this.state.date_modified
       })
       .then(res => {
         this.setState({
@@ -53,7 +46,7 @@ class SubjectEditForm2 extends Component {
     e.target.reset();
   }
 
-  deleteSubject() {
+  deleteSubject = () => {
     axios
       .delete(`/subject/${this.props.match.params.id}`)
       .then(res => {
@@ -66,7 +59,7 @@ class SubjectEditForm2 extends Component {
 
   }
 
-  cancelSubject() {
+  cancelSubject = () => {
     this.setState({
       fireRedirect: true
    });
@@ -85,6 +78,7 @@ class SubjectEditForm2 extends Component {
               name="subject"
               value={this.state.subject}
               onChange={this.handleInputChange}
+              autoFocus
             />
           </label>
           <input type="submit" className="submit" value="edit!" />

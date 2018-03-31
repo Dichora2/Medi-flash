@@ -46,8 +46,6 @@ flashcardController.showByUserSubject = (req, res) => {
     });
 };
 
-
-///////new
 flashcardController.showByUserSubjectHardOnes = (req, res) => {
   Flashcard.showByUserSubjectHardOnes(req.params.user_id, req.params.subject_id)
     .then(flashcard => {
@@ -66,12 +64,11 @@ flashcardController.showByUserSubjectHardOnes = (req, res) => {
 //this is the sontroller to update the true and false for keep_studying
 
 flashcardController.updateKeepStudying = (req, res) => {
-  console.log('route hit at updateKeepStudying!')
+  console.log('Req.params.id = ',req.params.id);
   Flashcard.updateKeepStudying(req.params.id)
   .then (flashcard => {
-    console.log('inside updateKeepStudying controller method!')
-    // console.log(flashcard)
-    res.json({   
+    console.log('flashcard = ',flashcard);
+    res.json({
       message: 'ok',
       data: flashcard,
     });
@@ -82,8 +79,6 @@ flashcardController.updateKeepStudying = (req, res) => {
   });
 };
 
-
-
 flashcardController.create = (req, res) => {
   let flashcardData = {};
   Flashcard.create({
@@ -93,14 +88,11 @@ flashcardController.create = (req, res) => {
     definition: req.body.definition,
   })
     .then(flashcard => {
-      console.log('flashcard = ',flashcard);
       flashcardData = flashcard;
       UserFlashcard.create({
         user_id: req.body.user_id,
         flashcard_id: flashcardData.id
       })
-        .then(flashcard => {
-        })
         .catch(err => {
           console.log(err);
           res.status(500).json({ err });
@@ -109,8 +101,6 @@ flashcardController.create = (req, res) => {
         subject_id: req.body.subject_id,
         flashcard_id: flashcardData.id
       })
-        .then(flashcard => {
-        })
         .catch(err => {
           console.log(err);
           res.status(500).json({ err });
@@ -129,11 +119,8 @@ flashcardController.create = (req, res) => {
 flashcardController.update = (req, res) => {
   Flashcard.update(
     {
-      user_id: req.body.user_id,
       term: req.body.term,
       definition: req.body.definition,
-      date_modified: req.body.date_modified,
-      keep_studying: req.body.keep_studying,
     },
     req.params.id
   )

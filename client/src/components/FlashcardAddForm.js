@@ -11,14 +11,9 @@ class FlashcardAddForm extends Component {
       definition: '',
       fireRedirect: false,
     };
-    this.handleInputChange = this.handleInputChange.bind(this);
-    this.handleFormSubmit = this.handleFormSubmit.bind(this);
-    this.getAPIData = this.getAPIData.bind(this);
-    this.cancelFlashcard = this.cancelFlashcard.bind(this);
-    this.pauseSetState = this.pauseSetState.bind(this);
   }
 
-  handleInputChange(e) {
+  handleInputChange = (e) => {
     const name = e.target.name;
     const value = e.target.value;
     this.setState({
@@ -26,13 +21,13 @@ class FlashcardAddForm extends Component {
     });
   }
 
-  pauseSetState() {
+  pauseSetState = () => {
     this.setState({
-          fireRedirect: true
-        })
+      fireRedirect: true
+    })
   }
 
-  handleFormSubmit(e) {
+  handleFormSubmit = (e) => {
     e.preventDefault();
     axios
       .post('/flashcard', {
@@ -42,9 +37,6 @@ class FlashcardAddForm extends Component {
         definition: this.state.definition,
       })
       .then(res => {
-        console.log('--------------->', this.state)
-        console.log(res);
-        console.log('before setTimeout');
         // Wait 1 second before redirecting to the subject page so the back end can up date the database
         let timeoutID = setTimeout(this.pauseSetState, 1000);
         // this.pauseSetState(res.data.data.id);
@@ -53,13 +45,11 @@ class FlashcardAddForm extends Component {
     e.target.reset();
   }
 
-  getAPIData(e) {
+  getAPIData = (e) => {
     e.preventDefault();
     axios
       .get(`/flashcard/term/${this.state.term}`)
       .then(res => {
-        console.log('--------------->', this.state)
-        console.log('res = ',res.data);
         this.setState({
           definition: res.data.definition,
         });
@@ -67,14 +57,13 @@ class FlashcardAddForm extends Component {
       .catch(err => console.log(err));
   }
 
-  cancelFlashcard() {
+  cancelFlashcard = () => {
     this.setState({
       fireRedirect: true
    });
   }
 
   render() {
-    console.log('user_id in add flashcard = ',this.props.match.params.user_id);
     let path = '/subjects/user/' + this.props.match.params.user_id;
     let pathSubject = `/subjects/${this.props.match.params.subject_id}/user/${this.props.match.params.user_id}`;
     return (
