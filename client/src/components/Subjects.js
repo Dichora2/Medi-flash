@@ -4,8 +4,8 @@ import axios from 'axios';
 import Image from '../images/pencil.svg'
 
 class Subjects extends Component {
-    constructor(){
-      super();
+    constructor(props){
+      super(props);
       this.state = {
         subjects: [],
         subjectsLoaded: false
@@ -18,7 +18,6 @@ class Subjects extends Component {
         })
           .then(res => {
             this.setState({
-
                 subjects: res.data.data,
                 subjectsLoaded: true
             })
@@ -26,12 +25,11 @@ class Subjects extends Component {
           .catch(err => console.log('in error',err));
     }
 
-
     renderSubjects(array){
-       if(this.state.subjectsLoaded) {
+        if(this.state.subjectsLoaded) {
             return array.map(subject => {
                 let pathSubject = `/subjects/${subject.id}/user/` + this.props.match.params.user_id;
-                let pathEditSubject = `/subjects/edit/${subject.id}/user/` + this.props.match.params.user_id;
+                let pathEditSubject = `/subjects/${subject.id}/edit/user/` + this.props.match.params.user_id;
                 return (
                 <li key={subject.id} className='individual-subject'>
                     <Link className="individual-subject-link" to={pathSubject}>{subject.name}</Link>
@@ -41,13 +39,12 @@ class Subjects extends Component {
                 </li>
                 )
             })
-       } else {
-           return <p>no subjects yet!</p>
-       }
+        } else {
+            return <p>no subjects yet!</p>
+        }
     }
 
     render(){
-      console.log('user_id = ',this.props.match.params.user_id);
       let path = '/subjects/add/user/' + this.props.match.params.user_id;
       return(
         <div className='subjects'>
@@ -63,7 +60,7 @@ class Subjects extends Component {
         </div>
       )
     }
-  }
+}
 
-  export default Subjects;
+export default Subjects;
 

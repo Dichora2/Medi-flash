@@ -4,17 +4,15 @@ import { Redirect } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
 class SubjectAddForm extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       name: '',
       fireRedirect: false,
     };
-    this.handleInputChange = this.handleInputChange.bind(this);
-    this.handleFormSubmit = this.handleFormSubmit.bind(this);
   }
 
-  handleInputChange(e) {
+  handleInputChange = (e) => {
     const name = e.target.name;
     const value = e.target.value;
     this.setState({
@@ -22,7 +20,7 @@ class SubjectAddForm extends Component {
     });
   }
 
-  handleFormSubmit(e) {
+  handleFormSubmit = (e) => {
     e.preventDefault();
     axios('/subject', {
       method: 'POST',
