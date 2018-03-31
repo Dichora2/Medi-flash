@@ -17,7 +17,12 @@ class Header extends Component {
 
 
     render(){
-      let pathSubjects = '/subjects/user/' + cookies.get('user_id');
+      let user_id = cookies.get('user_id');
+      let pathSubjects = '';
+      if (user_id === '0')
+        pathSubjects = '/login';
+      else
+        pathSubjects = '/subjects/user/' + user_id;
       return(
           <div className='header'>
               <div className='header-content clearfix'>
