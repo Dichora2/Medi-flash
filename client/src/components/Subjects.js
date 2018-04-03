@@ -34,7 +34,7 @@ class Subjects extends Component {
                 <li key={subject.id} className='individual-subject'>
                     <Link className="individual-subject-link" to={pathSubject}>{subject.name}</Link>
                     <Link className="individual-subject-link" to={pathEditSubject}>
-                      <img src={Image} className="subjects-pencil" />
+                      <img src={Image} alt="pencil" className="subjects-pencil" />
                     </Link>
                 </li>
                 )
@@ -51,7 +51,9 @@ class Subjects extends Component {
           <div className='page-header'>
             <h1 className='subject-page-header'>
               Subjects
-              <Link className="add-subject" to={path}>ADD SUBJECT</Link>
+              <button className="add-subject" >
+                <Link to={path}>ADD SUBJECT</Link>
+              </button>
             </h1>
           </div>
           <ul className='list-of-subjects'>
