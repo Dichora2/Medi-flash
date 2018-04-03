@@ -194,7 +194,6 @@ button.flashcard-button{
 .subject-page-header{
   font-size: 1.5rem;
   font-weight: 400;
-  margin: 2% 0
 }
 
 ul.list-of-subjects {
@@ -202,7 +201,7 @@ ul.list-of-subjects {
 }
 
 .page-header{
-  padding: 4% 5%;
+  padding: 2% 5%;
   margin-left: 2.3%;
 }
 
@@ -351,11 +350,10 @@ body {
   max-width: 100vw;
   margin: auto;
   background-color: white;
-  height: 100vh;
 }
 
 html {
-  background-color: #f9f9f9;
+  background: white;
 }
 
 img {

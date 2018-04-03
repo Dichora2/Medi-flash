@@ -49,7 +49,7 @@ class HardOnes extends Component {
   renderSubjectWithFlashcards(){
     if (this.state.subjectLoaded){
       const subjectName = this.state.subject.data.name;
-      const subjectDate = this.state.subject.data.date_modified;
+      const subjectDate = this.state.subject.data.date_modified.toLocaleString().substr(0,10);
       let pathSubject = `/subjects/${this.state.subject.data.id}/user/` + this.props.match.params.user_id;
 
       return (
