@@ -60,7 +60,7 @@ class Register extends Component {
         let path = '/subjects/user/' + this.state.user_id;
         return (
             <div className="auth-page">
-                <h1 className="auth-header">Use your Medi-Flash account to test your knowledge.</h1>
+                <h1 className="auth-header">Use your Medi-Flash account to test your knowledge!</h1>
                 <h4>{this.state.errorMessage}</h4>
                 <form onSubmit={this.handleFormSubmit}>
                     <input name="firstname" type="text" placeholder="firstname" required onChange={this.handleInputChange}/>
