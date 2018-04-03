@@ -150,7 +150,11 @@ a.individual-subject-link {
   text-decoration: none;
 }
 
-.add-subject, button {
+.add-subject-page {
+  margin: 5%;
+}
+
+button {
   text-decoration: none;
   background-color: #0F77FE;
   padding: 10px 20px;
@@ -181,6 +185,10 @@ button.flashcard-button > a {
 button.flashcard-button{
   float: right;
   margin: 3px;
+}
+
+.delete-button {
+  margin-right: .5%;
 }
 
 .subject-page-header{

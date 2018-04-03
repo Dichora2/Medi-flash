@@ -45,7 +45,7 @@ class SubjectAddForm extends Component {
   render() {
     let path = '/subjects/user/' + this.props.match.params.user_id;
     return (
-      <div className="add-subject">
+      <div className="add-subject-page">
         <Link className="back-to-subjects " to={path}> ← back to all subjects</Link>
         <br />
         <br />
