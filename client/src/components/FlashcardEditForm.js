@@ -96,7 +96,7 @@ class FlashcardEditForm extends Component {
           </label>
           <input className='submit' type="submit" value="SUBMIT" />
         </form>
-        <button onClick={this.deleteFlashcard}>DELETE</button>
+        <button className="delete-button" onClick={this.deleteFlashcard}>DELETE</button>
         <button onClick={this.cancelFlashcard}>CANCEL</button>
         {this.state.fireRedirect
           ? <Redirect push to={pathSubject} />

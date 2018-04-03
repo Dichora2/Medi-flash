@@ -83,7 +83,7 @@ class SubjectEditForm2 extends Component {
           </label>
           <input type="submit" className="submit" value="edit!" />
         </form>
-        <button onClick={this.deleteSubject}>DELETE</button>
+        <button className="delete-button" onClick={this.deleteSubject}>DELETE</button>
         <button onClick={this.cancelSubject}>CANCEL</button>
         {this.state.fireRedirect
           ? <Redirect push to={`/subjects/user/${this.props.match.params.user_id}`} />
