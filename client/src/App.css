@@ -55,7 +55,7 @@ h1.website-title-header a{
   font-family: 'Nunito', sans-serif;
   font-size: 1.5em;
   line-height: 3rem;
-  font-weight: 200;
+  font-weight: 400;
   margin: auto;
   color: #0F77FE;
 }
@@ -65,7 +65,7 @@ h1.website-title-header a{
 .auth-page{
   max-width: 50%;
   margin: auto;
-  padding: 5% 0;
+  padding: 2.5% 0;
 }
 
 input {
@@ -75,7 +75,7 @@ input {
   border-bottom: solid 2px #0F77FE;
   display: block;
   margin: 5% 0;
-  width: 250px;
+  width: 50%;
   height: 40px;
   outline: none;
 }
@@ -96,6 +96,10 @@ input::placeholder {
   padding: 10px 20px;
   letter-spacing: 2px;
   color: white;
+}
+
+.submit:focus {
+  background-color: #02EBF5;
 }
 
 /* Subjects */
