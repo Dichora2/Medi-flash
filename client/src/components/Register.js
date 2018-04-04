@@ -60,15 +60,15 @@ class Register extends Component {
         let path = '/subjects/user/' + this.state.user_id;
         return (
             <div className="auth-page">
-                <h1 className="auth-header">Use your Medi-Flash account to test your knowledge!</h1>
+                <h1 className="auth-header">Register to use your Medi-Flash account to test your knowledge!</h1>
                 <h4>{this.state.errorMessage}</h4>
                 <form onSubmit={this.handleFormSubmit}>
-                    <input name="firstname" type="text" placeholder="firstname" required onChange={this.handleInputChange}/>
+                    <input name="firstname" type="text" placeholder="firstname" required onChange={this.handleInputChange} autoFocus />
                     <input name="lastname" type="text" placeholder="lastname" required onChange={this.handleInputChange}/>
                     <input name="email" type="text" placeholder="email" required onChange={this.handleInputChange}/>
                     <input name="username" type="text" placeholder="username" required onChange={this.handleInputChange}/>
                     <input name="password" type="password" placeholder="password" required onChange={this.handleInputChange}/>
-                    <input className='submit' type="submit" value="SIGN UP" />
+                    <input className='submit' type="submit" value="REGISTER" />
                 </form>
                 <Link className="link" to="/login">Login</Link>
                 {this.state.fireRedirect
