@@ -17,26 +17,26 @@ class Nav extends Component {
   }
 
 	toggle = () => {
-		this.setState({
-			shown: !this.state.shown
-		});
+		if (cookies.get('user_id') !== '0') {
+			this.setState({
+				shown: !this.state.shown
+			});
+		}
 	}
 
 	render() {
+		let shown = {
+			display: this.state.shown ? "block" : "none"
+		};
+
 		let user_id = cookies.get('user_id');
-		let shown = {};
+		let path = '';
 		if (user_id === '0') {
-			shown = {
-				display: "none"
-			};
+			path = '/';
 		}
 		else {
-			shown = {
-				display: this.state.shown ? "block" : "none"
-			};
+    	path = `/subjects/user/${user_id}`;
 		}
-
-    let path = `/subjects/user/${user_id}`;
 
 		return (
 			<div>
@@ -47,7 +47,7 @@ class Nav extends Component {
         </div>
         <div className='nav-menu' style={ shown }>
 					<div className='nav-links'>
-	          <a href={(cookies.get('user_id') !== '0') ? path : '/'} className='nav-link'>Subjects</a>
+	          <a href={path} className='nav-link'>Subjects</a>
 	          <a href='/logout' onClick={this.logout} className='nav-link'>Logout</a>
 					</div>
         </div>
