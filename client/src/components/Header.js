@@ -5,18 +5,18 @@ import cookies from 'cookies-js';
 
 const Header = () => {
   let user_id = cookies.get('user_id');
-  let pathSubjects = '';
+  let pathHeader = '';
   if (user_id === '0')
-    pathSubjects = '/login';
+    pathHeader = '/login';
   else
-    pathSubjects = '/subjects/user/' + user_id;
+    pathHeader = '/subjects/user/' + user_id;
   return(
     <div className='header'>
-      <div className='header-content clearfix'>
+      <div className='clearfix'>
         <div className='hamburger'>
           <Nav />
         </div>
-        <h1 className='website-title-header'><Link to={pathSubjects}>Medi-Flash</Link></h1>
+        <h1 className='website-title-header'><Link to={pathHeader}>Medi-Flash</Link></h1>
       </div>
     </div>
   )

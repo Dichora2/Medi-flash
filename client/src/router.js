@@ -14,7 +14,7 @@ import FlashcardEditForm from './components/FlashcardEditForm.js'
 
 export default (
     <BrowserRouter>
-        <div className="app-page">
+        <div>
             <Header />
             <Route exact path='/' component={Login} />
             <Route exact path='/register' component={Register} />
