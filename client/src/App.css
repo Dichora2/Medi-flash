@@ -1,17 +1,9 @@
-.app-page {
-  width: 100vw;
-}
-
 /* Header */
 
 .header {
   height: 80px;
   background: #f9f9f9;
  }
-
-.header-content{
-  height: 90px;
-}
 
 .hamburger {
   float: left;
@@ -20,29 +12,19 @@
   padding-top: 20px;
 }
 
-.hamburger-nav-icon{
-  width: 40px;
-  height: 2px;
-  background: #0F77FE;
-  margin: 20% 0;
-  display: block;
- }
-
-h1.website-title-header {
-  display: inline-block;
-  font-size: 1.5rem;
+.website-title-header {
   padding: 15px;
   float: left;
 }
 
-h1.website-title-header a{
+.website-title-header a {
   text-decoration: none;
   color: #0F77FE;
   font-weight: 100;
   font-family: museo-sans, sans-serif;
 }
 
-.user-name-header{
+.user-name-header {
   margin: 35px;
   display: inline-flex;
   float: right;
@@ -51,7 +33,8 @@ h1.website-title-header a{
   color: #0F77FE;
 }
 
-.main-home-box h1, .auth-header, h1{
+.auth-header,
+h1 {
   font-family: 'Nunito', sans-serif;
   font-size: 1.5em;
   line-height: 3rem;
@@ -62,7 +45,7 @@ h1.website-title-header a{
 
 /* Login + Register*/
 
-.auth-page{
+.auth-page {
   max-width: 50%;
   margin: auto;
   padding: 2.5% 0;
@@ -280,33 +263,34 @@ p.dictionary {
 
 /* Code reference for nav:  https://www.codementor.io/chrisharrington/how-to-build-a-sliding-menu-using-react-js-and-less-css-du107mpij */
 
-.nav-icon {
+.nav-icon{
+  height: 52px;
+  margin-left: 20px;
+}
+
+.hamburger-nav-icon{
+  width: 40px;
+  height: 2px;
+  background: #0F77FE;
+  margin: 20% 0;
+ }
+
+.nav-menu {
   width: 18vw;
   background:#0F77FE;
-  height: 50vh;
   position: absolute;
 }
 
-.nav-list {
-  background:#0F77FE;
-  min-height: 50vh;
+.nav-links {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.nav-list:after {
-  background-color: green;
-  width: 80vw;
-  transition: all 0.3s;
 }
 
 /* Code source for nav animation: https://codepen.io/anon/pen/pWNZQz */
 
-div.nav-list a:before, div.nav-list a:after{
+div.nav-links a:before, div.nav-links a:after{
   position: absolute;
   opacity: 0;
   font-size: 40px;
@@ -314,26 +298,21 @@ div.nav-list a:before, div.nav-list a:after{
   transition: all 0.3s;
 }
 
-div.nav-list a:before{
+div.nav-links a:before{
   content: '(';
   left: -30px;
   transform: translateX(20px);
 }
 
-div.nav-list a:after{
+div.nav-links a:after{
   content: ')';
   right: -30px;
   transform: translateX(-40px);
 }
 
-div.nav-list a:hover:before, div.nav-list a:hover:after{
+div.nav-links a:hover:before, div.nav-links a:hover:after{
   opacity: 1;
   transform: translateX(0px);
-}
-
-.nav{
-  height: 52px;
-  border-left: 20px solid transparent;
 }
 
 .nav-link {
@@ -383,22 +362,14 @@ label {
 
 /* Clearfix */
 
-.clearfix:before,
-.clearfix:after {
+.clearfix::before,
+.clearfix::after {
   content: " ";
   display: table;
 }
 
-.clearfix:after {
+.clearfix::after {
   clear: both;
-}
-
-.is-hidden {
-  display: none;
-}
-
-.is-visible {
-  display: block;
 }
 
 @media (max-width: 35rem) {
