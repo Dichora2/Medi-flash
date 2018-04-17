@@ -12,11 +12,11 @@ const Header = () => {
     pathHeader = '/subjects/user/' + user_id;
   return(
     <div className='header'>
-      <div className='clearfix'>
-        <div className='hamburger'>
-          <Nav />
+      <div className='header-flexbox'>
+        <Nav />
+        <div>
+          <h1 className='website-title-header'><Link to={pathHeader}>Medi-Flash</Link></h1>
         </div>
-        <h1 className='website-title-header'><Link to={pathHeader}>Medi-Flash</Link></h1>
       </div>
     </div>
   )
