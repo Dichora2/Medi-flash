@@ -46,10 +46,10 @@ class Nav extends Component {
           <div className="hamburger-nav-icon"></div>
         </div>
         <div className='nav-menu' style={ shown }>
-					<div className='nav-links'>
+					<nav>
 	          <a href={path} className='nav-link'>Subjects</a>
 	          <a href='/logout' onClick={this.logout} className='nav-link'>Logout</a>
-					</div>
+					</nav>
         </div>
 			</div>
 		)
