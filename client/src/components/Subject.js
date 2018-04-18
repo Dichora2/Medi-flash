@@ -58,7 +58,7 @@ class Subject extends Component {
           <Link className="back-to-subjects " to={pathSubjects}> ← back to all subjects</Link>
           <h1 className='subject-page-header'>{subjectName}</h1>
           <p className="subject-date">{subjectDate}</p>
-          <div className="cardArea">
+          <div className="card-area">
             {this.flashcardMap(this.state.flashcards)}
           </div>
         </div>
