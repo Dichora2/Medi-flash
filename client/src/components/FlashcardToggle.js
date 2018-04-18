@@ -54,7 +54,7 @@ class FlashcardToggle extends Component {
                 <button className='flashcard-button-card got-it' onClick={this.IGotIt}>
                   {this.state.keep_studying ? 'I GOT IT!' : 'KEEP STUDYING'}
                 </button>
-                <Link className="edit-flashcard " to={pathFlashcards}><img src={Image} /></Link>
+                <Link className="edit-flashcard " to={pathFlashcards}><img alt='pencil' src={Image} /></Link>
                 <h3  className='flashcard-term' style={hide}>{this.state.flashcard.term}</h3>
                 <h3  className='flashcard-term' style={hide}>{this.state.flashcard.date_modified.substr(0,10)}</h3>
                 <p className='flashcard-definition' style={show}>{this.state.flashcard.definition}</p>
