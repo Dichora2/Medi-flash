@@ -168,7 +168,7 @@ button {
   font-size: .6rem;
   color: white;
   border:none;
-  height: 40px;
+  height: 5%;
   float: none;
   margin: 3px 0;
 }
@@ -218,20 +218,21 @@ ul.list-of-subjects {
 }
 
 .flashcard {
-  background-color:white;
+  background-color: white;
   border: 2px solid #02EBF5;
   border-top: none;
-  height: 227px;
+  height: 33%;
   display: inline-block;
   width: 48%;
   overflow-x: hidden;
 }
 
-button.flashcard-button-card {
+.flashcard-button-card {
   display: inline-block;
   width: 50%;
-  height: 40px;
-  margin: 0;
+  height: 2.5rem;
+  margin: 0 auto;
+  padding: 0;
 }
 
 .got-it{
@@ -305,7 +306,7 @@ nav {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-size: 2.5rem;
+  font-size: 1.5rem;
 }
 
 /* Code source for nav animation: https://codepen.io/anon/pen/pWNZQz */
