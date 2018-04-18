@@ -9,8 +9,8 @@ html {
 }
 
 img {
-  width: 2rem;
-  height: 2rem;
+  width: 1.5rem;
+  height: 1.5rem;
   padding: 3%;
   float: right;
 }
@@ -105,10 +105,6 @@ input::placeholder {
 }
 
 /* Subjects */
-
-.subjects-pencil {
-  width: 1.3rem;
-}
 
 .subject-label {
   font-size: 1.5rem;
@@ -213,7 +209,7 @@ ul.list-of-subjects {
   margin-right: -5px;
 }
 
-.cardArea{
+.card-area{
   height: 100vh;
 }
 

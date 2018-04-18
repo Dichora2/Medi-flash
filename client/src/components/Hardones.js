@@ -58,7 +58,7 @@ class HardOnes extends Component {
           <h1 className='subject-page-header'>{subjectName} - Hard Ones</h1>
           <p className="subject-date">{subjectDate}</p>
           <p className='subject-flashcard-count'>{}</p>
-          <div className="cardArea">
+          <div className="card-area">
             {this.flashcardMap(this.state.flashcards)}
           </div>
         </div>
