@@ -175,7 +175,7 @@ button.add-subject > a {
   padding: 10px 0;
 }
 
-button.flashcard-button{
+.flashcard-button{
   float: right;
   margin: 3px;
 }
@@ -183,6 +183,10 @@ button.flashcard-button{
 button.flashcard-button > a {
   text-decoration: none;
   color: white;
+}
+
+.add-flashcard {
+  margin-right: 4%;
 }
 
 .delete-button {
@@ -221,6 +225,7 @@ ul.list-of-subjects {
   display: inline-block;
   width: 48%;
   overflow-x: hidden;
+  box-sizing: border-box;
 }
 
 .flashcard-button-card {
@@ -257,10 +262,6 @@ ul.list-of-subjects {
 }
 
 /* Flashcard Add Form */
-
-.add-flashcard{
-  margin: 5%;
-}
 
 #comment {
   margin: 2% 0;
