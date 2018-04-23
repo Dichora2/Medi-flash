@@ -53,7 +53,7 @@ class Subject extends Component {
       let pathHardOnes = '/subjects/' + this.state.subject.data.id + '/user/' + this.props.match.params.user_id + '/hardones';
       return (
         <div className='page-header'>
-          <button className='add-flashcard flashcard-button'><Link to={pathFlashcards}>+ ADD CARDS</Link></button>
+          <button className='add-flashcard-button flashcard-button'><Link to={pathFlashcards}>+ ADD CARDS</Link></button>
           <button className='hard-flashcard flashcard-button'><Link to={pathHardOnes}>HARD ONES</Link></button>
           <Link className="back-to-subjects " to={pathSubjects}> ← back to all subjects</Link>
           <h1 className='subject-page-header'>{subjectName}</h1>

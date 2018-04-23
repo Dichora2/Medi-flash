@@ -74,7 +74,7 @@ class FlashcardEditForm extends Component {
   render() {
     let pathSubject = `/subjects/${this.props.match.params.subject_id}/user/${this.props.match.params.user_id}`;
     return (
-      <div className="edit">
+      <div className="mf-application-page">
         <form onSubmit={this.handleFormSubmit}>
           <Link className="back-to-subjects " to={pathSubject}> ← back to subject page</Link>
           <input className='flashcard-term term-placeholder'
