@@ -67,7 +67,7 @@ class SubjectEditForm2 extends Component {
 
   render() {
     return (
-      <div className="edit">
+      <div className="mf-application-page">
         <form onSubmit={this.handleFormSubmit}>
           <label className="subject-label">
             Edit Subject

@@ -98,6 +98,7 @@ input::placeholder {
   padding: .6rem 1.2rem;
   letter-spacing: .1rem;
   color: white;
+  margin-bottom: 1%;
 }
 
 .submit:focus {
@@ -124,7 +125,7 @@ li.individual-subject {
   width: 36%;
   border: 1px solid #0F77FE;
   border-top: 5px solid #0F77FE;
-  transition:all 0.9s ease;
+  transition: all 0.9s ease;
 }
 
 li.individual-subject:hover {
@@ -152,10 +153,6 @@ a.individual-subject-link {
   text-decoration: none;
 }
 
-.add-subject-page {
-  margin: 5%;
-}
-
 button {
   text-decoration: none;
   background-color: #0F77FE;
@@ -166,7 +163,6 @@ button {
   border:none;
   height: 5%;
   float: none;
-  margin: 3px 0;
 }
 
 button.add-subject > a {
@@ -185,7 +181,7 @@ button.flashcard-button > a {
   color: white;
 }
 
-.add-flashcard {
+.add-flashcard-button {
   margin-right: 4%;
 }
 
@@ -221,7 +217,7 @@ ul.list-of-subjects {
   background-color: white;
   border: 2px solid #02EBF5;
   border-top: none;
-  height: 33%;
+  height: 40%;
   display: inline-block;
   width: 48%;
   overflow-x: hidden;
@@ -251,6 +247,7 @@ ul.list-of-subjects {
 
 .term-placeholder {
   text-align: left;
+  padding: 0;
 }
 
 .flashcard-definition {
@@ -343,8 +340,9 @@ nav a:hover:before, nav a:hover:after{
   cursor: pointer;
 }
 
-.edit {
-  padding:5%;
+.mf-application-page {
+  padding: 0 5%;
+  padding-top: 2%;
 }
 
 /*
