@@ -67,7 +67,7 @@ class FlashcardAddForm extends Component {
     let path = '/subjects/user/' + this.props.match.params.user_id;
     let pathSubject = `/subjects/${this.props.match.params.subject_id}/user/${this.props.match.params.user_id}`;
     return (
-      <div className="add-flashcard">
+      <div className="mf-application-page">
         <form onSubmit={this.handleFormSubmit}>
             <Link className="back-to-subjects " to={pathSubject}> ← back to subject page</Link>
             <input
@@ -100,4 +100,3 @@ class FlashcardAddForm extends Component {
 }
 
 export default FlashcardAddForm;
-
