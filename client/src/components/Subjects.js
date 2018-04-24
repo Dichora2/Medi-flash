@@ -31,12 +31,14 @@ class Subjects extends Component {
                 let pathSubject = `/subjects/${subject.id}/user/` + this.props.match.params.user_id;
                 let pathEditSubject = `/subjects/${subject.id}/edit/user/` + this.props.match.params.user_id;
                 return (
-                <li key={subject.id} className='individual-subject'>
-                    <Link className="individual-subject-link" to={pathSubject}>{subject.name}</Link>
-                    <Link className="individual-subject-link" to={pathEditSubject}>
-                      <img src={Image} alt="pencil" className="subjects-pencil" />
-                    </Link>
-                </li>
+                    <div className='individual-subject'>
+                        <Link to={pathEditSubject}>
+                            <img className="subject-pencil" src={Image} alt="pencil" />
+                        </Link>
+                        <div className="individual-subject-div">
+                            <Link className="individual-subject-link" to={pathSubject}>{subject.name}</Link>
+                        </div>
+                    </div>
                 )
             })
         } else {
@@ -45,24 +47,19 @@ class Subjects extends Component {
     }
 
     render(){
-      let path = '/subjects/add/user/' + this.props.match.params.user_id;
-      return(
-        <div className='subjects'>
-          <div className='page-header'>
-            <h1 className='subject-page-header'>
-              Subjects
-              <button className="add-subject" >
-                <Link to={path}>ADD SUBJECT</Link>
-              </button>
-            </h1>
-          </div>
-          <ul className='list-of-subjects'>
-            {this.renderSubjects(this.state.subjects)}
-          </ul>
-        </div>
-      )
+        let path = '/subjects/add/user/' + this.props.match.params.user_id;
+        return(
+            <div className='mf-application-page'>
+                <h2 className='page-header'>
+                    Subjects
+                    <button className="add-subject" >
+                        <Link to={path}>ADD SUBJECT</Link>
+                    </button>
+                </h2>
+                {this.renderSubjects(this.state.subjects)}
+            </div>
+        )
     }
 }
 
 export default Subjects;
-

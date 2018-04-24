@@ -52,11 +52,11 @@ class Subject extends Component {
       let pathFlashcards = '/flashcards/add/user/' + this.props.match.params.user_id + '/subjects/' + this.state.subject.data.id;
       let pathHardOnes = '/subjects/' + this.state.subject.data.id + '/user/' + this.props.match.params.user_id + '/hardones';
       return (
-        <div className='page-header'>
-          <button className='add-flashcard-button flashcard-button'><Link to={pathFlashcards}>+ ADD CARDS</Link></button>
-          <button className='hard-flashcard flashcard-button'><Link to={pathHardOnes}>HARD ONES</Link></button>
+        <div className='mf-application-page'>
+          <button className='flashcard-button'><Link to={pathFlashcards}>+ ADD CARDS</Link></button>
+          <button className='flashcard-button'><Link to={pathHardOnes}>HARD ONES</Link></button>
           <Link className="back-to-subjects " to={pathSubjects}> ← back to all subjects</Link>
-          <h1 className='subject-page-header'>{subjectName}</h1>
+          <h2 className='page-header'>{subjectName}</h2>
           <p className="subject-date">{subjectDate}</p>
           <div className="card-area">
             {this.flashcardMap(this.state.flashcards)}
@@ -69,9 +69,7 @@ class Subject extends Component {
   render(){
     return(
       <div>
-        <div className='subject-page'>
-          {this.renderSubjectWithFlashcards()}
-        </div>
+        {this.renderSubjectWithFlashcards()}
       </div>
     )
   }

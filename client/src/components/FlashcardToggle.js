@@ -49,14 +49,18 @@ class FlashcardToggle extends Component {
         return(
             <div className="flashcard clearfix">
                 <button className='flashcard-button-card' onClick={this.toggle}>
-                  {this.state.show ? 'DEFINITION' : 'TERM'}
+                    {this.state.show ? 'DEFINITION' : 'TERM'}
                 </button>
                 <button className='flashcard-button-card got-it' onClick={this.IGotIt}>
-                  {this.state.keep_studying ? 'I GOT IT!' : 'KEEP STUDYING'}
+                    {this.state.keep_studying ? 'I GOT IT!' : 'KEEP STUDYING'}
                 </button>
-                <Link className="edit-flashcard " to={pathFlashcards}><img alt='pencil' src={Image} /></Link>
-                <h3  className='flashcard-term' style={hide}>{this.state.flashcard.term}</h3>
-                <h3  className='flashcard-term' style={hide}>{this.state.flashcard.date_modified.substr(0,10)}</h3>
+                <Link to={pathFlashcards}>
+                    <img className='flashcard-pencil' alt='pencil' src={Image} />
+                </Link>
+                <div className='flashcard-term' style={hide}>
+                    <h3>{this.state.flashcard.term}</h3>
+                    <h3 className='flashcard-date'>{this.state.flashcard.date_modified.substr(0,10)}</h3>
+                </div>
                 <p className='flashcard-definition' style={show}>{this.state.flashcard.definition}</p>
             </div>
         )

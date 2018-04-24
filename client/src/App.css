@@ -9,10 +9,19 @@ html {
 }
 
 img {
+  float: right;
+}
+
+.flashcard-pencil {
   width: 1.5rem;
   height: 1.5rem;
   padding: 3%;
-  float: right;
+}
+
+.subject-pencil {
+  width: 1.25rem;
+  height: 1.25rem;
+  padding: 1%;
 }
 
 label {
@@ -52,8 +61,7 @@ label {
   color: #0F77FE;
 }
 
-.auth-header,
-h1 {
+.auth-header {
   font-family: 'Nunito', sans-serif;
   font-size: 1.5rem;
   line-height: 3;
@@ -116,21 +124,25 @@ input::placeholder {
   font-size: 1.5rem;
 }
 
-li.individual-subject {
+.individual-subject {
   list-style: none;
   display: inline-block;
-  padding: 5%;
-  margin: 1%;
+  padding: 1%;
   float: left;
-  width: 36%;
+  width: 50%;
+  height: 20vh;
+  box-sizing: border-box;
   border: 1px solid #0F77FE;
-  border-top: 5px solid #0F77FE;
-  transition: all 0.9s ease;
+  border-top: 3px solid #0F77FE;
+  margin-bottom: .5%;
 }
 
-li.individual-subject:hover {
-  background-color: #EDFEFF;
-  transform: scale(1.05);
+.individual-subject-div {
+  clear: right;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 a.individual-subject-link {
@@ -181,36 +193,18 @@ button.flashcard-button > a {
   color: white;
 }
 
-.add-flashcard-button {
-  margin-right: 4%;
-}
-
 .delete-button {
   margin-right: .5%;
 }
 
-.subject-page-header{
-  font-size: 1.5rem;
+.page-header {
   font-weight: 400;
-}
-
-ul.list-of-subjects {
-  margin-left: 2.3%;
-}
-
-.page-header{
-  padding: 2% 5%;
-  margin-left: 2.3%;
+  color: #0F77FE;
 }
 
 .add-subject {
   float: right;
   color: white;
-  margin-right: -5px;
-}
-
-.card-area{
-  height: 100vh;
 }
 
 .flashcard {
@@ -219,7 +213,7 @@ ul.list-of-subjects {
   border-top: none;
   height: 40%;
   display: inline-block;
-  width: 48%;
+  width: 50%;
   overflow-x: hidden;
   box-sizing: border-box;
 }
@@ -237,12 +231,24 @@ ul.list-of-subjects {
 }
 
 .flashcard-term {
+  clear: right;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.flashcard-term h3 {
+  text-align: center;
   font-size: 1.4rem;
   font-weight: 100;
-  text-align: center;
   font-family: 'Nunito', sans-serif;
   color: #0F77FE;
-  padding-top: 30px;
+}
+
+h3.flashcard-date {
+  margin-top: 0;
+  font-size: 1rem;
 }
 
 .term-placeholder {
@@ -341,8 +347,12 @@ nav a:hover:before, nav a:hover:after{
 }
 
 .mf-application-page {
-  padding: 0 5%;
-  padding-top: 2%;
+  margin: 0 6%;
+  margin-top: 2%;
+}
+
+.card-area {
+  height: 100vh;
 }
 
 /*
@@ -383,14 +393,6 @@ nav a:hover:before, nav a:hover:after{
 
   .auth-header {
     font-size: 1.4rem;
-  }
-
-  ul.list-of-subjects{
-    margin-left: -1.8rem;
-  }
-
-  .page-header{
-    margin-left: 1.9%;
   }
 
   button.flashcard-button-card.got-it {
