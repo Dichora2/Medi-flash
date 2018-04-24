@@ -50,12 +50,14 @@ class HardOnes extends Component {
     if (this.state.subjectLoaded){
       const subjectName = this.state.subject.data.name;
       const subjectDate = this.state.subject.data.date_modified.toLocaleString().substr(0,10);
+      let pathFlashcards = '/flashcards/add/user/' + this.props.match.params.user_id + '/subjects/' + this.state.subject.data.id;
       let pathSubject = `/subjects/${this.state.subject.data.id}/user/` + this.props.match.params.user_id;
 
       return (
-        <div className='page-header'>
+        <div className='mf-application-page'>
+          <button className='flashcard-button'><Link to={pathFlashcards}>+ ADD CARDS</Link></button>
           <Link className="back-to-subjects " to={pathSubject}> ← back to all flashcards</Link>
-          <h1 className='subject-page-header'>{subjectName} - Hard Ones</h1>
+          <h2 className='page-header'>{subjectName} - Hard Ones</h2>
           <p className="subject-date">{subjectDate}</p>
           <p className='subject-flashcard-count'>{}</p>
           <div className="card-area">
@@ -69,9 +71,7 @@ class HardOnes extends Component {
   render(){
     return(
       <div>
-        <div className='subject-page'>
-          {this.renderSubjectWithFlashcards()}
-        </div>
+        {this.renderSubjectWithFlashcards()}
       </div>
     )
   }
