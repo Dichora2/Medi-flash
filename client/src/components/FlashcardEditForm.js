@@ -77,7 +77,8 @@ class FlashcardEditForm extends Component {
       <div className="mf-application-page">
         <form onSubmit={this.handleFormSubmit}>
           <Link className="back-to-subjects " to={pathSubject}> ← back to subject page</Link>
-          <input className='flashcard-term term-placeholder'
+          <input
+            className="term-input"
             type="text"
             placeholder="term"
             name="term"
@@ -86,7 +87,7 @@ class FlashcardEditForm extends Component {
           />
           <label>
             Definition
-            <textarea id="comment" name="definition" cols="40" rows="15"
+            <textarea name="definition" cols="40" rows="15"
               autoFocus
               className="flashcard-definition"
               placeholder="Definition"

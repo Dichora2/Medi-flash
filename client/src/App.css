@@ -119,9 +119,10 @@ input::placeholder {
   font-size: 1.5rem;
 }
 
+.term-input,
 .subject-input {
   color: #0F77FE;
-  font-size: 1.5rem;
+  font-size: 1rem;
 }
 
 .individual-subject {
@@ -159,7 +160,8 @@ a.individual-subject-link {
   font-size: 20px;
 }
 
-.subject-date, .back-to-subjects{
+.subject-date,
+.back-to-subjects{
   font-size: .8rem;
   color: #4A4A4A;
   text-decoration: none;
@@ -251,27 +253,18 @@ h3.flashcard-date {
   font-size: 1rem;
 }
 
-.term-placeholder {
-  text-align: left;
-  padding: 0;
-}
-
 .flashcard-definition {
   font-family: 'Nunito', sans-serif;
   font-size: 1rem;
   color: #0F77FE;
   padding: 5px;
-  margin: 0px
-}
-
-/* Flashcard Add Form */
-
-#comment {
   margin: 2% 0;
   display: block;
   width: 70%;
   border: 2px solid #0F77FE;
 }
+
+/* Flashcard Add Form */
 
 p.dictionary {
   color: #0F77FE;
