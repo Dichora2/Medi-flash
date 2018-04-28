@@ -67,6 +67,10 @@ a:hover {
   padding: 3%;
 }
 
+.subject-edit-link {
+  float: right;
+}
+
 .subject-pencil {
   width: 1.25rem;
   height: 1.25rem;
@@ -161,25 +165,18 @@ a:hover {
 }
 
 .individual-subject-div {
-  clear: right;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-a.individual-subject-link {
+.individual-subject-link {
   text-decoration: none;
   color: #0F77FE;
   font-size: 1.2rem;
   font-weight: 100;
-}
-
-.subject {
-  width: 350px;
-  height: 90px;
-  color: #333333;
-  font-size: 20px;
 }
 
 .subject-date,
@@ -379,6 +376,10 @@ nav a:hover:before, nav a:hover:after{
 
   button.flashcard-button-card.got-it {
     float: right;
+  }
+
+  .individual-subject-link {
+    width: 50%;
   }
 
 }
