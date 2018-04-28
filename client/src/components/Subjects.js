@@ -32,7 +32,7 @@ class Subjects extends Component {
                 let pathEditSubject = `/subjects/${subject.id}/edit/user/` + this.props.match.params.user_id;
                 return (
                     <div className='individual-subject'>
-                        <Link to={pathEditSubject}>
+                        <Link className="subject-edit-link" to={pathEditSubject}>
                             <img className="subject-pencil" src={Image} alt="pencil" />
                         </Link>
                         <div className="individual-subject-div">
