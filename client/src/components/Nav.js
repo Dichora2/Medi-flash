@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { Link } from 'react-router-dom';
 import cookies from 'cookies-js';
 import axios from 'axios';
 
@@ -11,6 +12,7 @@ class Nav extends Component {
 	}
 
   logout = () => {
+		this.toggle();
     cookies.set('user_id', 0);
     axios.get('/auth/logout')
     .catch(err => console.log('in error',err));
@@ -47,8 +49,8 @@ class Nav extends Component {
         </div>
         <div className='nav-menu' style={ shown }>
 					<nav>
-	          <a href={path} className='nav-link'>Subjects</a>
-	          <a href='/logout' onClick={this.logout} className='nav-link'>Logout</a>
+	          <Link to={path} onClick={this.toggle} className='nav-link'>Subjects</Link>
+	          <Link to='/logout' onClick={this.logout} className='nav-link'>Logout</Link>
 					</nav>
         </div>
 			</div>
