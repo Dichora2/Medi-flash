@@ -129,10 +129,13 @@ a:hover {
 }
 
 .submit {
-  height: 1.75rem;
   background-color: #0F77FE;
   color: white;
   margin-bottom: 1%;
+}
+
+.auth-submit {
+  height: 1.75rem;
 }
 
 .submit:focus {

@@ -61,7 +61,7 @@ class Login extends Component {
                 <form onSubmit={this.handleFormSubmit}>
                     <input name="username" type="text" placeholder="username" required onChange={this.handleInputChange} autoFocus />
                     <input name="password" type="password" placeholder="password" required onChange={this.handleInputChange}/>
-                    <input className="submit" type="submit" value="LOGIN" />
+                    <input className="submit auth-submit" type="submit" value="LOGIN" />
                 </form>
                 <Link className="link" to="/register">Register</Link>
                 <h4>{this.state.errorMessage}</h4>

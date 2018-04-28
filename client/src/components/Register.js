@@ -68,7 +68,7 @@ class Register extends Component {
                     <input name="email" type="text" placeholder="email" required onChange={this.handleInputChange}/>
                     <input name="username" type="text" placeholder="username" required onChange={this.handleInputChange}/>
                     <input name="password" type="password" placeholder="password" required onChange={this.handleInputChange}/>
-                    <input className='submit' type="submit" value="REGISTER" />
+                    <input className='submit auth-submit' type="submit" value="REGISTER" />
                 </form>
                 <Link className="link" to="/login">Login</Link>
                 {this.state.fireRedirect
