@@ -57,7 +57,7 @@ class Login extends Component {
         let path = '/subjects/user/' + this.state.user_id;
         return (
             <div className="auth-page">
-                <h1 className="auth-header">Login to use your Medi-Flash account to test your knowledge!</h1>
+                <h2 className="auth-header">Login to use your Medi-Flash account to test your knowledge!</h2>
                 <form onSubmit={this.handleFormSubmit}>
                     <input name="username" type="text" placeholder="username" required onChange={this.handleInputChange} autoFocus />
                     <input name="password" type="password" placeholder="password" required onChange={this.handleInputChange}/>
