@@ -402,4 +402,12 @@ nav a:hover:before, nav a:hover:after{
     width: 50%;
   }
 
+  .flashcard {
+    width: 100%;
+  }
+
+  textarea {
+    border: 1px solid black;
+  }
+  
 }
