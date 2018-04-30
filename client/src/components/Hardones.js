@@ -12,6 +12,11 @@ class HardOnes extends Component {
       flashcardLoaded: false,
       flashcards: [],
     }
+    this.retryCount = 0;
+  }
+
+  componentWillUnmount() {
+    clearTimeout(this.timeoutID);
   }
 
   componentDidMount() {
@@ -19,21 +24,31 @@ class HardOnes extends Component {
     axios.get(`/subject/${this.props.match.params.id}`)
       .then(res => {
         subjectData = res.data;
-      }).catch(err => console.log(err));
 
-    let path = `/flashcard/user/${this.props.match.params.user_id}/subject/${this.props.match.params.id}/hardones`;
+      let path = `/flashcard/user/${this.props.match.params.user_id}/subject/${this.props.match.params.id}/hardones`;
 
-    axios.get(path)
-    .then(res => {
-      if (res.data.data) {
-        this.setState({
-          subject: subjectData,
-          subjectLoaded: true,
-          flashcardLoaded: true,
-          flashcards: res.data.data,
-        })
-      }
-    }).catch(err => console.log('in error',err));
+      axios.get(path)
+      .then(res => {
+        if (res.data.data) {
+          this.setState({
+            subject: subjectData,
+            subjectLoaded: true,
+            flashcardLoaded: true,
+            flashcards: res.data.data,
+          })
+        }
+        this.retryCount = 0;
+      }).catch(err => {
+        console.log('in error',err);
+        console.log('err type of = ',typeof err);
+        let errString = '';
+        errString = err;
+        if (errString.substr(0,51) === "TypeError: Cannot read property 'name' of undefined" && this.retryCount < 4) {
+          this.retryCount++;
+          this.timeoutID = setTimeout(this.componentDidMount, 1000);
+        }
+      });
+    }).catch(err => console.log(err));
   }
 
   flashcardMap(array){
