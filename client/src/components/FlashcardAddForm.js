@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Redirect } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import Image from '../images/mw-logo-light-background-50x50.png';
 
 class FlashcardAddForm extends Component {
   constructor() {
@@ -79,8 +80,11 @@ class FlashcardAddForm extends Component {
               onChange={this.handleInputChange}
               autoFocus
             />
-            <p className='dictionary'>Merriam-Webster Medical Dictionary API</p>
-            <button onClick={this.getAPIData}>LOAD</button>
+            <p className='dictionary'>
+                <img className="merriam-webster-logo" src={Image} alt="Merriam Webster logo" />
+                Merriam-Webster Medical Dictionary Definition
+                <button className='load-button' onClick={this.getAPIData}>LOAD DEFINITION</button>
+            </p>
             <textarea cols="40" rows="15"
               className="flashcard-definition"
               placeholder="Definition"
