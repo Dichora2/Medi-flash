@@ -37,6 +37,7 @@ input {
   width: 50%;
   height: 2rem;
   outline: none;
+  color: white;
 }
 
 input::placeholder {
@@ -48,7 +49,7 @@ button {
   background-color: #0F77FE;
   padding: 10px 20px;
   letter-spacing: 2px;
-  font-size: .6rem;
+  font-size: .7rem;
   color: white;
   border:none;
   height: 5%;
@@ -140,9 +141,12 @@ textarea {
   display: block;
   margin-top: 3%;
   color: #0F77FE;
+  width: 50%;
 }
 
 .submit {
+  font-size: .7rem;
+  letter-spacing: 2px;
   background-color: #0F77FE;
   color: white;
   margin-bottom: 1%;
@@ -153,7 +157,8 @@ textarea {
 }
 
 .submit:focus {
-  background-color: #02EBF5;
+  box-sizing: content-box;
+  border: 3px solid #02EBF5;
 }
 
 /* Subjects */

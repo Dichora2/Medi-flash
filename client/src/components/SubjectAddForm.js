@@ -62,7 +62,7 @@ class SubjectAddForm extends Component {
               autoFocus
             />
           </label>
-          <input className="submit" type="submit" value="Submit!" />
+          <input className="submit" type="submit" value="SUBMIT" />
         </form>
         {this.state.fireRedirect
             ? <Redirect push to={path} />
