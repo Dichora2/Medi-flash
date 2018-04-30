@@ -12,6 +12,11 @@ class Subject extends Component {
       flashcardLoaded: false,
       flashcards: [],
     }
+    this.retryCount = 0;
+  }
+
+  componentWillUnmount() {
+    clearTimeout(this.timeoutID);
   }
 
   componentDidMount() {
@@ -20,6 +25,7 @@ class Subject extends Component {
       .then(res => {
         subjectData = res.data;
         let path = `/flashcard/user/${this.props.match.params.user_id}/subject/${this.props.match.params.id}`;
+
         axios.get(path)
           .then(res => {
             if (res.data.data) {
@@ -30,7 +36,17 @@ class Subject extends Component {
                 flashcards: res.data.data,
               })
             }
-          }).catch(err => console.log('in error',err));
+            this.retryCount = 0;
+          }).catch(err => {
+            console.log('in error',err);
+            console.log('err type of = ',typeof err);
+            let errString = '';
+            errString = err;
+            if (errString.substr(0,51) === "TypeError: Cannot read property 'name' of undefined" && this.retryCount < 4) {
+              this.retryCount++;
+              this.timeoutID = setTimeout(this.componentDidMount, 1000);
+            }
+          });
       }).catch(err => console.log(err));
   }
 
