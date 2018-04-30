@@ -1,3 +1,7 @@
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
 html {
   background: white;
 }
@@ -260,7 +264,7 @@ button.flashcard-button > a {
   text-align: center;
 }
 
-h3.flashcard-date {
+.flashcard-date {
   margin-top: 0;
   font-size: 1rem;
 }
@@ -271,7 +275,7 @@ h3.flashcard-date {
   color: #0F77FE;
   padding: 5px;
   margin: 2% 0;
-  width: 75%;
+  width: 100%;
 }
 
 /* Flashcard Add Form */
@@ -284,7 +288,7 @@ h3.flashcard-date {
 }
 
 .load-button {
-  margin-left: 2%;
+  margin-right: 2%;
 }
 
 /* Code reference for nav:  https://www.codementor.io/chrisharrington/how-to-build-a-sliding-menu-using-react-js-and-less-css-du107mpij */

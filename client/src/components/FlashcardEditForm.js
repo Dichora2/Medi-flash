@@ -87,7 +87,7 @@ class FlashcardEditForm extends Component {
           />
           <label>
             Definition
-            <textarea name="definition" cols="40" rows="15"
+            <textarea name="definition" rows="15"
               autoFocus
               className="flashcard-definition"
               placeholder="Definition"

@@ -81,11 +81,11 @@ class FlashcardAddForm extends Component {
               autoFocus
             />
             <p className='dictionary'>
-                <img className="merriam-webster-logo" src={Image} alt="Merriam Webster logo" />
-                Merriam-Webster Medical Dictionary Definition
                 <button className='load-button' onClick={this.getAPIData}>LOAD DEFINITION</button>
+                <img className="merriam-webster-logo" src={Image} alt="Merriam Webster logo" />
+                Merriam-Webster Medical Dictionary
             </p>
-            <textarea cols="40" rows="15"
+            <textarea rows="15"
               className="flashcard-definition"
               placeholder="Definition"
               name="definition"
