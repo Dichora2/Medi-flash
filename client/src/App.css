@@ -265,7 +265,7 @@ button.flashcard-button > a {
   font-size: 1.4rem;
   font-weight: 100;
   color: #0F77FE;
-  margin-top: 10%;
+  margin-top: 11%;
   text-align: center;
 }
 
@@ -384,6 +384,18 @@ nav a:hover:before, nav a:hover:after{
   clear: both;
 }
 
+@media (max-width: 50rem) {
+
+  .flashcard-term {
+    margin-top: 20%;
+  }
+
+  .flashcard-date {
+    margin-top: 0;
+  }
+
+}
+
 @media (max-width: 35rem) {
 
   input {
@@ -409,5 +421,13 @@ nav a:hover:before, nav a:hover:after{
   textarea {
     border: 1px solid black;
   }
-  
+
+  .flashcard-term {
+    margin-top: 25%;
+  }
+
+  .flashcard-date {
+    margin-top: 0;
+  }
+
 }
