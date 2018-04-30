@@ -81,7 +81,7 @@ class SubjectEditForm2 extends Component {
               autoFocus
             />
           </label>
-          <input type="submit" className="submit" value="Edit!" />
+          <input type="submit" className="submit" value="EDIT" />
         </form>
         <button className="delete-button" onClick={this.deleteSubject}>DELETE</button>
         <button onClick={this.cancelSubject}>CANCEL</button>

@@ -14,6 +14,10 @@ class FlashcardAddForm extends Component {
     };
   }
 
+  componentWillUnmount() {
+    clearTimeout(this.timeoutID);
+  }
+
   handleInputChange = (e) => {
     const name = e.target.name;
     const value = e.target.value;
@@ -37,9 +41,9 @@ class FlashcardAddForm extends Component {
         term: this.state.term,
         definition: this.state.definition,
       })
-      .then(res => {
+      .then( () => {
         // Wait 1 second before redirecting to the subject page so the back end can up date the database
-        let timeoutID = setTimeout(this.pauseSetState, 1000);
+        this.timeoutID = setTimeout(this.pauseSetState, 1000);
         // this.pauseSetState(res.data.data.id);
       })
       .catch(err => console.log(err));
@@ -65,7 +69,6 @@ class FlashcardAddForm extends Component {
   }
 
   render() {
-    let path = '/subjects/user/' + this.props.match.params.user_id;
     let pathSubject = `/subjects/${this.props.match.params.subject_id}/user/${this.props.match.params.user_id}`;
     return (
       <div className="mf-application-page">
@@ -94,7 +97,7 @@ class FlashcardAddForm extends Component {
             </textarea>
             <input className='submit' type="submit" value="SUBMIT" />
         </form>
-        <button onClick={this.cancelFlashcard}>Cancel</button>
+        <button onClick={this.cancelFlashcard}>CANCEL</button>
         {this.state.fireRedirect
           ? <Redirect push to={pathSubject} />
           : ''}
