@@ -11,12 +11,6 @@ require('dotenv').config();
 //App initialization
 const app = express();
 
-app.use((req, res, next) => {
-  console.log('------- LOGGING METHOD ------');
-  console.log(req.method);
-  next();
-})
-
 //middlewares
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -32,20 +26,6 @@ app.use(passport.session());
 
 // Added to migrate to heroku
 app.use(express.static(path.join(__dirname,'client/build')));
-
-app.use((req, res, next) => {
-  console.log('---------- req.user ---------')
-  console.log(Date.now());
-  console.log(req.user);
-  next();
-});
-
-app.use((req, res, next) => {
-  console.log('----------- REQ.SESSION -----------');
-  console.log(Date.now());
-  console.log(req.session);
-  next();
-})
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {

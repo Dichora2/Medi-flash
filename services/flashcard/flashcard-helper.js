@@ -15,9 +15,7 @@ function getDefinitionFromAPI(req, res, next) {
         const def_array = result.entry_list.entry[0].def[0].sensb;
         let definition = '';
         def_array.forEach((item,index) =>{
-          console.log(item.sens[0].dt[0]);
           if (typeof item.sens[0].dt[0] === 'object') {
-            console.log('item.sens[0].dt[0] is object = ', item.sens[0].dt[0]);
             definition += (index + 1) + ': ' +
             ((item.sens[0].dt[0].hasOwnProperty('_')) ? item.sens[0].dt[0]._ : item.sens[0].dt[0].sx) +
              ((item.sens[0].dt[0].hasOwnProperty('fw')) ? item.sens[0].dt[0].fw[0]:'') + ' ';
@@ -31,9 +29,7 @@ function getDefinitionFromAPI(req, res, next) {
                 } else {
                   definition += item.sens[i].dt[0]
                 }
-                console.log(`item.sens[${i}].dt[0] = `,item.sens[i].dt[0]);
                 definition += ' ';
-                console.log(`item.sens[${i}] = `,item.sens[i]);
               }
             }
           }

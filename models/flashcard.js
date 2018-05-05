@@ -51,7 +51,6 @@ Flashcard.create = flashcard => {
   `,
     [flashcard.user_id, flashcard.term, flashcard.definition]
   );
-  return tempFlashcard;
 };
 
 Flashcard.update = (flashcard, id) => {

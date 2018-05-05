@@ -1,5 +1,3 @@
-\c medi-flash_db;
-
 INSERT INTO users (firstname, lastname, email, username, password_digest) VALUES ('Lenora', 'Rigoni', 'lenorarigoni@gmail.com', 'lenorarigoni', '111');
 INSERT INTO users (firstname, lastname, email, username, password_digest) VALUES ('Daniel', 'Mercia', 'danielmercia@gmail.com', 'danielmercia', '222');
 INSERT INTO users (firstname, lastname, email, username, password_digest) VALUES ('Michael', 'Gutleber', 'michaelgutleber@gmail.com', 'michaelgutleber', '333');
@@ -26,16 +24,8 @@ INSERT INTO subjects (user_id, date_modified,name) VALUES (3,'8/4/17','Atoms');
 INSERT INTO subjects (user_id, date_modified,name) VALUES (3,'9/20/17','Chem 101');
 INSERT INTO subjects (user_id, date_modified,name) VALUES (3,'9/5/17','Join Pain');
 
-INSERT INTO users_flashcards (user_id, flashcard_id) VALUES (20, 25);
-INSERT INTO users_flashcards (user_id, flashcard_id) VALUES (20, 20);
+INSERT INTO users_flashcards (user_id, flashcard_id) VALUES (1, 1);
+INSERT INTO users_flashcards (user_id, flashcard_id) VALUES (2, 2);
 
-INSERT INTO flashcards_subjects (flashcard_id, subject_id) VALUES (25, 44);
-INSERT INTO flashcards_subjects (flashcard_id, subject_id) VALUES (20, 44);
-
-
-
-
-
-
-
-
+INSERT INTO flashcards_subjects (flashcard_id, subject_id) VALUES (1, 1);
+INSERT INTO flashcards_subjects (flashcard_id, subject_id) VALUES (2, 2);
