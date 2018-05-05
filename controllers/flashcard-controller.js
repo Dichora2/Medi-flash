@@ -151,7 +151,6 @@ flashcardController.destroy = (req, res) => {
 };
 
 flashcardController.sendApiDefinition = (req, res) => {
-  console.log(res.locals.definition);
   res.json({
     header: `Definition for ${req.params.term}`,
     definition: res.locals.definition,
