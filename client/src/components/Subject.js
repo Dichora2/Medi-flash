@@ -24,7 +24,7 @@ class Subject extends Component {
     axios.get(`/subject/${this.props.match.params.id}`)
       .then(res => {
         subjectData = res.data;
-        let path = `/flashcard/user/${this.props.match.params.user_id}/subject/${this.props.match.params.id}`;
+        let path = `/flashcard/subject/${this.props.match.params.id}`;
 
         axios.get(path)
           .then(res => {

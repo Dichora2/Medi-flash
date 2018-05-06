@@ -25,7 +25,7 @@ class HardOnes extends Component {
       .then(res => {
         subjectData = res.data;
 
-      let path = `/flashcard/user/${this.props.match.params.user_id}/subject/${this.props.match.params.id}/hardones`;
+      let path = `/flashcard/subject/${this.props.match.params.id}/hardones`;
 
       axios.get(path)
       .then(res => {

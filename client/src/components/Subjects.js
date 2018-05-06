@@ -5,24 +5,24 @@ import Image from '../images/pencil.svg'
 
 class Subjects extends Component {
     constructor(props){
-      super(props);
-      this.state = {
-        subjects: [],
-        subjectsLoaded: false
-      };
+        super(props);
+        this.state = {
+            subjects: [],
+            subjectsLoaded: false
+        };
     }
 
     componentDidMount() {
         axios(`/subject/user/${this.props.match.params.user_id}`, {
-          method: 'GET',
+            method: 'GET',
         })
-          .then(res => {
-            this.setState({
-                subjects: res.data.data,
-                subjectsLoaded: true
+            .then(res => {
+              this.setState({
+                  subjects: res.data.data,
+                  subjectsLoaded: true
+              })
             })
-          })
-          .catch(err => console.log('in error',err));
+            .catch(err => console.log('in error',err));
     }
 
     renderSubjects(array){
@@ -47,7 +47,7 @@ class Subjects extends Component {
     }
 
     render(){
-        let path = '/subjects/add/user/' + this.props.match.params.user_id;
+        let path = '/subjects/subject/add/user/' + this.props.match.params.user_id;
         return(
             <div className='mf-application-page'>
                 <h2 className='page-header'>

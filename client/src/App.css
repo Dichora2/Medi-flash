@@ -111,14 +111,6 @@ textarea {
   font-weight: 100;
 }
 
-.user-name-header {
-  margin: 2rem;
-  display: inline-flex;
-  float: right;
-  font-weight: 100;
-  color: #0F77FE;
-}
-
 .auth-header {
   font-family: 'Nunito', sans-serif;
   line-height: 2;

@@ -37,7 +37,6 @@ class FlashcardAddForm extends Component {
     axios
       .post('/flashcard', {
         subject_id: this.props.match.params.subject_id,
-        user_id: this.props.match.params.user_id,
         term: this.state.term,
         definition: this.state.definition,
       })

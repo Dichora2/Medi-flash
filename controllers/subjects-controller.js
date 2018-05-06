@@ -2,19 +2,6 @@ const Subject = require('../models/subject');
 
 const subjectController = {};
 
-subjectController.index = (req, res) => {
-  Subject.findAll()
-    .then(subjects => {
-      res.json({
-        data: subjects,
-      });
-    })
-    .catch(err => {
-      console.log(err);
-      res.status(500).json({ err });
-    });
-};
-
 subjectController.indexUser = (req, res) => {
   Subject.findAllByUser(req.params.id)
     .then(subjects => {
@@ -91,4 +78,3 @@ subjectController.destroy = (req, res) => {
 
 
 module.exports = subjectController;
-

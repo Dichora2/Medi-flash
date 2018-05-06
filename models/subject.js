@@ -2,10 +2,6 @@ const db = require('../db/config');
 
 const Subject = {};
 
-Subject.findAll = () => {
-  return db.query(`SELECT * FROM subjects`);
-};
-
 Subject.findAllByUser = (user_id) => {
   return db.query(
     `
