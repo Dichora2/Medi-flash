@@ -2,13 +2,8 @@
   box-sizing: border-box;
 }
 
-html {
-  background: white;
-}
-
 body {
   font-family: museo-sans, sans-serif;
-  max-width: 100vw;
 }
 
 nav {
@@ -58,7 +53,7 @@ a:hover {
   cursor: pointer;
 }
 
-/* This was necessary to keep the textarea in flashcard edit from acting like it was inline. */
+/* This was necessary to keep the textarea in FlashcardEditForm.js from acting like it was inline. */
 
 textarea {
   display: block;
@@ -168,7 +163,6 @@ textarea {
   float: left;
   width: 50%;
   height: 20vh;
-  box-sizing: border-box;
   border: 1px solid #0F77FE;
   border-top: 3px solid #0F77FE;
   margin-bottom: .5%;
@@ -234,7 +228,6 @@ button.flashcard-button > a {
   display: inline-block;
   width: 50%;
   overflow-x: hidden;
-  box-sizing: border-box;
 }
 
 .flashcard-button-card {
