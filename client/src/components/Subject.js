@@ -63,7 +63,6 @@ class Subject extends Component {
   renderSubjectWithFlashcards(){
     if (this.state.subjectLoaded){
       const subjectName = this.state.subject.data.name;
-      const subjectDate = this.state.subject.data.date_modified.toLocaleString().substr(0,10);
       let pathSubjects = '/subjects/user/' + this.props.match.params.user_id;
       let pathFlashcards = '/flashcards/add/user/' + this.props.match.params.user_id + '/subjects/' + this.state.subject.data.id;
       let pathHardOnes = '/subjects/' + this.state.subject.data.id + '/user/' + this.props.match.params.user_id + '/hardones';
@@ -73,7 +72,6 @@ class Subject extends Component {
           <button className='flashcard-button'><Link to={pathHardOnes}>HARD ONES</Link></button>
           <Link className="back-to-subjects " to={pathSubjects}> ← back to all subjects</Link>
           <h2 className='page-header'>{subjectName}</h2>
-          <p className="subject-date">{subjectDate}</p>
           <div className="card-area">
             {this.flashcardMap(this.state.flashcards)}
           </div>

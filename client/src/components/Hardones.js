@@ -53,7 +53,6 @@ class HardOnes extends Component {
 
   flashcardMap(array){
     return array.map((flashcard, index) => {
-      console.log('user_id = ',this.props.match.params.user_id);
       return (
         <FlashcardToggle flashcard_object={flashcard} user_id={this.props.match.params.user_id}
           key={flashcard.id} subject_id={this.props.match.params.id}/>
@@ -64,7 +63,6 @@ class HardOnes extends Component {
   renderSubjectWithFlashcards(){
     if (this.state.subjectLoaded){
       const subjectName = this.state.subject.data.name;
-      const subjectDate = this.state.subject.data.date_modified.toLocaleString().substr(0,10);
       let pathFlashcards = '/flashcards/add/user/' + this.props.match.params.user_id + '/subjects/' + this.state.subject.data.id;
       let pathSubject = `/subjects/${this.state.subject.data.id}/user/` + this.props.match.params.user_id;
 
@@ -73,7 +71,6 @@ class HardOnes extends Component {
           <button className='flashcard-button'><Link to={pathFlashcards}>+ ADD CARDS</Link></button>
           <Link className="back-to-subjects " to={pathSubject}> ← back to all flashcards</Link>
           <h2 className='page-header'>{subjectName} - Hard Ones</h2>
-          <p className="subject-date">{subjectDate}</p>
           <p className='subject-flashcard-count'>{}</p>
           <div className="card-area">
             {this.flashcardMap(this.state.flashcards)}
