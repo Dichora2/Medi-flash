@@ -1,22 +1,6 @@
 const Flashcard = require('../models/flashcard');
-const UserFlashcard = require('../models/userFlashcard');
-const FlashcardSubject = require('../models/flashcardSubject');
 
 const flashcardController = {};
-
-flashcardController.index = (req, res) => {
-  Flashcard.findAll()
-    .then(flashcards => {
-      res.json({
-        message: 'ok',
-        data: flashcards,
-      });
-    })
-    .catch(err => {
-      console.log(err);
-      res.status(500).json({ err });
-    });
-};
 
 flashcardController.show = (req, res) => {
   Flashcard.findById(req.params.id)
@@ -32,8 +16,8 @@ flashcardController.show = (req, res) => {
     });
 };
 
-flashcardController.showByUserSubject = (req, res) => {
-  Flashcard.findByUserSubject(req.params.user_id,req.params.subject_id)
+flashcardController.showBySubject = (req, res) => {
+  Flashcard.showBySubject(req.params.subject_id)
     .then(flashcard => {
       res.json({
         message: 'ok',
@@ -46,8 +30,8 @@ flashcardController.showByUserSubject = (req, res) => {
     });
 };
 
-flashcardController.showByUserSubjectHardOnes = (req, res) => {
-  Flashcard.showByUserSubjectHardOnes(req.params.user_id, req.params.subject_id)
+flashcardController.showBySubjectHardOnes = (req, res) => {
+  Flashcard.showBySubjectHardOnes(req.params.subject_id)
     .then(flashcard => {
       res.json({
         message: 'ok',
@@ -80,40 +64,21 @@ flashcardController.updateKeepStudying = (req, res) => {
 };
 
 flashcardController.create = (req, res) => {
-  let flashcardData = {};
   Flashcard.create({
     subject_id: req.body.subject_id,
-    user_id: req.body.user_id,
     term: req.body.term,
     definition: req.body.definition,
   })
-    .then(flashcard => {
-      flashcardData = flashcard;
-      UserFlashcard.create({
-        user_id: req.body.user_id,
-        flashcard_id: flashcardData.id
-      })
-        .catch(err => {
-          console.log(err);
-          res.status(500).json({ err });
-        });
-      FlashcardSubject.create({
-        subject_id: req.body.subject_id,
-        flashcard_id: flashcardData.id
-      })
-        .catch(err => {
-          console.log(err);
-          res.status(500).json({ err });
-        });
+    .then(data => {
+      res.json({
+        data: data,
+        message: 'ok',
+      });
     })
     .catch(err => {
       console.log('in error',err);
       res.status(500).json({ err });
     });
-  res.json({
-    data: flashcardData,
-    message: 'ok',
-  });
 };
 
 flashcardController.update = (req, res) => {

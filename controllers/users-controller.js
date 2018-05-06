@@ -26,10 +26,4 @@ usersController.create = (req, res) => {
   });
 }
 
-usersController.index = (req, res) => {
-    res.json({
-      user: req.user,
-    });
-  }
-
 module.exports = usersController;
