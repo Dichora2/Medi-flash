@@ -38,12 +38,9 @@ app.use('/auth', authRoutes);
 
 const subjectRoutes = require('./routes/subject-routes');
 app.use('/subject', subjectRoutes);
+
 const flashcardRoutes = require('./routes/flashcard-routes');
 app.use('/flashcard', flashcardRoutes);
-
-app.get('/', (req, res) => {
-  res.sendFile(path.resolve('client/build/index.html'));
-});
 
 app.use('*', (req, res) => {
   res.status(400).json({
