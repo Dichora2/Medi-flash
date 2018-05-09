@@ -15,7 +15,6 @@ class SubjectEditForm2 extends Component {
     axios.get(`/subject/${this.props.match.params.id}`)
       .then((res) => {
         const subject = res.data.data;
-        console.log('subject = ',subject);
         this.setState({
           subject: subject.name,
         })
