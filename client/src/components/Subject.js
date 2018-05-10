@@ -7,10 +7,8 @@ class Subject extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      subjectLoaded: false,
-      subject: [],
-      flashcardLoaded: false,
-      flashcards: [],
+      subject: {},
+      flashcards: []
     }
     this.retryCount = 0;
   }
@@ -30,10 +28,8 @@ class Subject extends Component {
           .then(res => {
             if (res.data.data) {
               this.setState({
-                subjectLoaded: true,
                 subject: subjectData,
-                flashcardLoaded: true,
-                flashcards: res.data.data,
+                flashcards: res.data.data
               })
             }
             this.retryCount = 0;
@@ -61,7 +57,7 @@ class Subject extends Component {
 
 
   renderSubjectWithFlashcards(){
-    if (this.state.subjectLoaded){
+    if (this.state.subject.hasOwnProperty('data')){
       const subjectName = this.state.subject.data.name;
       let pathSubjects = '/subjects/user/' + this.props.match.params.user_id;
       let pathFlashcards = '/flashcards/add/user/' + this.props.match.params.user_id + '/subjects/' + this.state.subject.data.id;

@@ -7,8 +7,7 @@ class Subjects extends Component {
     constructor(props){
         super(props);
         this.state = {
-            subjects: [],
-            subjectsLoaded: false
+            subjects: []
         };
     }
 
@@ -18,15 +17,14 @@ class Subjects extends Component {
         })
             .then(res => {
               this.setState({
-                  subjects: res.data.data,
-                  subjectsLoaded: true
+                  subjects: res.data.data
               })
             })
             .catch(err => console.log('in error',err));
     }
 
     renderSubjects(array){
-        if(this.state.subjectsLoaded) {
+        if(this.state.subjects.length) {
             return array.map(subject => {
                 let pathSubject = `/subjects/${subject.id}/user/` + this.props.match.params.user_id;
                 let pathEditSubject = `/subjects/${subject.id}/edit/user/` + this.props.match.params.user_id;
