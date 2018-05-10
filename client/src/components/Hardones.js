@@ -7,10 +7,8 @@ class HardOnes extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      subjectLoaded: false,
-      subject: [],
-      flashcardLoaded: false,
-      flashcards: [],
+      subject: {},
+      flashcards: []
     }
     this.retryCount = 0;
   }
@@ -32,9 +30,7 @@ class HardOnes extends Component {
         if (res.data.data) {
           this.setState({
             subject: subjectData,
-            subjectLoaded: true,
-            flashcardLoaded: true,
-            flashcards: res.data.data,
+            flashcards: res.data.data
           })
         }
         this.retryCount = 0;
@@ -61,7 +57,7 @@ class HardOnes extends Component {
   }
 
   renderSubjectWithFlashcards(){
-    if (this.state.subjectLoaded){
+    if (this.state.subject.hasOwnProperty('data')){
       const subjectName = this.state.subject.data.name;
       let pathFlashcards = '/flashcards/add/user/' + this.props.match.params.user_id + '/subjects/' + this.state.subject.data.id;
       let pathSubject = `/subjects/${this.state.subject.data.id}/user/` + this.props.match.params.user_id;
