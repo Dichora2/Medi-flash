@@ -13,7 +13,6 @@ const app = express();
 
 //middlewares
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
 app.use(logger('dev'));
 app.use(cookieParser());
 app.use(session({
@@ -24,7 +23,7 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-// Added to migrate to heroku
+// Added to run React front end on same port as Express back end.
 app.use(express.static(path.join(__dirname,'client/build')));
 
 const PORT = process.env.PORT || 3000;

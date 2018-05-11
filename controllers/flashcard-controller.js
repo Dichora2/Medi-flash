@@ -44,8 +44,7 @@ flashcardController.showBySubjectHardOnes = (req, res) => {
     });
 };
 
-
-//this is the sontroller to update the true and false for keep_studying
+//this is the controller to update the true and false for keep_studying
 
 flashcardController.updateKeepStudying = (req, res) => {
   console.log('Req.params.id = ',req.params.id);
@@ -114,12 +113,5 @@ flashcardController.destroy = (req, res) => {
       res.status(500).json({ err });
     });
 };
-
-flashcardController.sendApiDefinition = (req, res) => {
-  res.json({
-    header: `Definition for ${req.params.term}`,
-    definition: res.locals.definition,
-  })
-}
 
 module.exports = flashcardController;
