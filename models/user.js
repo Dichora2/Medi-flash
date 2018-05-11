@@ -1,10 +1,6 @@
 const db = require('../db/config');
 const User = {};
 
-User.findAll = () => {
-  return db.query('SELECT * FROM users ORDER BY id ASC');
-};
-
 User.findByUserName = userName => {
   return db.oneOrNone(`
     SELECT * FROM users
@@ -22,7 +18,3 @@ User.create = user => {
 };
 
 module.exports = User;
-
-
-
-

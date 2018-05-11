@@ -29,7 +29,6 @@ subjectController.show = (req, res) => {
 };
 
 subjectController.create = (req, res) => {
-  console.log('req.body = ',req.body);
   Subject.create({
     user_id: req.body.user_id,
     name: req.body.name

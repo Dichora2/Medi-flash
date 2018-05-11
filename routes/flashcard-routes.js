@@ -16,6 +16,6 @@ flashcardRouter.put('/:id/updateKeepStudying', flashcardController.updateKeepStu
 flashcardRouter.put('/:id', flashcardController.update);
 flashcardRouter.delete('/:id', flashcardController.destroy);
 
-flashcardRouter.get('/term/:term', flashcardHelper.getDefinitionFromAPI, flashcardController.sendApiDefinition);
+flashcardRouter.get('/term/:term', flashcardHelper.getDefinitionFromAPI);
 
 module.exports = flashcardRouter;

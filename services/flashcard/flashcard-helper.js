@@ -2,10 +2,14 @@ require('isomorphic-fetch');
 require('dotenv').config();
 var parseString = require('xml2js').parseString;
 
-
 const API_KEY = process.env.API_KEY;
 
-function getDefinitionFromAPI(req, res, next) {
+/* This function will request the definition of the term from the request object from the Merriam-Webster
+   Medical Dictionary in XML format. It will then convert the XML response to JSON and parse it into a more
+   readable format and pass it back in the res.locals.definition field.
+*/
+
+function getDefinitionFromAPI(req, res) {
   fetch(`http://www.dictionaryapi.com/api/references/medical/v2/xml/${req.params.term}?key=${API_KEY}`)
     .then(fetchRes => {
       return fetchRes.text()
@@ -34,12 +38,14 @@ function getDefinitionFromAPI(req, res, next) {
             }
           }
         });
-        res.locals.definition = definition;
+        res.json({
+          header: `Definition for ${req.params.term}`,
+          definition: definition
+        })
       });
-      next();
     }).catch(err => {
       console.log(err);
-      next();
+      res.status(500).json({ err });
     })
 }
 
