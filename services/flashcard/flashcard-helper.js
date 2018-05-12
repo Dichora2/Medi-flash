@@ -15,33 +15,48 @@ function getDefinitionFromAPI(req, res) {
       return fetchRes.text()
     })
     .then(textRes => {
+      console.log('textRes = ',textRes);
       parseString(textRes, function (err, result) {
-        const def_array = result.entry_list.entry[0].def[0].sensb;
+        console.log('result = ',result);
         let definition = '';
-        def_array.forEach((item,index) =>{
-          if (typeof item.sens[0].dt[0] === 'object') {
-            definition += (index + 1) + ': ' +
-            ((item.sens[0].dt[0].hasOwnProperty('_')) ? item.sens[0].dt[0]._ : item.sens[0].dt[0].sx) +
-             ((item.sens[0].dt[0].hasOwnProperty('fw')) ? item.sens[0].dt[0].fw[0]:'') + ' ';
-          } else {
-            definition += (index + 1) + ': ' + item.sens[0].dt[0] + ' ';
-            if (item.sens.length > 1) {
-              for (i=1; i < item.sens.length; i++) {
-                definition += '(' + item.sens[i].sn[0] + ') '
-                if (item.sens[i].dt[0].hasOwnProperty('_')) {
-                  definition += item.sens[i].dt[0]['_'];
-                } else {
-                  definition += item.sens[i].dt[0]
+        if (result.entry_list.hasOwnProperty('suggestion')) {
+          definition = 'No definition found, suggestions: ' + result.entry_list.suggestion.join(', ');
+          res.json({
+            header: `Definition for ${req.params.term}`,
+            definition: definition
+          })
+        } else if (result.entry_list.hasOwnProperty('entry')) {
+          const def_array = result.entry_list.entry[0].def[0].sensb;
+          def_array.forEach((item,index) =>{
+            if (typeof item.sens[0].dt[0] === 'object') {
+              definition += (index + 1) + ': ' +
+              ((item.sens[0].dt[0].hasOwnProperty('_')) ? item.sens[0].dt[0]._ : item.sens[0].dt[0].sx) +
+               ((item.sens[0].dt[0].hasOwnProperty('fw')) ? item.sens[0].dt[0].fw[0]:'') + ' ';
+            } else {
+              definition += (index + 1) + ': ' + item.sens[0].dt[0] + ' ';
+              if (item.sens.length > 1) {
+                for (i=1; i < item.sens.length; i++) {
+                  definition += '(' + item.sens[i].sn[0] + ') '
+                  if (item.sens[i].dt[0].hasOwnProperty('_')) {
+                    definition += item.sens[i].dt[0]['_'];
+                  } else {
+                    definition += item.sens[i].dt[0]
+                  }
+                  definition += ' ';
                 }
-                definition += ' ';
               }
             }
-          }
-        });
-        res.json({
-          header: `Definition for ${req.params.term}`,
-          definition: definition
-        })
+          });
+          res.json({
+            header: `Definition for ${req.params.term}`,
+            definition: definition
+          })
+        } else {
+          res.json({
+            header: `Definition for ${req.params.term}`,
+            definition: 'No definition found'
+          })
+        }
       });
     }).catch(err => {
       console.log(err);
