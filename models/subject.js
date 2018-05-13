@@ -26,8 +26,8 @@ Subject.create = subject => {
   return db.one(
     `
       INSERT INTO subjects
-      (user_id, name, date_modified)
-      VALUES ($1, $2, CURRENT_TIMESTAMP)
+      (user_id, name)
+      VALUES ($1, $2)
       RETURNING *
     `,
     [subject.user_id, subject.name]
@@ -38,8 +38,7 @@ Subject.update = (subject, id) => {
   return db.one(
     `
       UPDATE subjects SET
-        name = $1,
-        date_modified = CURRENT_TIMESTAMP
+        name = $1
       WHERE id = $2
       RETURNING *
     `,
